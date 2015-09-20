@@ -21,7 +21,9 @@ More information, options and parameters in the [usage documentation page](docs/
 node -v
 ```
 
-> If node is not installed, install it [here](https://nodejs.org)
+> If node is not installed:
+> * install [nvm](https://github.com/creationix/nvm) and follow the installation instructions
+> * or install the [nodejs](https://nodejs.org) package
 
 ##### Install required tools `yo` and `gulp`:
 ```
