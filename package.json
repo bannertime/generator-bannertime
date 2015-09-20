@@ -23,11 +23,8 @@
     "camelcase": "^1.2.1",
     "chalk": "^1.0.0",
     "download": "^4.2.0",
-    "lodash": "^3.10.1",
-    "slash": "^1.0.0",
     "underscore.string": "^3.2.2",
-    "yeoman-generator": "^0.19.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "^0.19.0"
   },
   "devDependencies": {
     "mocha": "*"
