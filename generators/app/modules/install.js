@@ -12,6 +12,7 @@ module.exports = function(Bannertime) {
       });
     };
 
+    console.log('File structure set up now running npm install'.green);
     this.npmInstall();
   };
 
