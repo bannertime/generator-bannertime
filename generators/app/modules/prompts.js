@@ -1,6 +1,8 @@
 'use strict';
 
 var camelCase = require('camelcase');
+var path = require('path');
+var s = require('underscore.string');
 
 module.exports = function(Bannertime) {
 
@@ -16,7 +18,7 @@ module.exports = function(Bannertime) {
       type: 'input',
       name: 'bannerName',
       message: 'What is the name of the banner? (camelCase):',
-      default: 'bannerTime',
+      default: this.appname,
       filter: function(answer) {
         return camelCase(answer)
       }
@@ -71,6 +73,14 @@ module.exports = function(Bannertime) {
       this.props = props;
       done();
     }.bind(this));
+  };
+
+  /**
+   * Determine the appName either from the current directory or the parameter of the generator
+   */
+  Bannertime.prototype.determineAppName = function determineAppName() {
+    this.appName = this.appName || path.basename(process.cwd());
+    this.appName = s.camelize(s.slugify(s.humanize(this.appName)));
   };
 
 };
