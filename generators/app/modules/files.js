@@ -1,5 +1,7 @@
 'use strict';
 
+var Download = require('download');
+
 module.exports = function(Bannertime) {
 
   /**
