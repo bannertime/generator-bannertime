@@ -93,6 +93,7 @@ yo bannertime
 ![Logo](docs/assets/doubleclick.png)
 ![Logo](docs/assets/adform.png)
 ![Logo](docs/assets/sizmek.png)
+![Logo](docs/assets/yeoman.png)
 
 
 ## Contributing
