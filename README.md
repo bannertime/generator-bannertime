@@ -1,6 +1,6 @@
 # ![Logo](generators/app/templates/src/images/logo.png)
 
-[![Build Status](https://img.shields.io/travis/pyramidium/generator-bannertime/master.svg?style=flat-square)](http://travis-ci.org/pyramidium/generator-bannertime)
+[![Build Status](https://magnum.travis-ci.com/pyramidium/generator-bannertime.svg?token=hz5Re2ARbkHxPrMUyLyx&branch=master)](https://magnum.travis-ci.com/pyramidium/generator-bannertime)
 
 > Yeoman generator for HTML5 banners.
 
