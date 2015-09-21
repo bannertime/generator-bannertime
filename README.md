@@ -102,6 +102,12 @@ yo bannertime
 [Guidelines](CONTRIBUTING.md)
 
 
+## Todo
+
+> * Set up DoubleClick events and clicktags
+> * Add Sizmek loader
+> * Add Adform loader
+
 ## Changelog
 
 [Changelog](https://github.com/pyramidium/generator-bannertime/releases)
