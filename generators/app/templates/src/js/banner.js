@@ -35,6 +35,8 @@ Banner.prototype.smartObject = function(_settings) {
   var settings = _settings || {};
   settings.type = settings.type || 'div';
   settings.position = settings.position || 'absolute';
+  settings.left = settings.left || '0';
+  settings.top = settings.top || '0';
 
   var element = document.createElement(settings.type);
   element._settings = settings.constructor();
