@@ -13,44 +13,12 @@ node -v
 > * install [nvm](https://github.com/creationix/nvm) and follow the installation instructions
 > * or install the [nodejs](https://nodejs.org) package
 
-##### Install required tools `yo` and `gulp`:
+##### Install required tools `yo`, `gulp` and `generator-bannertime`:
 ```
-npm install -g yo gulp
-```
-
----
-
-#### ~~When npm package is published just use one command~~
-
-##### ~~Install the banner generator `generator-bannertime`:~~
-~~npm install -g generator-bannertime~~
-> ~~https://gist.github.com/coolaj86/1318304~~
-
----
-
-#### For now we can install the generator manually
-
-##### Clone the generator repo:
-```
-git clone https://github.com/pyramidium/generator-bannertime.git
+npm install -g yo gulp generator-bannertime
 ```
 
-##### Change directory into generator-bannertime:
-```
-cd generator-bannertime
-```
-
-##### Install node modules:
-```
-npm install
-```
-
-##### Symlink generator so that it can be run locally:
-```
-npm link
-```
-
-> Because generator-bannertime was specified as the package name in package.json the `npm link` will create a symbolic link in a more widely-accessible location (e.g., /usr/local/lib/node_modules/generator-blog). This enables you to access the local generator-banner generator globally using `yo bannertime`, making development, and life in general, much easier.
+> You may need to use `sudo npm install -g yo gulp generator-bannertime`
 
 
 ## Create a new banner with the generator

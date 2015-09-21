@@ -1,20 +1,7 @@
 # User guide
 
-> To use this generator follow the steps below.
+> Once you have installed the files using `yo bannertime`.
 
-## Create a new banner with the generator
-
-##### Create a new directory and change into that directory:
-```
-mkdir my-new-banner && cd $_
-```
-
-##### Run the generator:
-```
-yo bannertime
-```
-
-> Now all you have to do is answer the questions to build your new project.
 
 ##### Start up the development server:
 ```
@@ -27,9 +14,10 @@ gulp
 
 * Browser Sync will watch the `src/` directory for changes and automagically update the browser on save.
 
+
 ## Preparing files for production
 
-##### Run `gulp prod`:
+##### Minify and zip the files:
 ```
 gulp prod
 ```
