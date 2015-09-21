@@ -1,6 +1,7 @@
 # ![Logo](generators/app/templates/src/images/logo.png)
 
 [![Build Status](https://magnum.travis-ci.com/pyramidium/generator-bannertime.svg?token=hz5Re2ARbkHxPrMUyLyx&branch=master)](https://magnum.travis-ci.com/pyramidium/generator-bannertime)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/pyramidium/generator-bannertime?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 > Yeoman generator for HTML5 banners.
 
