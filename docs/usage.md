@@ -33,6 +33,8 @@ mkdir my-new-banner && cd $_
 yo bannertime
 ```
 
+> If you have issues installing node modules when running the generator try using `sudo chown -R $USER /usr/local` to allow the current user to run npm install without sudo.
+
 ## Answer the questions
 
 You will be prompted with the following questions when you run the generator.
