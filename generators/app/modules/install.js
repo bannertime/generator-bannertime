@@ -12,7 +12,9 @@ module.exports = function(Bannertime) {
       });
     };
 
-    console.log('File structure set up now running npm install'.green);
+    this.log('File structure set up now running npm install'.green);
+    this.log('This may take a few minutes...'.green);
+    this.log('Please be patient!'.red);
     this.npmInstall();
   };
 
