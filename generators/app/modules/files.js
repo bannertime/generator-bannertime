@@ -126,15 +126,15 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.config = function config() {
     this.fs.copy(
-      this.templatePath('.editorconfig'),
+      this.templatePath('editorconfig'),
       this.destinationPath('.editorconfig')
     );
     this.fs.copy(
-      this.templatePath('.gitignore'),
+      this.templatePath('gitignore'),
       this.destinationPath('.gitignore')
     );
     this.fs.copy(
-      this.templatePath('.jshintrc'),
+      this.templatePath('jshintrc'),
       this.destinationPath('.jshintrc')
     );
   };
