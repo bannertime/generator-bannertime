@@ -68,6 +68,9 @@ yo bannertime
 > * Set up DoubleClick events and clicktags
 > * Add Sizmek loader
 > * Add Adform loader
+> * Comments JS
+> * Hidden folders
+> * Preview Page
 
 ## Changelog
 
