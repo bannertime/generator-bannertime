@@ -113,6 +113,25 @@ module.exports = function(Bannertime) {
   };
 
   /**
+   * Process the manifest file.
+   */
+  Bannertime.prototype.manifest = function manifest() {
+    if (this.props.bannerType == 'Adform') {
+      var manifestOptions = {
+        bannerName: this.props.bannerName,
+        bannerDesc: this.props.bannerDesc,
+        bannerWidth: this.props.bannerWidth,
+        bannerHeight: this.props.bannerHeight,
+      }
+      this.fs.copyTpl(
+        this.templatePath('src/js/_manifest.json'),
+        this.destinationPath('src/manifest.json'),
+        manifestOptions
+      );
+    }
+  };
+
+  /**
    * Process the readme file.
    */
   Bannertime.prototype.readme = function readme() {

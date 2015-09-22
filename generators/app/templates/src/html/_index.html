@@ -6,8 +6,11 @@
     <meta name="ad.size" content="width=<%= bannerWidth %>,height=<%= bannerHeight %>">
     <title><%= title %></title><% if (bannerType === 'DoubleClick') { %>
     <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><% } %><% if (includeOfflineEnabler == true) { %>
-    <script src="../offline/Enabler.js" type="text/javascript"></script><% } %><% if (bannerType === 'Sizmek') { %> 
-    <script src="js/EBLoader.js" type="text/javascript"></script> <% } %>
+    <script src="../offline/Enabler.js" type="text/javascript"></script><% } %><% if (bannerType === 'Sizmek') { %>
+    <script src="js/EBLoader.js" type="text/javascript"></script> <% } %><% if (bannerType === 'Adform') { %>
+    <script type="text/javascript">
+      document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+    </script> <% } %>
     <script src="js/banner.js" type="text/javascript"></script>
     <script src="js/banner.loader.js" type="text/javascript"></script>
     <script src="js/banner.animation.js" type="text/javascript"></script>

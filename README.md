@@ -67,7 +67,6 @@ yo bannertime
 
 ## Todo
 
-> * Add Adform loader
 > * Add DCM support
 > * Add Atlas support
 > * Hidden folders
