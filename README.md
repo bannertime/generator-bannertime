@@ -67,8 +67,6 @@ yo bannertime
 
 ## Todo
 
-> * Add DCM support
-> * Add Atlas support
 > * Hidden folders
 > * Preview Page
 > * Warning prompt if no suitable backup image found on gulp prod

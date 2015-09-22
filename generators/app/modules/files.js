@@ -19,6 +19,12 @@ module.exports = function(Bannertime) {
       case 'Adform':
         this.bannerSuffix = 'adform';
         break;
+      case 'DCM':
+        this.bannerSuffix = 'dcm';
+        break;
+      case 'Atlas':
+        this.bannerSuffix = 'standard';
+        break;
       case 'None':
         this.bannerSuffix = 'none';
         break;
