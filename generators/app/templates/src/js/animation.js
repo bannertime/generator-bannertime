@@ -63,15 +63,3 @@ Banner.prototype.animate = function() {
     timeline.gotoAndPlay('start');
   }
 };
-
-/**
- * Bind events to elements.
- */
-Banner.prototype.bindEvents = function() {
-  this.banner.addEventListener('click', function(e) {
-    Enabler.exit('clickthrough');
-  });
-  this.banner.addEventListener('touchend', function(e) {
-    Enabler.exit('clickthrough');
-  });
-};

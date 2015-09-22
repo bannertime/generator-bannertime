@@ -1,7 +1,9 @@
 # ![Logo](generators/app/templates/src/images/logo.png)
 
-[![Build Status](https://magnum.travis-ci.com/pyramidium/generator-bannertime.svg?token=hz5Re2ARbkHxPrMUyLyx&branch=master)](https://magnum.travis-ci.com/pyramidium/generator-bannertime)
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/pyramidium/generator-bannertime?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Build Status](https://travis-ci.org/pyramidium/generator-bannertime.svg?branch=master)](https://travis-ci.org/pyramidium/generator-bannertime)
+[![npm version](http://img.shields.io/npm/v/REPO.svg?style=flat)](https://npmjs.org/package/generator-bannertime "View this project on npm")
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/pyramidium/generator-bannertime)
 
 > Yeoman generator for HTML5 banners.
 

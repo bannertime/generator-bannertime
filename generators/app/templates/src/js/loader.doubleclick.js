@@ -51,3 +51,15 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
     Enabler.loadScript(urls[i], checkProgress);
   }
 };
+
+/**
+ * Bind Enabler events.
+ */
+Banner.prototype.bindEvents = function() {
+  this.banner.addEventListener('click', function(e) {
+    Enabler.exit('clickthrough');
+  });
+  this.banner.addEventListener('touchend', function(e) {
+    Enabler.exit('clickthrough');
+  });
+};
