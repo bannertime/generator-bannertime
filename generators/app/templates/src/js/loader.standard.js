@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * Load events - similar to jQuery window load and dom ready.
+ */
 Banner.prototype.loader = function() {
   var _this = this;
 
@@ -21,6 +24,9 @@ Banner.prototype.loader = function() {
   });
 };
 
+/**
+ * Polite load scripts.
+ */
 Banner.prototype.politeLoad = function(urls, onComplete) {
   var loaded = 0;
   var checkProgress = function() {
@@ -33,6 +39,9 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
   }
 };
 
+/**
+ * Load script method.
+ */
 Banner.prototype.loadScript = function(url, callback) {
   var script = document.createElement('script')
   script.type = 'text/javascript';

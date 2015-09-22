@@ -11,11 +11,11 @@ Banner.prototype.onInit = function() {
 
 Banner.prototype.onPolite = function() {
   console.log('Polite loading scripts');
-  this.images = [
-    'images/logo.png'
-  ];
 };
 
+/**
+ * Polite load scripts and trigger the
+ */
 Banner.prototype.onVisible = function() {
   var _this = this;
 
@@ -29,6 +29,9 @@ Banner.prototype.onVisible = function() {
   });
 };
 
+/**
+ * Set up smart object method.
+ */
 Banner.prototype.smartObject = function(_settings) {
   var _this = this;
 
@@ -108,6 +111,9 @@ Banner.prototype.smartObject = function(_settings) {
   return element;
 };
 
+/**
+ * Preload images method.
+ */
 Banner.prototype.preloadImages = function(images, callback, scope) {
   var _this = this;
 

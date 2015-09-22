@@ -1,34 +1,58 @@
 'use strict';
 
+/**
+ * Run the animation functions.
+ */
 Banner.prototype.start = function() {
+  this.banner = document.querySelector('.banner');
+
+  this.bannerWidth = this.banner.offsetWidth;
+  this.bannerHeight = this.banner.offsetHeight;
+
+  // Image array for preloading
+  this.images = [
+    'images/logo.png'
+  ];
+
   var _this = this;
   this.preloadImages(this.images, function() {
     _this.createElements();
     _this.setup();
     _this.hidePreloader();
     _this.animate();
+    _this.bindEvents();
   });
 };
 
+/**
+ * Create dom elements.
+ */
 Banner.prototype.createElements = function() {
   this.banner = document.querySelector('.banner');
   this.logo = this.smartObject({
     backgroundImage: 'images/logo.png',
-    width: 294,
-    height: 51,
     parent: this.banner
   });
 };
 
+/**
+ * Setup initial element states.
+ */
 Banner.prototype.setup = function() {
   this.logo.center();
   this.logo.set({autoAlpha: 0, scale: 0.4});
 };
 
+/**
+ * Hide the preloader.
+ */
 Banner.prototype.hidePreloader = function() {
   TweenLite.to('.preloader', 1, {autoAlpha: 0});
 };
 
+/**
+ * Animation timeline.
+ */
 Banner.prototype.animate = function() {
   var timeline = new TimelineLite({onComplete: loop})
     .addLabel('start', 0)
@@ -40,3 +64,14 @@ Banner.prototype.animate = function() {
   }
 };
 
+/**
+ * Bind events to elements.
+ */
+Banner.prototype.bindEvents = function() {
+  this.banner.addEventListener('click', function(e) {
+    Enabler.exit('clickthrough');
+  });
+  this.banner.addEventListener('touchend', function(e) {
+    Enabler.exit('clickthrough');
+  });
+};
