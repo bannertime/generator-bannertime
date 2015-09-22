@@ -92,6 +92,12 @@ module.exports = function(Bannertime) {
    * Process the js files.
    */
   Bannertime.prototype.js = function js() {
+    if (this.props.bannerType == 'Sizmek') {
+      this.fs.copy(
+        this.templatePath('src/js/libs/EBLoader.js'),
+        this.destinationPath('src/js/EBLoader.js')
+      );
+    }
     this.fs.copy(
       this.templatePath('src/js/banner.js'),
       this.destinationPath('src/js/banner.js')

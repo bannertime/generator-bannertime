@@ -31,7 +31,7 @@ module.exports = function(Bannertime) {
       type: 'list',
       name: 'bannerType',
       message: 'What type of banner is it?',
-      choices: ['DoubleClick', 'Standard'],
+      choices: ['DoubleClick', 'Sizmek', 'Standard'],
       default: 'DoubleClick'
     }, {
       type: 'input',

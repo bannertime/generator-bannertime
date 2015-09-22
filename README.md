@@ -67,10 +67,10 @@ yo bannertime
 
 ## Todo
 
-> * Add Sizmek loader
 > * Add Adform loader
 > * Hidden folders
 > * Preview Page
+> * Warning prompt if no suitable backup image found on gulp prod
 
 ## Changelog
 
