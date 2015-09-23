@@ -60,3 +60,29 @@ Banner.prototype.loadScript = function(url, callback) {
   script.src = url;
   document.getElementsByTagName('head')[0].appendChild(script);
 };
+
+/**
+ * Bind iAB standard clicktag events.
+ */
+Banner.prototype.bindEvents = function() {
+  var getUriParams = function() {
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var parmsArray = query.split('&');
+    if (parmsArray.length <= 0) return query_string;
+    for (var i = 0; i < parmsArray.length; i++) {
+      var pair = parmsArray[i].split('=');
+      var val = decodeURIComponent(pair[1]);
+      if (val != '"' && pair[0] != '"') query_string[pair[0]] = val;
+    }
+    return query_string;
+  }();
+  var clickTag = getUriParams.clicktag;
+
+  this.banner.addEventListener('click', function(e) {
+    window.open(clickTag)
+  });
+  this.banner.addEventListener('touchend', function(e) {
+    window.open(clickTag)
+  });
+};
