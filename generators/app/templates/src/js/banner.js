@@ -20,10 +20,10 @@ Banner.prototype.onVisible = function() {
   var _this = this;
 
   this.politeLoad([
-    '//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js',
-    '//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TimelineLite.min.js',
-    '//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js',
-    '//cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js'
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenLite.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TimelineLite.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/plugins/CSSPlugin.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/easing/EasePack.min.js'
   ], function() {
     _this.start();
   });
