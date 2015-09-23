@@ -23,7 +23,7 @@ module.exports = function(Bannertime) {
         this.bannerSuffix = 'dcm';
         break;
       case 'Atlas':
-        this.bannerSuffix = 'standard';
+        this.bannerSuffix = 'atlas';
         break;
       case 'None':
         this.bannerSuffix = 'none';
