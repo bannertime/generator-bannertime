@@ -65,12 +65,12 @@ Banner.prototype.loadScript = function(url, callback) {
  * Bind clickTag event.
  */
 Banner.prototype.bindEvents = function() {
-  var _clickTAGvalue = dhtml.getVar('clickTAG', '//www.adform.com'),
-      _landingPageTarget = dhtml.getVar('landingPageTarget', '_blank');
+  var clickTAGvalue = dhtml.getVar('clickTAG', '//www.adform.com');
+  var landingPageTarget = dhtml.getVar('landingPageTarget', '_blank');
   this.banner.addEventListener('click', function(e) {
-    window.open(_clickTAGvalue, _landingPageTarget);
+    window.open(clickTAGvalue, landingPageTarget);
   });
   this.banner.addEventListener('touchend', function(e) {
-    window.open(_clickTAGvalue, _landingPageTarget);
+    window.open(clickTAGvalue, landingPageTarget);
   });
 };
