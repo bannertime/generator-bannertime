@@ -104,6 +104,12 @@ module.exports = function(Bannertime) {
         this.destinationPath('src/js/EBLoader.js')
       );
     }
+    if (this.props.bannerType == 'Adform') {
+      this.fs.copy(
+        this.templatePath('src/js/libs/AdformDHTML.js'),
+        this.destinationPath('src/js/AdformDHTML.js')
+      );
+    }
     this.fs.copy(
       this.templatePath('src/js/banner.js'),
       this.destinationPath('src/js/banner.js')
