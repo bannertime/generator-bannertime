@@ -28,7 +28,6 @@ Banner.prototype.start = function() {
  * Create dom elements.
  */
 Banner.prototype.createElements = function() {
-  this.banner = document.querySelector('.banner');
   this.logo = this.smartObject({
     backgroundImage: 'images/logo.png',
     parent: this.banner
