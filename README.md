@@ -71,6 +71,8 @@ yo bannertime
 > * Hidden folders
 > * Preview Page
 > * Warning prompt if no suitable backup image found on gulp prod
+> * Add jshint gulp task
+> * Fix globbing issue in node 4.x.x
 
 ## Changelog
 
