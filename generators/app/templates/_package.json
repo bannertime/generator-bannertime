@@ -2,7 +2,6 @@
   "name": "<%= bannerName %>",
   "version": "0.0.0",
   "description": "<%= bannerDesc %>",
-  "bannerSize": "<%= bannerSize %>",
   "license": "MIT",
   "repository": {
     "type": "git",

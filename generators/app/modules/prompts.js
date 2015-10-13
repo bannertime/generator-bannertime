@@ -11,9 +11,7 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.prompts = function prompts() {
     var done = this.async();
-
     var bannerSize = 'default';
-
     var prompts = [{
       type: 'input',
       name: 'bannerName',
@@ -35,16 +33,6 @@ module.exports = function(Bannertime) {
       default: 'DoubleClick'
     }, {
       type: 'input',
-      name: 'bannerWidth',
-      message: 'Set the width of the banner:',
-      default: '300'
-    }, {
-      type: 'input',
-      name: 'bannerHeight',
-      message: 'Set the height of the banner:',
-      default: '250'
-    }, {
-      type: 'input',
       name: 'bannerRepo',
       message: 'What is the link to the repository?',
       default: 'http://github.com/pyramidium/generator-bannertime'
@@ -53,7 +41,7 @@ module.exports = function(Bannertime) {
       name: 'archiveName',
       message: 'When the ad is zipped, what should it be called? ',
       default: function(answers) {
-        return answers.bannerName + '-' + answers.bannerWidth + 'x' + answers.bannerHeight + '.zip'
+        return answers.bannerName + '.zip'
       }
     }, {
       type: 'confirm',

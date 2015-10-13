@@ -1,0 +1,102 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar {
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 100%;
+  overflow: scroll;
+  width: 200px;
+  padding: 0 40px;
+
+  .logo {
+    display: block;
+    margin: 50px auto;
+    width: 120px;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0 0 10px;
+      // display: inline;
+
+      a {
+        color: #d36135;
+        font-size: 12px;
+        // display: none;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.done {
+          color: #7fb069;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.iframe {
+  height: 100%;
+  overflow: scroll;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .loading {
+    background: url('../images/loading.gif') center no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 140px;
+    display: none;
+  }
+}
+
+.desktop {
+  background: #fff;
+  background: rgba(255,255,255,0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: none;
+  padding-top: 150px;
+
+  h1 {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 780px) {
+    display: block;
+  }
+}
