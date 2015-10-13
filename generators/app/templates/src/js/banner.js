@@ -103,9 +103,9 @@ Banner.prototype.smartObject = function(_settings) {
   element.from = function(time, settings) { TweenLite.from(this, time, settings); };
   element.fromTo = function(time, from, to) { TweenLite.fromTo(this, time, from, to); };
   element.get = function(property) { return ((this._gsTransform && this._gsTransform[property]) || (this._gsTransform && this._gsTransform[property] === 0)) ? this._gsTransform[property] : (this.style[property].slice(-2) == 'px') ? parseFloat(this.style[property]) : this.style[property]; };
-  element.centerHorizontal = function() { TweenLite.set(this, {left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto'}); };
-  element.centerVertical = function() { TweenLite.set(this, {top: 50%, marginTop: -this.offsetHeight / 2});
-  element.center = function() { TweenLite.set(this, {top: 0, left: 0, right: 0, bottom: 0, margin: 'auto'}); };
+  element.center = function() { TweenLite.set(this, {top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2}); };
+  element.centerHorizontal = function() { TweenLite.set(this, {left: '50%', marginLeft: -this.offsetWidth / 2}); };
+  element.centerVertical = function() { TweenLite.set(this, {top: '50%', marginTop: -this.offsetHeight / 2}); };
   element.getOriginal = function(property){ return element._settings[property] || 0};
 
   return element;
