@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var html = require('../config/html');
 var js = require('../config/javascript');
+var json = require('../config/json');
 var svgSprite = require('../config/svg-sprite');
 var images = require('../config/images');
 var sass = require('../config/sass');
@@ -16,4 +17,5 @@ gulp.task('watch', ['browserSync'], function() {
   watch(fonts.src, function() { gulp.start('fonts') });
   watch(html.watch, function() { gulp.start('html') });
   watch(js.src, function() { gulp.start('js') });
+  watch(json.src, function() { gulp.start('json') });
 });
