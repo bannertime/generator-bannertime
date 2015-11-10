@@ -42,8 +42,6 @@ You will be prompted with the following questions when you run the generator.
 * What is the name of the banner?
 * Describe the banner
 * What type of banner is it?
-* Set the width of the banner
-* Set the height of the banner
 * What is the link to the repository?
 * When the ad is zipped, what should it be called?
 * Include GSAP for offline use?
