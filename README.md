@@ -66,14 +66,6 @@ yo bannertime
 [Guidelines](CONTRIBUTING.md)
 
 
-## Todo
-
-> * Sub-generator that creates a new format
-> * Sub-generator that copies existing format
-> * Warning prompt if no suitable backup image found on gulp prod
-> * Add jshint gulp task
-> * Fix globbing issue in node 4.x.x
-
 ## Changelog
 
 [Changelog](https://github.com/pyramidium/generator-bannertime/releases)
