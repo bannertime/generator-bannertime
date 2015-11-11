@@ -9,7 +9,7 @@ module.exports = function(Bannertime) {
   /**
    * The questions that the generator will ask.
    */
-  Bannertime.prototype.prompts = function prompts() {
+  Bannertime.prototype.prompts = function() {
     var done = this.async();
     var bannerSize = 'default';
     var prompts = [{
@@ -66,7 +66,7 @@ module.exports = function(Bannertime) {
   /**
    * Determine the appName either from the current directory or the parameter of the generator
    */
-  Bannertime.prototype.determineAppName = function determineAppName() {
+  Bannertime.prototype.determineAppName = function() {
     this.appName = this.appName || path.basename(process.cwd());
     this.appName = s.camelize(s.slugify(s.humanize(this.appName)));
   };
