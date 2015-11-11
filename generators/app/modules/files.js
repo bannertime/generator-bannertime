@@ -203,11 +203,17 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.gulp = function() {
     this.directory('gulpfile.js', 'gulpfile.js');
+  };
+
+  /**
+   * Process the zip task config file.
+   */
+  Bannertime.prototype.zip = function() {
     var zipOptions = {
       archiveName: this.props.archiveName
     }
     this.fs.copyTpl(
-      this.templatePath('gulpfile.js/config/_zip.js'),
+      this.templatePath('_zip.js'),
       this.destinationPath('gulpfile.js/config/zip.js'),
       zipOptions
     );
