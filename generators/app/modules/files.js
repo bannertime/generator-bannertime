@@ -6,7 +6,6 @@ module.exports = function(Bannertime) {
 
   /**
    * Set the default html file based on the type of banner.
-   * Options: DoubleClick, Sizmek, Adform, None.
    */
   Bannertime.prototype.bannerType = function() {
     switch(this.props.bannerType) {

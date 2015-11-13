@@ -14,7 +14,7 @@ module.exports = function(Bannertime) {
       });
     };
 
-    this.log(chalk.green('File structure set up now running npm install'));
+    this.log(chalk.green('File structure set up, now running npm install'));
     this.log(chalk.green('This may take a few minutes...'));
     this.log(chalk.red('Please be patient!'));
     this.npmInstall();

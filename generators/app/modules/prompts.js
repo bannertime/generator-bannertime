@@ -64,7 +64,7 @@ module.exports = function(Bannertime) {
   };
 
   /**
-   * Determine the appName either from the current directory or the parameter of the generator
+   * Determine the appName either from the current directory or the parameter of the generator.
    */
   Bannertime.prototype.determineAppName = function() {
     this.appName = this.appName || path.basename(process.cwd());
