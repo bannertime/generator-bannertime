@@ -6,12 +6,6 @@
 Banner.prototype.loader = function() {
   var _this = this;
 
-  if (Enabler.isInitialized()) {
-    enablerInitialised();
-  } else {
-    Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitialised);
-  }
-
   function enablerInitialised() {
     _this.onInit();
 
@@ -20,6 +14,12 @@ Banner.prototype.loader = function() {
     } else {
       Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, pageLoaded);
     }
+  }
+
+  if (Enabler.isInitialized()) {
+    enablerInitialised();
+  } else {
+    Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitialised);
   }
 
   function pageLoaded() {
@@ -56,10 +56,10 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
  * Bind Enabler events.
  */
 Banner.prototype.bindEvents = function() {
-  this.banner.addEventListener('click', function(e) {
+  this.banner.addEventListener('click', function() {
     Enabler.exit('clickthrough');
   });
-  this.banner.addEventListener('touchend', function(e) {
+  this.banner.addEventListener('touchend', function() {
     Enabler.exit('clickthrough');
   });
 };
