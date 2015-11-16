@@ -1,11 +1,9 @@
-document.addEventListener('DOMContentLoaded', function(event) {
+'use strict';
+
+document.addEventListener('DOMContentLoaded', function() {
 
   var links = document.querySelectorAll('a');
   var iframe = document.querySelector('iframe');
-
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', handleClick);
-  };
 
   function handleClick(e) {
     e.preventDefault();
@@ -20,6 +18,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
         TweenLite.set(banner, {top: 0, right: 0, bottom: 0, left: 0, position: 'absolute', margin: 'auto'});
       }
     }, 1000);
+  }
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', handleClick);
   }
 
 });
