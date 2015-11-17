@@ -9,8 +9,8 @@ var uglify = require('gulp-uglify');
 
 gulp.task('js', function() {
   return gulp.src(config.src)
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
+    .pipe(gulpif(process.env.NODE_ENV == 'production', jshint()))
+    .pipe(gulpif(process.env.NODE_ENV == 'production', jshint.reporter('default')))
     .pipe(gulpif(process.env.NODE_ENV == 'production', uglify()))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream: true}));
