@@ -67,8 +67,7 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.determineAppName = function() {
     this.appName = this.appName || path.basename(process.cwd());
-    this.appName = s.slugify(s.humanize(this.appName));
-    console.log(this.appName);
+    this.appName = s.slugify(this.appName);
   };
 
 };
