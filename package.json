@@ -20,7 +20,6 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "camelcase": "^1.2.1",
     "chalk": "^1.1.1",
     "download": "^4.4.1",
     "underscore.string": "^3.2.2",

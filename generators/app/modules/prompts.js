@@ -1,6 +1,5 @@
 'use strict';
 
-var camelCase = require('camelcase');
 var path = require('path');
 var s = require('underscore.string');
 
@@ -15,10 +14,10 @@ module.exports = function(Bannertime) {
     var prompts = [{
       type: 'input',
       name: 'bannerName',
-      message: 'What is the name of the banner? (camelCase):',
+      message: 'What is the name of the banner? (kebab-case):',
       default: this.appname,
       filter: function(answer) {
-        return camelCase(answer)
+        return s.slugify(answer)
       }
     }, {
       type: 'input',
@@ -68,7 +67,8 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.determineAppName = function() {
     this.appName = this.appName || path.basename(process.cwd());
-    this.appName = s.camelize(s.slugify(s.humanize(this.appName)));
+    this.appName = s.slugify(s.humanize(this.appName));
+    console.log(this.appName);
   };
 
 };

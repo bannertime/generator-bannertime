@@ -24,14 +24,13 @@ module.exports = function(Bannertime) {
     }, {
       type: 'input',
       name: 'bannerName',
-      message: 'What is the name of the new format?:',
+      message: 'What is the name of the new format? (kebab-case)',
       default: function(answer) {
         var name = bannerName + '-' + answer.bannerWidth + 'x' + answer.bannerHeight;
         return name;
       },
       filter: function(answer) {
-        var hyphenate = answer.replace(/\s+/g, '-');
-        return hyphenate;
+        return s.slugify(answer)
       }
     }, {
       type: 'list',
