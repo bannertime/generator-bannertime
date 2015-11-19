@@ -47,6 +47,31 @@ Banner.prototype.smartObject = function(_settings) {
     element._settings[key] = settings[key];
   }
 
+  switch (settings.type) {
+    case 'canvas' :
+      element.width = settings.width;
+      element.height = settings.height;
+    break;
+    case 'video' :
+      if (settings.autoplay) element.autoplay = settings.autoplay;
+      if (settings.loop) element.loop = settings.loop;
+      if (settings.controls) element.controls = settings.controls;
+      if (settings.muted) element.muted = settings.muted;
+      if (settings.poster) element.poster = settings.poster;
+      if (settings.preload) element.preload = settings.preload;
+    break;
+  }
+
+  if (settings.sources) {
+    var sources = settings.sources;
+    for (var i = 0; i < sources.length; i++) {
+      var sourceTag = document.createElement('source');
+      sourceTag.src = sources[i].url;
+      sourceTag.type = sources[i].type;
+      element.appendChild(sourceTag);
+    }
+  }
+
   function applySettings() {
     if (settings.id) {
       element.id = settings.id;
@@ -62,6 +87,13 @@ Banner.prototype.smartObject = function(_settings) {
     delete settings.parent;
     delete settings.id;
     delete settings.type;
+    delete settings.autoplay;
+    delete settings.loop;
+    delete settings.controls;
+    delete settings.muted;
+    delete settings.poster;
+    delete settings.preload;
+    delete settings.sources;
     TweenLite.set(element, settings);
   }
 
@@ -88,7 +120,7 @@ Banner.prototype.smartObject = function(_settings) {
 
     if (Object.prototype.toString.call(settings.backgroundImage) === '[object Array]') {
       element.images = settings.backgroundImage;
-      for(var i = 0; i < element.images.length; ++i) {
+      for (var i = 0; i < element.images.length; ++i) {
         loadImg(element.images[i], i === 0);
       }
     } else {
