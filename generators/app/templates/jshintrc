@@ -21,6 +21,8 @@
     "Banner": true,
     "Enabler": true,
     "studio": true,
+    "EB": true,
+    "EBG": true,
     "TimelineLite": false,
     "TimelineMax": false,
     "TweenLite": false,
