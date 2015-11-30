@@ -4,6 +4,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var links = document.querySelectorAll('a');
   var iframe = document.querySelector('iframe');
+  var sideBar = document.querySelector('.sidebar');
+  var close = document.getElementById('close');
+  var toggle = true;
+
+  function toggleSideBar(e) {
+    e.preventDefault();
+    if (toggle) {
+      TweenLite.to(sideBar, 1, {width:0, padding:0, ease:Power1.easeInOut});
+      TweenLite.to(close, 1, {left:0, ease:Power1.easeInOut});
+      close.innerText = '❯❯';
+    } else {
+      TweenLite.to(sideBar, 1, {width:200, padding: '0 40px', ease:Power1.easeInOut});
+      TweenLite.to(close, 1, {left:280, ease:Power1.easeInOut});
+      close.innerText = '❮❮';
+    }
+    toggle = !toggle;
+  }
+
+  close.addEventListener('click', toggleSideBar);
 
   function handleClick(e) {
     e.preventDefault();
