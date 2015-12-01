@@ -36,13 +36,6 @@ module.exports = function(Bannertime) {
       message: 'What is the link to the repository?',
       default: 'http://github.com/pyramidium/generator-bannertime'
     }, {
-      type: 'input',
-      name: 'archiveName',
-      message: 'When the ad is zipped, what should it be called? ',
-      default: function(answers) {
-        return answers.bannerName + '.zip'
-      }
-    }, {
       type: 'confirm',
       name: 'includeGsap',
       message: 'Include GSAP for offline use?',

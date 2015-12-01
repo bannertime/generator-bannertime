@@ -205,20 +205,6 @@ module.exports = function(Bannertime) {
   };
 
   /**
-   * Process the zip task config file.
-   */
-  Bannertime.prototype.zip = function() {
-    var zipOptions = {
-      archiveName: this.props.archiveName
-    }
-    this.fs.copyTpl(
-      this.templatePath('_zip.js'),
-      this.destinationPath('gulpfile.js/config/zip.js'),
-      zipOptions
-    );
-  };
-
-  /**
    * Include offline doubleclick enabler.
    */
   Bannertime.prototype.doubleclick = function() {
