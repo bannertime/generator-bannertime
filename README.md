@@ -45,8 +45,6 @@ yo bannertime
 ## Documentation
 
 * [Docs](docs/README.md)
-* [User guide](docs/user-guide.md)
-* [How it works](docs/how-it-works.md)
 
 
 ## Features
