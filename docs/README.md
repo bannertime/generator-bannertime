@@ -1,4 +1,4 @@
-# Yeoman Bannertime Generator documentation
+# Bannertime documentation
 
 Welcome to the documentation of the generator. The goal of the generator is to streamline new banner builds and standardise workflow.
 
