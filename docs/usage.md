@@ -43,7 +43,6 @@ You will be prompted with the following questions when you run the generator.
 * Describe the banner
 * What type of banner is it?
 * What is the link to the repository?
-* When the ad is zipped, what should it be called?
 * Include GSAP for offline use?
 * Include DoubleClick Enabler for offline use?
 
@@ -60,6 +59,7 @@ The default file structure that is generated.
     - images.js (Config file for images task)
     - index.js (Config file for base directories)
     - javascript.js (Config file for javascript task)
+    - json.js (Config file for json task)
     - sass.js (Config file for sass task)
     - server.js (Config file for server task)
     - svg-sprite.js (Config file for svg-sprite task)
@@ -67,6 +67,7 @@ The default file structure that is generated.
   /lib
     - handleErrors.js (Stop gulp from exiting when there is a syntax error)
   /tasks
+    - backupImage.js (Task for prompting the user if there is no backup image)
     - browserSync.js (Task for fast live reload injection)
     - build-development.js (Task that runs development tasks)
     - build-production.js (Task that runs production tasks)
@@ -77,6 +78,7 @@ The default file structure that is generated.
     - html.js (Task for copying html files to public directory)
     - images.js (Task for copying and compressing image files to public directory)
     - javascript.js (Task for copying js files to public directory)
+    - json.js (Task for copying json files to public directory)
     - prod.js (Task for enabling `gulp prod` shortcut instead of typing `gulp build:production`)
     - sass.js (Task for compiling sass files into css in the public directory)
     - server.js (Task for setting up a local production server)
