@@ -53,12 +53,12 @@ Banner.prototype.smartObject = function(_settings) {
       element.height = settings.height;
     break;
     case 'video' :
-      if (settings.autoplay) element.autoplay = settings.autoplay;
-      if (settings.loop) element.loop = settings.loop;
-      if (settings.controls) element.controls = settings.controls;
-      if (settings.muted) element.muted = settings.muted;
-      if (settings.poster) element.poster = settings.poster;
-      if (settings.preload) element.preload = settings.preload;
+      if (settings.autoplay) { element.autoplay = settings.autoplay; }
+      if (settings.loop) { element.loop = settings.loop; }
+      if (settings.controls) { element.controls = settings.controls; }
+      if (settings.muted) { element.muted = settings.muted; }
+      if (settings.poster) { element.poster = settings.poster; }
+      if (settings.preload) { element.preload = settings.preload; }
     break;
   }
 
@@ -120,8 +120,8 @@ Banner.prototype.smartObject = function(_settings) {
 
     if (Object.prototype.toString.call(settings.backgroundImage) === '[object Array]') {
       element.images = settings.backgroundImage;
-      for (var i = 0; i < element.images.length; ++i) {
-        loadImg(element.images[i], i === 0);
+      for (var j = 0; j < element.images.length; ++j) {
+        loadImg(element.images[j], j === 0);
       }
     } else {
       loadImg(settings.backgroundImage, true);
