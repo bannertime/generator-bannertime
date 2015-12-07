@@ -19,7 +19,7 @@ gulp.task('zip', function() {
   }
   var folders = getFolders(config.publicDirectory);
   var tasks = folders.map(function(folder) {
-    return gulp.src(path.join(config.publicDirectory, folder, '/*'))
+    return gulp.src(path.join(config.publicDirectory, folder, '/**/*'))
       .pipe(gulpif(folder != 'base', zip(folder + '.zip')))
       .pipe(gulpif(folder != 'base', filesize()))
       .pipe(gulpif(folder != 'base', gulp.dest(configZip.dest)));
