@@ -104,7 +104,7 @@ The default file structure that is generated.
 .gitignore (Used to ignore files when committing to a git repository)
 .jshintrc (Helps to detect errors and potential problems in code)
 package.json (Contains project node/npm package data)
-readme.md (Readme file for developers)
+README.md (Readme file for developers)
 ```
 
 ## Technologies

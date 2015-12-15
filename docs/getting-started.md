@@ -74,4 +74,4 @@ This task will minify all html, css and javascript files and compress images. It
 
 ## Not working?
 
-If you are having trouble installing the generator please have a read through the [docs](docs/readme.md) and if you still cannot get the project up and running create an issue [here](issues/new).
+If you are having trouble installing the generator please have a read through the [docs](docs/README.md) and if you still cannot get the project up and running create an issue [here](issues/new).

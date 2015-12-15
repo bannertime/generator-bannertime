@@ -5,7 +5,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/pyramidium/generator-bannertime)
 
-##### [Docs](docs/readme.md) - [Guidelines](contributing.md) - [Changelog](https://github.com/pyramidium/generator-bannertime/releases) - [License](http://opensource.org/licenses/MIT)
+##### [Docs](docs/README.md) - [Guidelines](CONTRIBUTING.md) - [Changelog](https://github.com/pyramidium/generator-bannertime/releases) - [License](http://opensource.org/licenses/MIT)
 
 ## Getting started
 
@@ -26,7 +26,7 @@ $ yo bannertime
 
 ## Usage
 
-More information in the [documentation](docs/readme.md).
+More information in the [documentation](docs/README.md).
 
 ## Platforms
 
