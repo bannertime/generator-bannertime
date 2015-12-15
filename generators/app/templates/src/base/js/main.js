@@ -1,28 +1,61 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function() {
-
-  var links = document.querySelectorAll('a');
+  var links = Array.prototype.slice.call(document.querySelectorAll('a'));
   var iframe = document.querySelector('iframe');
   var sideBar = document.querySelector('.sidebar');
-  var close = document.getElementById('close');
-  var toggle = true;
+  var up = document.querySelector('.up');
+  var down = document.querySelector('.down');
+  var left = document.querySelector('.left');
+  var right = document.querySelector('.right');
 
-  function toggleSideBar(e) {
-    e.preventDefault();
-    if (toggle) {
-      TweenLite.to(sideBar, 1, {width:0, padding:0, ease:Power1.easeInOut});
-      TweenLite.to(close, 1, {left:0, ease:Power1.easeInOut});
-      close.innerText = '❯❯';
-    } else {
-      TweenLite.to(sideBar, 1, {width:200, padding: '0 40px', ease:Power1.easeInOut});
-      TweenLite.to(close, 1, {left:280, ease:Power1.easeInOut});
-      close.innerText = '❮❮';
+  Array.prototype.next = function() {
+      return this[this.current++];
+  };
+
+  Array.prototype.prev = function() {
+      return this[this.current--];
+  };
+
+  Array.prototype.current = 0;
+
+  function keyDown(e) {
+    console.log(links.current);
+    if (e.keyCode === 37) {
+      e.preventDefault();
+      left.classList.add('active');
+      TweenLite.to(sideBar, 1, {width: 0, padding: 0, ease: Power1.easeInOut});
+    } else if (e.keyCode === 39) {
+      e.preventDefault();
+      right.classList.add('active');
+      TweenLite.to(sideBar, 1, {width: 200, padding: '0 40px', ease: Power1.easeInOut});
+    } else if (e.keyCode === 38) {
+      e.preventDefault();
+      up.classList.add('active');
+      iframe.src = links.prev().href;
+      if (links.current === -1) {
+        links.current = links.length - 1;
+      }
+    } else if (e.keyCode === 40) {
+      e.preventDefault();
+      down.classList.add('active');
+      iframe.src = links.next().href;
+      if (links.current === links.length) {
+        links.current = 0;
+      }
     }
-    toggle = !toggle;
   }
 
-  close.addEventListener('click', toggleSideBar);
+  function keyUp(e) {
+    e.preventDefault();
+    up.classList.remove('active');
+    right.classList.remove('active');
+    down.classList.remove('active');
+    left.classList.remove('active');
+  }
+
+  document.addEventListener('keydown', keyDown);
+  document.addEventListener('keyup', keyUp);
 
   function handleClick(e) {
     e.preventDefault();
@@ -42,5 +75,4 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 0; i < links.length; i++) {
     links[i].addEventListener('click', handleClick);
   }
-
 });

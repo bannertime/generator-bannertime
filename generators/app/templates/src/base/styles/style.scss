@@ -16,13 +16,13 @@ body {
   float: left;
   height: 100%;
   overflow: scroll;
-  width: 200px;
   padding: 0 40px;
+  width: 200px;
 
   .logo {
     display: block;
     margin: 50px auto;
-    width: 120px;
+    width: 100%;
   }
 
   h1 {
@@ -39,12 +39,10 @@ body {
 
     li {
       padding: 0 0 10px;
-      // display: inline;
 
       a {
         color: #d36135;
         font-size: 12px;
-        // display: none;
 
         &:hover {
           text-decoration: none;
@@ -59,14 +57,55 @@ body {
   }
 }
 
-#close {
+.keyboard-controls {
+  $key-size: 22px;
+  $gutter: 2px;
+  bottom: 0;
+
+  height: ($key-size * 2) + ($gutter * 1);
+  margin: auto;
   position: absolute;
-  top: 0;
-  left: 280px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  z-index: 10;
+  right: $key-size;
+  width: ($key-size * 3) + ($gutter * 2);
+
+  .key {
+    border-radius: 5px;
+    bottom: $key-size;
+    height: $key-size;
+    left: $key-size * 2;
+    position: absolute;
+    width: $key-size;
+    fill: #ccc;
+
+    &.active {
+      // background: #000;
+      fill: #666;
+
+      .character {
+        // fill: #fff
+      }
+    }
+
+    &.up {
+      bottom: ($key-size * 2) + ($gutter * 1);
+      left: ($key-size * 1) + ($gutter * 1);
+    }
+    &.right {
+      bottom: $key-size;
+      left: ($key-size * 2) + ($gutter * 2);
+      transform: rotate(90deg);
+    }
+    &.down {
+      bottom: $key-size;
+      left: ($key-size * 1) + ($gutter * 1);
+      transform: rotate(180deg);
+    }
+    &.left {
+      bottom: $key-size;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+  }
 }
 
 .iframe {
@@ -76,31 +115,32 @@ body {
   iframe {
     border: 0;
     height: 100%;
+    pointer-events: none;
     width: 100%;
   }
 
   .loading {
     background: url('../images/loading.gif') center no-repeat;
-    width: 100%;
+    display: none;
     height: 100%;
+    left: 140px;
     position: absolute;
     top: 0;
-    left: 140px;
-    display: none;
+    width: 100%;
   }
 }
 
 .desktop {
   background: #fff;
   background: rgba(255,255,255,0.5);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
   display: none;
+  height: 100%;
+  left: 0;
   padding-top: 150px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 
   h1 {
     font-size: 20px;
