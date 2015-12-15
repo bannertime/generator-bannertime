@@ -5,49 +5,30 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/pyramidium/generator-bannertime)
 
-> Yeoman generator for HTML5 banners.
+##### [Docs](docs/README.md) - [Guidelines](CONTRIBUTING.md) - [Changelog](https://github.com/pyramidium/generator-bannertime/releases) - [License](http://opensource.org/licenses/MIT)
 
-> * Designed to streamline new banner builds
-> * Standardised workflow
-> * Gulp best practices
+## Getting started
 
+#### Install bannertime:
+```sh
+$ npm install --global generator-bannertime
+```
+
+#### Create a new directory:
+```sh
+$ mkdir my-project && cd $_
+```
+
+#### Run the generator:
+```sh
+$ yo bannertime
+```
 
 ## Usage
 
 More information in the [documentation](docs/README.md).
 
-
-## Install
-
-These instructions assume you have admin privelages and node installed.
-
-##### Install required tools `yo`, `gulp` and `generator-bannertime`:
-```
-npm install -g yo gulp generator-bannertime
-```
-
-> You may need to use `sudo npm install -g yo gulp generator-bannertime`
-
-
-## Create a new banner with the generator
-
-##### Create a new directory and change into that directory:
-```
-mkdir my-new-banner && cd $_
-```
-
-##### Run `yo bannertime`, and answer the questions:
-```
-yo bannertime
-```
-
-
-## Documentation
-
-* [Docs](docs/README.md)
-
-
-## Features
+## Platforms
 
 ![Logo](docs/assets/gulp.png)
 ![Logo](docs/assets/browsersync.png)
@@ -57,18 +38,3 @@ yo bannertime
 ![Logo](docs/assets/sizmek.png)
 ![Logo](docs/assets/atlas.png)
 ![Logo](docs/assets/yeoman.png)
-
-
-## Contributing
-
-[Guidelines](CONTRIBUTING.md)
-
-
-## Changelog
-
-[Changelog](https://github.com/pyramidium/generator-bannertime/releases)
-
-
-## License
-
-MIT
