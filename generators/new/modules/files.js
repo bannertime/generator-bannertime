@@ -60,7 +60,7 @@ module.exports = function(Bannertime) {
       bannerType: this.props.bannerType,
       bannerWidth: this.props.bannerWidth,
       bannerHeight: this.props.bannerHeight,
-      includeOfflineEnabler: this.props.includeOfflineEnabler
+      includeOfflineEnabler: this.props.includeOfflineScripts
     };
     this.fs.copyTpl(
       this.templatePath('_index.html'),
