@@ -8,7 +8,7 @@ module.exports = function(Bannertime) {
    * Install dependencies from the package.json file.
    */
   Bannertime.prototype.install = function() {
-    if (this.props.includeGsap === true) {
+    if (this.props.includeOfflineScripts === true) {
       this.npmInstall(['gsap'], {
         'saveDev': true
       });

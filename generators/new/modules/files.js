@@ -165,17 +165,24 @@ module.exports = function(Bannertime) {
   };
 
   /**
-   * Include offline doubleclick enabler.
+   * Include offline vendor scripts.
    */
-  Bannertime.prototype.doubleclick = function() {
-    if (this.props.includeOfflineEnabler == true) {
+  Bannertime.prototype.vendorScripts = function() {
+    function getVendorScript(vendor) {
+      var script = {
+        'DoubleClick': 'https://s0.2mdn.net/ads/studio/Enabler.js',
+        'Sizmek': 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
+        'Adform': 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js'
+      };
+      return script[vendor];
+    }
+    if (this.props.includeOfflineScripts === true) {
       new Download({
         mode: '755'
       })
-        .get('https://s0.2mdn.net/ads/studio/Enabler.js')
+        .get(getVendorScript(this.props.bannerType))
         .dest('offline')
         .run();
     }
   };
-
 };

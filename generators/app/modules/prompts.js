@@ -37,16 +37,9 @@ module.exports = function(Bannertime) {
       default: 'http://github.com/pyramidium/generator-bannertime'
     }, {
       type: 'confirm',
-      name: 'includeGsap',
-      message: 'Include GSAP for offline use?',
+      name: 'includeOfflineScripts',
+      message: 'Include vendor scripts for offline use?',
       default: false
-    }, {
-      when: function (answers) {
-          return answers.bannerType === 'DoubleClick';
-        }, type: 'confirm',
-        name: 'includeOfflineEnabler',
-        message: "Include DoubleClick Enabler for offline use?",
-        default: false
     }];
 
     this.prompt(prompts, function(props) {

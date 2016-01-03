@@ -8,7 +8,7 @@ module.exports = function(Bannertime) {
    * Install gsap locally.
    */
   Bannertime.prototype.install = function() {
-    if (this.props.includeGsap === true) {
+    if (this.props.includeOfflineScripts === true) {
       this.npmInstall(['gsap'], {
         'saveDev': true
       });
