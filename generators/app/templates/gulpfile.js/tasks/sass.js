@@ -6,7 +6,7 @@ var config = require('../config/sass');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var handleErrors = require('../lib/handleErrors');
-var minify = require('gulp-minify-css');
+var nano = require('gulp-cssnano');
 var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -16,7 +16,7 @@ gulp.task('sass', function () {
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
     .pipe(autoprefixer(config.autoprefixer))
-    .pipe(gulpif(process.env.NODE_ENV == 'production', minify()))
+    .pipe(gulpif(process.env.NODE_ENV == 'production', nano({zindex: false})))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
 });
