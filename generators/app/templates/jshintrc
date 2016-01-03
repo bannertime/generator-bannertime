@@ -23,6 +23,7 @@
     "studio": true,
     "EB": true,
     "EBG": true,
+    "dhtml": true,
     "TimelineLite": false,
     "TimelineMax": false,
     "TweenLite": false,
