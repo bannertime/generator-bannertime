@@ -68,7 +68,7 @@ module.exports = function(Bannertime) {
     );
     this.fs.copyTpl(
       this.templatePath('src/300x250/_index.html'),
-      this.destinationPath('src/300x250/index.html'),
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/index.html'),
       indexOptions
     );
   };
@@ -88,17 +88,17 @@ module.exports = function(Bannertime) {
     );
     this.fs.copyTpl(
       this.templatePath('src/300x250/styles/style.scss'),
-      this.destinationPath('src/300x250/styles/style.scss'),
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/style.scss'),
       styleOptions
     );
     this.fs.copyTpl(
       this.templatePath('src/300x250/styles/base/banner.scss'),
-      this.destinationPath('src/300x250/styles/base/_banner.scss'),
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/base/_banner.scss'),
       styleOptions
     );
     this.fs.copyTpl(
       this.templatePath('src/300x250/styles/base/preloader.scss'),
-      this.destinationPath('src/300x250/styles/base/_preloader.scss'),
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/base/_preloader.scss'),
       styleOptions
     );
   };
@@ -114,26 +114,26 @@ module.exports = function(Bannertime) {
     if (this.props.bannerType == 'Sizmek') {
       this.fs.copy(
         this.templatePath('src/300x250/js/libs/EBLoader.js'),
-        this.destinationPath('src/300x250/js/EBLoader.js')
+        this.destinationPath('src/' + this.props.bannerName + '-300x250/js/EBLoader.js')
       );
     }
     if (this.props.bannerType == 'Adform') {
       this.fs.copy(
         this.templatePath('src/300x250/js/libs/AdformDHTML.js'),
-        this.destinationPath('src/300x250/js/AdformDHTML.js')
+        this.destinationPath('src/' + this.props.bannerName + '-300x250/js/AdformDHTML.js')
       );
     }
     this.fs.copy(
       this.templatePath('src/300x250/js/banner.js'),
-      this.destinationPath('src/300x250/js/banner.js')
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.js')
     );
     this.fs.copy(
       this.templatePath('src/300x250/js/loader.' + this.bannerSuffix + '.js'),
-      this.destinationPath('src/300x250/js/banner.loader.js')
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.loader.js')
     );
     this.fs.copy(
       this.templatePath('src/300x250/js/animation.js'),
-      this.destinationPath('src/300x250/js/banner.animation.js')
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.animation.js')
     );
   };
 
@@ -150,7 +150,7 @@ module.exports = function(Bannertime) {
       }
       this.fs.copyTpl(
         this.templatePath('src/300x250/js/_manifest.json'),
-        this.destinationPath('src/300x250/manifest.json'),
+        this.destinationPath('src/' + this.props.bannerName + '-300x250/manifest.json'),
         manifestOptions
       );
     }
@@ -194,7 +194,7 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.images = function() {
     this.directory('src/base/images', 'src/base/images');
-    this.directory('src/300x250/images', 'src/300x250/images');
+    this.directory('src/300x250/images', 'src/' + this.props.bannerName + '-300x250/images');
   };
 
   /**
