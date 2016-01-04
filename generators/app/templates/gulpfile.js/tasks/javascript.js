@@ -1,17 +1,17 @@
 'use strict';
 
 var browserSync  = require('browser-sync');
-var config = require('../config/javascript');
+var config = require('../config');
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var gulpif = require('gulp-if');
 var uglify = require('gulp-uglify');
 
 gulp.task('js', function() {
-  return gulp.src(config.src)
+  return gulp.src(config.tasks.js.src)
     .pipe(gulpif(process.env.NODE_ENV == 'production', jshint()))
     .pipe(gulpif(process.env.NODE_ENV == 'production', jshint.reporter('default')))
     .pipe(gulpif(process.env.NODE_ENV == 'production', uglify()))
-    .pipe(gulp.dest(config.dest))
+    .pipe(gulp.dest(config.tasks.js.dest))
     .pipe(browserSync.reload({stream: true}));
 });

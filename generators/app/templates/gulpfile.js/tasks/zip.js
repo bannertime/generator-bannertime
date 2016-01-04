@@ -1,7 +1,6 @@
 'use strict';
 
 var config = require('../config');
-var configZip = require('../config/zip');
 var del = require('del');
 var filesize = require('gulp-filesize');
 var fs = require('fs');
@@ -17,12 +16,12 @@ gulp.task('zip', function() {
         return fs.statSync(path.join(dir, file)).isDirectory();
       });
   }
-  var folders = getFolders(config.publicDirectory);
+  var folders = getFolders(config.root.dest);
   var tasks = folders.map(function(folder) {
-    return gulp.src(path.join(config.publicDirectory, folder, '/**/*'))
+    return gulp.src(path.join(config.root.dest, folder, '/**/*'))
       .pipe(gulpif(folder != 'base', zip(folder + '.zip')))
       .pipe(gulpif(folder != 'base', filesize()))
-      .pipe(gulpif(folder != 'base', gulp.dest(configZip.dest)));
+      .pipe(gulpif(folder != 'base', gulp.dest(config.tasks.zip.dest)));
   });
   return tasks;
 });

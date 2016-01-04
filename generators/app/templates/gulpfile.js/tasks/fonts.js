@@ -2,12 +2,12 @@
 
 var browserSync = require('browser-sync');
 var changed = require('gulp-changed');
-var config = require('../config/fonts');
+var config = require('../config');
 var gulp = require('gulp');
 
 gulp.task('fonts', function() {
-  return gulp.src(config.src)
-    .pipe(changed(config.dest))
-    .pipe(gulp.dest(config.dest))
+  return gulp.src(config.tasks.fonts.src)
+    .pipe(changed(config.tasks.fonts.dest))
+    .pipe(gulp.dest(config.tasks.fonts.dest))
     .pipe(browserSync.reload({stream:true}));
 });
