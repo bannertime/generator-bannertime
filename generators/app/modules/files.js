@@ -55,14 +55,14 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.html = function() {
     var indexOptions = {
-      title: this.props.bannerName,
+      bannerName: this.props.bannerName,
       bannerType: this.props.bannerType,
       bannerWidth: this.props.bannerWidth,
       bannerHeight: this.props.bannerHeight,
       includeOfflineEnabler: this.props.includeOfflineScripts
     }
     this.fs.copyTpl(
-      this.templatePath('src/index.html'),
+      this.templatePath('src/_index.html'),
       this.destinationPath('src/index.html'),
       indexOptions
     );
