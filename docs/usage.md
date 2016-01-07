@@ -20,6 +20,14 @@ npm install -g yo gulp generator-bannertime
 
 > You may need to use `sudo npm install -g yo gulp generator-bannertime`
 
+##### Install (if not present) the SASS generator-bannertime
+```
+gem install sass
+```
+
+> You may need to use `sudo gem install sass`
+
+> For more in-depth SASS installation [sass-lang](http://sass-lang.com/install)
 
 ## Create a new banner with the generator
 
