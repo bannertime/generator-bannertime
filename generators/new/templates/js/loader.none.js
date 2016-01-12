@@ -43,11 +43,11 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
  * Load script method.
  */
 Banner.prototype.loadScript = function(url, callback) {
-  var script = document.createElement('script')
+  var script = document.createElement('script');
   script.type = 'text/javascript';
   if (script.readyState) {
     script.onreadystatechange = function() {
-      if (script.readyState == 'loaded' || script.readyState == 'complete') {
+      if (script.readyState === 'loaded' || script.readyState === 'complete') {
         script.onreadystatechange = null;
         callback();
       }
@@ -65,24 +65,28 @@ Banner.prototype.loadScript = function(url, callback) {
  * Bind iAB standard clicktag events.
  */
 Banner.prototype.bindEvents = function() {
-  var getUriParams = function() {
-    var query_string = {};
+  var getUriParams = (function() {
+    var queryString = {};
     var query = window.location.search.substring(1);
     var parmsArray = query.split('&');
-    if (parmsArray.length <= 0) return query_string;
+    if (parmsArray.length <= 0) {
+      return queryString;
+    }
     for (var i = 0; i < parmsArray.length; i++) {
       var pair = parmsArray[i].split('=');
       var val = decodeURIComponent(pair[1]);
-      if (val != '"' && pair[0] != '"') query_string[pair[0]] = val;
+      if (val !== '"' && pair[0] !== '"') {
+        queryString[pair[0]] = val;
+      }
     }
-    return query_string;
-  }();
+    return queryString;
+  })();
   var clickTag = getUriParams.clicktag;
 
-  this.banner.addEventListener('click', function(e) {
-    window.open(clickTag)
+  this.banner.addEventListener('click', function() {
+    window.open(clickTag);
   });
-  this.banner.addEventListener('touchend', function(e) {
-    window.open(clickTag)
+  this.banner.addEventListener('touchend', function() {
+    window.open(clickTag);
   });
 };
