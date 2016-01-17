@@ -26,6 +26,7 @@
     "yeoman-generator": "^0.21.1"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "webshot": "^0.17.0"
   }
 }
