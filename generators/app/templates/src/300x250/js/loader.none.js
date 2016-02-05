@@ -86,7 +86,4 @@ Banner.prototype.bindEvents = function() {
   this.banner.addEventListener('click', function() {
     window.open(clickTag);
   });
-  this.banner.addEventListener('touchend', function() {
-    window.open(clickTag);
-  });
 };
