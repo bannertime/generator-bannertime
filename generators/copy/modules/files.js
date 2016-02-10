@@ -40,12 +40,12 @@ module.exports = function(Bannertime) {
   Bannertime.prototype.previewHtml = function() {
     var filePath = './src/index.html';
     var indexOptions = {
-      title: this.props.bannerName,
+      bannerName: this.props.bannerName,
     };
     this.fs.copy(filePath, filePath, {
       process: function(content) {
         var regEx = new RegExp('</ul>');
-        var newContent = content.toString().replace(regEx, '  <li><a href="' + indexOptions.title + '/" class="done">' + indexOptions.title + '</a></li>\n      </ul>');
+        var newContent = content.toString().replace(regEx, '  <li><a href="' + indexOptions.bannerName + '/" class="done">' + indexOptions.bannerName + '</a></li>\n      </ul>');
         return newContent;
       }
     });
@@ -56,14 +56,14 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.html = function() {
     var indexOptions = {
-      title: this.props.bannerName,
+      bannerName: this.props.bannerName,
       bannerType: this.props.bannerType,
       bannerWidth: this.props.bannerWidth,
       bannerHeight: this.props.bannerHeight,
       includeOfflineEnabler: this.props.includeOfflineScripts
     };
     this.fs.copyTpl(
-      this.templatePath('_index.html'),
+      this.templatePath('../../app/templates/src/300x250/_index.html'),
       this.destinationPath('src/' + this.props.bannerName + '/index.html'),
       indexOptions
     );
@@ -106,22 +106,22 @@ module.exports = function(Bannertime) {
   Bannertime.prototype.js = function() {
     if (this.props.bannerType == 'Sizmek') {
       this.fs.copy(
-        this.templatePath('js/libs/EBLoader.js'),
+        this.destinationPath('src/' + this.props.bannerMaster + '/js/EBLoader.js'),
         this.destinationPath('src/' + this.props.bannerName + '/js/EBLoader.js')
       );
     }
     if (this.props.bannerType == 'Adform') {
       this.fs.copy(
-        this.templatePath('js/libs/AdformDHTML.js'),
+        this.destinationPath('src/' + this.props.bannerMaster + '/js/AdformDHTML.js'),
         this.destinationPath('src/' + this.props.bannerName + '/js/AdformDHTML.js')
       );
     }
     this.fs.copy(
-      this.templatePath('js/banner.js'),
+      this.destinationPath('src/' + this.props.bannerMaster + '/js/banner.js'),
       this.destinationPath('src/' + this.props.bannerName + '/js/banner.js')
     );
     this.fs.copy(
-      this.templatePath('js/loader.' + this.bannerSuffix + '.js'),
+      this.templatePath('../../app/templates/src/300x250/js/loader.' + this.bannerSuffix + '.js'),
       this.destinationPath('src/' + this.props.bannerName + '/js/banner.loader.js')
     );
     this.fs.copy(
@@ -142,7 +142,7 @@ module.exports = function(Bannertime) {
         bannerHeight: this.props.bannerHeight,
       };
       this.fs.copyTpl(
-        this.templatePath('js/_manifest.json'),
+        this.templatePath('../../app/templates/src/300x250/js/_manifest.json'),
         this.destinationPath('src/' + this.props.bannerName + '/manifest.json'),
         manifestOptions
       );
