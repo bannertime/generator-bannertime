@@ -15,7 +15,7 @@ body {
   border-right: 1px solid #ccc;
   float: left;
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
   padding: 0 40px;
   width: 200px;
 
@@ -110,7 +110,7 @@ body {
 
 .iframe {
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
 
   iframe {
     border: 0;
