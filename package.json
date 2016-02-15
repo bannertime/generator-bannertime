@@ -21,11 +21,11 @@
   ],
   "dependencies": {
     "chalk": "^1.1.1",
-    "download": "^4.4.1",
-    "underscore.string": "^3.2.2",
-    "yeoman-generator": "^0.21.1"
+    "download": "^4.4.3",
+    "underscore.string": "^3.2.3",
+    "yeoman-generator": "^0.22.5"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^2.4.5"
   }
 }
