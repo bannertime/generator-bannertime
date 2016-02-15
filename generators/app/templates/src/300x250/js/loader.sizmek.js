@@ -72,7 +72,4 @@ Banner.prototype.bindEvents = function() {
   this.banner.addEventListener('click', function() {
     EB.clickthrough();
   });
-  this.banner.addEventListener('touchend', function() {
-    EB.clickthrough();
-  });
 };

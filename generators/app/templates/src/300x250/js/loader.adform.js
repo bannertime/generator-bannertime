@@ -70,7 +70,4 @@ Banner.prototype.bindEvents = function() {
   this.banner.addEventListener('click', function() {
     window.open(clickTAGvalue, landingPageTarget);
   });
-  this.banner.addEventListener('touchend', function() {
-    window.open(clickTAGvalue, landingPageTarget);
-  });
 };

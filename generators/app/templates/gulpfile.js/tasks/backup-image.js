@@ -14,7 +14,7 @@ gulp.task('backup-image', function() {
         return fs.statSync(path.join(dir, file)).isDirectory();
       });
   }
-  var folders = getFolders(config.sourceDirectory);
+  var folders = getFolders(config.root.src);
   var tasks = folders.map(function(folder) {
     if (folder != 'base') {
       return gulp.src(['public/' + folder + '/images/*'])
