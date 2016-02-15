@@ -16,9 +16,9 @@ module.exports = function(Bannertime) {
     this.fs.copy(filePath, filePath, {
       process: function(content) {
         var regEx = new RegExp('  "devDependencies": {');
-        var homepageExist = new RegExp('"homepage"');
-        if (homepageExist) {
-          var newContent = content.toString();
+        var homepageExist = new RegExp('"homepage": "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?",');
+        if (content.toString().match(homepageExist)) {
+          var newContent = content.toString().replace(homepageExist, '"homepage": "' + options.deployHomepage + '",');
         } else {
           var newContent = content.toString().replace(regEx, '  "homepage": "' + options.deployHomepage + '",\n  "devDependencies": {');
         }

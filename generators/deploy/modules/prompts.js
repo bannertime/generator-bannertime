@@ -29,7 +29,7 @@ module.exports = function(Bannertime) {
     }, {
       type: 'input',
       name: 'deployOrigin',
-      message: 'Set the user name you would like to deploy using:',
+      message: 'Set the origin you would like to deploy using:',
       default: 'live'
     }, {
       type: 'input',
