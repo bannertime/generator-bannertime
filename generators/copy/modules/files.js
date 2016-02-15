@@ -106,13 +106,13 @@ module.exports = function(Bannertime) {
   Bannertime.prototype.js = function() {
     if (this.props.bannerType == 'Sizmek') {
       this.fs.copy(
-        this.destinationPath('src/' + this.props.bannerMaster + '/js/EBLoader.js'),
+        this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
         this.destinationPath('src/' + this.props.bannerName + '/js/EBLoader.js')
       );
     }
     if (this.props.bannerType == 'Adform') {
       this.fs.copy(
-        this.destinationPath('src/' + this.props.bannerMaster + '/js/AdformDHTML.js'),
+        this.templatePath('../../app/templates/src/300x250/js/libs/AdformDHTML.js'),
         this.destinationPath('src/' + this.props.bannerName + '/js/AdformDHTML.js')
       );
     }
