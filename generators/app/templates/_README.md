@@ -9,6 +9,8 @@ Use `gulp` to automatically launch the banner into the browser with browsersync 
 
 Use `gulp prod` to generate a ZIP file of all the assets of the banner, these will all have been minified as well.
 
+Use `gulp backup-gen` to automatically generate backup images for each banner.
+
 ### Creating Elements
 
 You can create DOM elements using the the `smartObject` function, this will initialise a `<div>` with the default style of: `position: absolute; top: 0; left: 0;`.
