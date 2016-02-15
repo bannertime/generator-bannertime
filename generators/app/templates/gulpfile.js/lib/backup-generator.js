@@ -29,6 +29,7 @@ module.exports = function(opt) {
   opt.onLoadFinished = opt.onLoadFinished || {
     fn: function() {
       var _this = this;
+      var timeout = _this.renderDelay - 1000;
       setTimeout(function() {
         if (!_this.position) {
           banner.timeline.totalProgress(1, false).pause();
@@ -39,11 +40,12 @@ module.exports = function(opt) {
           banner[_this.hideObjects[i]].set({autoAlpha:0});
         }
         // window.callPhantom('takeShot');
-      }, 3000);
+      }, timeout);
     },
     context: {
       position: opt.position,
-      hideObjects: opt.hideObjects
+      hideObjects: opt.hideObjects,
+      renderDelay: opt.renderDelay
     }
   };
 

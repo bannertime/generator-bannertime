@@ -5,11 +5,12 @@ var gulp = require('gulp');
 var handleErrors = require('../lib/handleErrors');
 var backupGenerator = require('../lib/backup-generator');
 
-gulp.task('backup-generator', function() {
-  return gulp.src([config.publicDirectory + '/**/*.html', '!' + config.publicDirectory + '/index.html'])
+gulp.task('backup-gen', ['build:production'], function() {
+  return gulp.src([config.root.dest + '/**/*.html', '!' + config.root.dest + '/index.html'])
     .pipe(backupGenerator({
-      root: config.publicDirectory,
-      dest: config.sourceDirectory,
+      root: config.root.dest,
+      dest: config.root.src,
+      // overwrite: true,
       // position: 10,
       // hideObjects: ['rollover', 'icon', 'edition'],
       errorIfJSException: true,
