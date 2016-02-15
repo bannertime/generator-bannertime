@@ -97,6 +97,20 @@ Banner.prototype.smartObject = function(_settings) {
     TweenLite.set(element, settings);
   }
 
+  function setImage() {
+    var isSVG = this.src.slice(-4) === '.svg';
+    if (isSVG) {
+      document.body.appendChild(this);
+    }
+    settings.width = Math.round(settings.width || (settings.retina ? this.width / 2 : this.width));
+    settings.height = Math.round(settings.height || (settings.retina ? this.height / 2 : this.height));
+    settings.backgroundImage = 'url(' + this.src + ')';
+    applySettings();
+    if (isSVG) {
+      document.body.removeChild(this);
+    }
+  }
+
   function loadImg(src, setImg) {
     var img = _this.imageCache[src];
     if (img) {
@@ -128,20 +142,6 @@ Banner.prototype.smartObject = function(_settings) {
     }
   } else {
     applySettings();
-  }
-
-  function setImage() {
-    var isSVG = this.src.slice(-4) === '.svg';
-    if (isSVG) {
-      document.body.appendChild(this);
-    }
-    settings.width = Math.round(settings.width || (settings.retina ? this.width / 2 : this.width));
-    settings.height = Math.round(settings.height || (settings.retina ? this.height / 2 : this.height));
-    settings.backgroundImage = 'url(' + this.src + ')';
-    applySettings();
-    if (isSVG) {
-      document.body.removeChild(this);
-    }
   }
 
   // Helper functions

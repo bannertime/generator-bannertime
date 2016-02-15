@@ -6,6 +6,20 @@
 Banner.prototype.loader = function() {
   var _this = this;
 
+  function onVisible() {
+    _this.onVisible();
+  }
+
+  function pageLoaded() {
+    _this.onPolite();
+
+    if (Enabler.isVisible()) {
+      onVisible();
+    } else {
+      Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, onVisible);
+    }
+  }
+
   function enablerInitialised() {
     _this.onInit();
 
@@ -20,20 +34,6 @@ Banner.prototype.loader = function() {
     enablerInitialised();
   } else {
     Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitialised);
-  }
-
-  function pageLoaded() {
-    _this.onPolite();
-
-    if (Enabler.isVisible()) {
-      onVisible();
-    } else {
-      Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, onVisible);
-    }
-  }
-
-  function onVisible() {
-    _this.onVisible();
   }
 };
 
