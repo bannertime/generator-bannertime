@@ -11,9 +11,9 @@ export default function() {
   this.log(chalk.green('This may take a few minutes...'));
   this.log(chalk.red('Please be patient!'));
 
-  this.installDependencies({
-    skipInstall: this.options['skip-install']
-  });
+  if (!this.options['skip-install']) {
+    this.npmInstall();
+  }
 
   if (this.props.includeOfflineScripts === true) {
     this.npmInstall(['gsap'], {
