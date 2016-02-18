@@ -2,7 +2,7 @@
 
 // Register the Babel require hook
 require('babel-core/register')({
-  only: /generator-test\/(?!node_modules)/
+  only: /generator-bannertime\/(?!node_modules)/
 });
 
 // Export the generator
