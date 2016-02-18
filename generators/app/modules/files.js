@@ -200,7 +200,7 @@ export default function() {
     images: () => {
       this.directory('src/base/images', 'src/base/images');
       this.directory('src/300x250/images', 'src/' + this.props.bannerName + '-300x250/images');
-    };
+    },
 
     /**
      * Process the gulp tasks.
