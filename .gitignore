@@ -1,6 +1,7 @@
 # Folder settings files
 .DS_Store
 Desktop.ini
+.idea
 
 # Logs files
 *.log

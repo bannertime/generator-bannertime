@@ -1,13 +1,12 @@
 'use strict';
 
-var chalk = require('chalk');
+/**
+ * The generator welcome message.
+ */
 
-module.exports = function(Bannertime) {
+import chalk from 'chalk';
 
-  /**
-   * The generator welcome message.
-   */
-  Bannertime.prototype.welcome = function() {
+export default function() {
     var message =
     chalk.yellow('\n Its Duncan') +
     chalk.green('\n  _____                     _   _') +
@@ -15,6 +14,4 @@ module.exports = function(Bannertime) {
     chalk.green('\n | __ -| . |   |   | -_|  _|  _| |     | -_|') +
     chalk.green('\n |_____|__,|_|_|_|_|___|_| |_| |_|_|_|_|___|\n');
     console.log(message);
-  };
-
-};
+}
