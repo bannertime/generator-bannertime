@@ -173,15 +173,15 @@ export default function() {
   /**
    * Process the offline vendor scripts.
    */
-  function getVendorScript(vendor) {
-    let script = {
-      'DoubleClick': 'https://s0.2mdn.net/ads/studio/Enabler.js',
-      'Sizmek': 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
-      'Adform': 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js'
-    };
-    return script[vendor];
-  }
   if (this.props.includeOfflineScripts === true) {
+    let getVendorScript = (vendor) => {
+      let script = {
+        'DoubleClick': 'https://s0.2mdn.net/ads/studio/Enabler.js',
+        'Sizmek': 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
+        'Adform': 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js'
+      };
+      return script[vendor];
+    };
     new Download({
       mode: '755'
     })

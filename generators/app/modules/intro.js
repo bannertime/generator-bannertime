@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * The generator welcome message.
+ * The generator intro message.
  */
 
 import chalk from 'chalk';
