@@ -9,7 +9,7 @@ module.exports = function(Bannertime) {
    */
   Bannertime.prototype.end = function() {
     this.log(chalk.bold.green('Deploy task set up successfully...'));
-    this.log(chalk.red('Please visit http://pyramidium.github.io/generator-bannertime/deploy.html for more information'));
+    this.log(chalk.red('Run ') + chalk.green('gulp deploy') + chalk.red(' to deploy the public folder.'));
     this.log('');
   };
 

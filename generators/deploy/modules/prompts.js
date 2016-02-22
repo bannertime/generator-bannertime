@@ -13,29 +13,14 @@ module.exports = function(Bannertime) {
     var done = this.async();
     var prompts = [{
       type: 'input',
-      name: 'deployHomepage',
-      message: 'Set the homepage of the deploy:',
-      default: 'http://www.example.com/'
-    }, {
-      type: 'input',
-      name: 'deployDomain',
-      message: 'Set the domain name you would like to deploy to:',
-      default: 'example.domain.com'
-    }, {
-      type: 'input',
       name: 'deployUsername',
       message: 'Set the user name you would like to deploy using:',
       default: 'username'
     }, {
       type: 'input',
-      name: 'deployOrigin',
-      message: 'Set the origin you would like to deploy using:',
-      default: 'live'
-    }, {
-      type: 'input',
-      name: 'deployBranch',
-      message: 'Set the branch you would like to deploy to:',
-      default: 'deploy'
+      name: 'deployDomain',
+      message: 'Set the domain name you would like to deploy to:',
+      default: 'example.domain.com'
     }];
 
     this.prompt(prompts, function(props) {
