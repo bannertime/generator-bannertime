@@ -1,6 +1,7 @@
 'use strict';
 
 import {Base} from 'yeoman-generator';
+import checkVersion from './modules/checkVersion';
 import intro from './modules/intro';
 import checkConfig from './modules/checkConfig';
 import prompts from './modules/prompts';
@@ -23,6 +24,7 @@ export default class Generator extends Base {
 }
 
 Generator.prototype.intro = intro;
+Generator.prototype.checkVersion = checkVersion;
 Generator.prototype.checkConfig = checkConfig;
 Generator.prototype.prompts = prompts;
 Generator.prototype.files = files;
