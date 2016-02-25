@@ -62,7 +62,7 @@ Before you submit your pull request consider the following guidelines:
   that relates to your submission. You don't want to duplicate effort.
 * Make your changes in a new git branch:
 
-     ```shell
+     ```bash
      git checkout -b my-fix-branch master
      ```
 
@@ -72,14 +72,14 @@ Before you submit your pull request consider the following guidelines:
   [commit message conventions](#commit-message-format). Adherence to the [commit message conventions](#commit-message-format)
   is required.
 
-     ```shell
+     ```bash
      git commit -a
      ```
   Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
 
 * Push your branch to GitHub:
 
-    ```shell
+    ```bash
     git push origin my-fix-branch
     ```
 
@@ -88,7 +88,7 @@ Before you submit your pull request consider the following guidelines:
   * Make the required updates.
   * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
-    ```shell
+    ```bash
     git rebase master -i
     git push origin my-fix-branch -f
     ```
@@ -102,25 +102,25 @@ from the main (upstream) repository:
 
 * Delete the remote branch on GitHub either through the GitHub web UI or your local shell as follows:
 
-    ```shell
+    ```bash
     git push origin --delete my-fix-branch
     ```
 
 * Check out the master branch:
 
-    ```shell
+    ```bash
     git checkout master -f
     ```
 
 * Delete the local branch:
 
-    ```shell
+    ```bash
     git branch -D my-fix-branch
     ```
 
 * Update your master with the latest upstream version:
 
-    ```shell
+    ```bash
     git pull --ff upstream master
     ```
 

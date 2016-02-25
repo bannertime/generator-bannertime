@@ -5,23 +5,23 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Gitter Chat](http://img.shields.io/badge/chat-online-brightgreen.svg)](https://gitter.im/pyramidium/generator-bannertime)
 
-##### [Docs](docs/README.md) - [Guidelines](CONTRIBUTING.md) - [Changelog](https://github.com/pyramidium/generator-bannertime/releases) - [License](http://opensource.org/licenses/MIT)
+##### [Docs](https://pyramidium.github.io/generator-bannertime) - [Guidelines](CONTRIBUTING.md) - [Changelog](https://github.com/pyramidium/generator-bannertime/releases) - [License](http://opensource.org/licenses/MIT)
 
 ## Getting started
 
 #### Install bannertime:
-```sh
-$ npm install --global generator-bannertime
+```bash
+npm install --global generator-bannertime
 ```
 
 #### Create a new directory:
-```sh
-$ mkdir my-project && cd $_
+```bash
+mkdir my-project && cd $_
 ```
 
 #### Run the generator:
-```sh
-$ yo bannertime
+```bash
+yo bannertime
 ```
 
 ## Usage
