@@ -1,16 +1,12 @@
 'use strict';
 
-var chalk = require('chalk');
+/**
+ * Install the dependencies.
+ */
 
-module.exports = function(Bannertime) {
+import chalk from 'chalk';
 
-  /**
-   * Install dependencies.
-   */
-  Bannertime.prototype.install = function() {
-    this.log(chalk.green('Added deploy task, now running npm install'));
-    this.log(chalk.red('Please be patient!'));
-    this.npmInstall(['gulp-shell'], { 'saveDev': true });
-  };
-
-};
+export default function() {
+  this.log(chalk.green('Added deploy task, now installing required dependencies'));
+  this.npmInstall(['gulp-shell'], { 'saveDev': true });
+}

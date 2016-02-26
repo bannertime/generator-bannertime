@@ -1,12 +1,9 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
-var Bannertime = yeoman.generators.Base.extend();
+// Register the Babel require hook
+require('babel-core/register')({
+  only: /generator-bannertime\/(?!node_modules)/
+});
 
-require('./modules/welcome')(Bannertime);
-require('./modules/prompts')(Bannertime);
-require('./modules/files')(Bannertime);
-require('./modules/install')(Bannertime);
-require('./modules/end')(Bannertime);
-
-module.exports = Bannertime;
+// Export the generator
+exports = module.exports = require('./generator');

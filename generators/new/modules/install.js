@@ -1,20 +1,18 @@
 'use strict';
 
-var chalk = require('chalk');
+/**
+ * Install the dependencies.
+ */
 
-module.exports = function(Bannertime) {
+import chalk from 'chalk';
 
-  /**
-   * Install gsap locally.
-   */
-  Bannertime.prototype.install = function() {
-    if (this.props.includeOfflineScripts === true) {
-      this.npmInstall(['gsap'], {
-        'saveDev': true
-      });
-    };
+export default function() {
+  this.log(chalk.green('New banner format generated'));
 
-    this.log(chalk.green('New banner format generated'));
+  if (this.props.includeOfflineScripts === true) {
+    this.npmInstall(['gsap'], {
+      'saveDev': true
+    });
   };
+}
 
-};

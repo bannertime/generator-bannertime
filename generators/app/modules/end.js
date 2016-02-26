@@ -1,19 +1,16 @@
 'use strict';
 
-var chalk = require('chalk');
+/**
+ * The generator end message.
+ */
 
-module.exports = function(Bannertime) {
+import chalk from 'chalk';
 
-  /**
-   * Display a message when the generator has completed successfully.
-   */
-  Bannertime.prototype.end = function() {
-    this.log('\n');
-    this.log(chalk.bold.yellow('------------------------------------'));
-    this.log(chalk.bold.yellow('|  Start by entering \'') + chalk.bold.green('gulp') + chalk.bold.yellow('\' below  |'));
-    this.log(chalk.bold.yellow('------------------------------------'));
-    this.log(' ');
-    this.log(chalk.bold.red('For help: gulp help'));
-  };
-
-};
+export default function() {
+  this.log('\n');
+  this.log(chalk.bold.yellow('------------------------------------'));
+  this.log(chalk.bold.yellow('|  Start by entering \'') + chalk.bold.green('gulp') + chalk.bold.yellow('\' below  |'));
+  this.log(chalk.bold.yellow('------------------------------------'));
+  this.log(' ');
+  this.log(chalk.bold.red('For help: gulp help'));
+}

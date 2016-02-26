@@ -154,6 +154,19 @@ The subject contains succinct description of the change:
 
 **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
 
+# Releasing
+*(for contributors with push access)*
+
+* Manually bump the version number in package.json.
+
+* Push and publish `generator-bannertime`.
+```bash
+git commit -m "chore: bump version to x.x.x"
+git tag x.x.x
+git push origin master && git push --tags
+npm publish
+```
+
 [gitter]: https://gitter.im/pyramidium/generator-bannertime
 [airbnb]: https://github.com/airbnb/javascript/tree/master/es5
 [codepen]: http://codepen.io

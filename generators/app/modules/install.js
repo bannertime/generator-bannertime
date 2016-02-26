@@ -1,23 +1,25 @@
 'use strict';
 
-var chalk = require('chalk');
+/**
+ * Install the dependencies.
+ */
 
-module.exports = function(Bannertime) {
+import chalk from 'chalk';
 
-  /**
-   * Install dependencies from the package.json file.
-   */
-  Bannertime.prototype.install = function() {
-    if (this.props.includeOfflineScripts === true) {
-      this.npmInstall(['gsap'], {
-        'saveDev': true
-      });
-    };
+export default function() {
+  this.log(chalk.green('File structure set up, now running npm install'));
+  this.log(chalk.green('This may take a few minutes...'));
+  this.log(chalk.red('Please be patient!'));
 
-    this.log(chalk.green('File structure set up, now running npm install'));
-    this.log(chalk.green('This may take a few minutes...'));
-    this.log(chalk.red('Please be patient!'));
+  if (!this.options['skip-install']) {
     this.npmInstall();
-  };
+  }
 
-};
+  if (this.props.includeOfflineScripts === true) {
+    this.npmInstall(['gsap'], {
+      skipInstall: this.options['skip-install'],
+      'saveDev': true
+    });
+  };
+}
+
