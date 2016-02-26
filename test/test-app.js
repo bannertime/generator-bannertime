@@ -1,23 +1,35 @@
 'use strict';
 
+var assert = require('yeoman-assert');
+var helpers = require('yeoman-test');
 var path = require('path');
-var assert = require('yeoman-generator').assert;
-var helpers = require('yeoman-generator').test;
-var os = require('os');
 
-describe('testing the generator', function () {
+describe('bannertime generator', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
-      .withOptions({ skipInstall: true })
-      .withPrompts({ someOption: true })
+      .withPrompts({
+        features: []
+      })
       .on('end', done);
   });
 
-  it('creates files', function () {
+  it('the generator can be required without throwing', function () {
+    require('../generators/app');
+  });
+
+  it('creates expected files', function () {
     assert.file([
-      'package.json',
+      'src/base/images/desktop.png',
+      'src/base/images/loading.gif',
+      'src/base/images/logo.png',
+      'src/base/js/main.js',
+      'src/base/styles/style.scss',
+      'src/index.html',
       '.editorconfig',
-      '.jshintrc'
+      '.gitignore',
+      '.jshintrc',
+      'package.json',
+      'README.md',
     ]);
   });
 });

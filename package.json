@@ -24,7 +24,7 @@
     "framework"
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter spec --timeout 3000"
   },
   "files": [
     "generators"
@@ -38,6 +38,8 @@
     "yeoman-generator": "~0.20.3"
   },
   "devDependencies": {
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "yeoman-assert": "^2.1.1",
+    "yeoman-test": "^1.1.0"
   }
 }
