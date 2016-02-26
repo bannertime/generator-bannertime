@@ -13,11 +13,12 @@ describe('bannertime generator', function () {
       .on('end', done);
   });
 
-  it('the generator can be required without throwing', function () {
+  it('the generator can be required without throwing', function (done) {
     require('../generators/app');
+    done();
   });
 
-  it('creates expected files', function () {
+  it('creates expected files', function (done) {
     assert.file([
       'src/base/images/desktop.png',
       'src/base/images/loading.gif',
@@ -30,6 +31,6 @@ describe('bannertime generator', function () {
       '.jshintrc',
       'package.json',
       'README.md',
-    ]);
+    ], done());
   });
 });
