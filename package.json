@@ -24,7 +24,7 @@
     "framework"
   ],
   "scripts": {
-    "test": "mocha --reporter spec --timeout 3000"
+    "test": "mocha"
   },
   "files": [
     "generators"
