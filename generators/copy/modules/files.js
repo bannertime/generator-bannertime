@@ -65,10 +65,7 @@ export default function() {
   /**
    * Process the scss files.
    */
-  this.fs.copy(
-    this.destinationPath('src/' + this.props.bannerMaster + '/styles/style.scss'),
-    this.destinationPath('src/' + this.props.bannerName + '/styles/style.scss')
-  );
+  this.directory(this.destinationPath('src/' + this.props.bannerMaster + '/styles'), 'src/' + this.props.bannerName + '/styles');
   this.fs.copy(
     this.destinationPath('src/' + this.props.bannerMaster + '/styles/base/_banner.scss'),
     this.destinationPath('src/' + this.props.bannerName + '/styles/base/_banner.scss'), {
@@ -81,14 +78,11 @@ export default function() {
       return newContent;
     }
   });
-  this.fs.copy(
-    this.destinationPath('src/' + this.props.bannerMaster + '/styles/base/_preloader.scss'),
-    this.destinationPath('src/' + this.props.bannerName + '/styles/base/_preloader.scss')
-  );
 
   /**
    * Process the js files.
    */
+  this.directory(this.destinationPath('src/' + this.props.bannerMaster + '/js'), 'src/' + this.props.bannerName + '/js');
   if (this.props.bannerType == 'Sizmek') {
     this.fs.copy(
       this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
@@ -101,18 +95,6 @@ export default function() {
       this.destinationPath('src/' + this.props.bannerName + '/js/AdformDHTML.js')
     );
   }
-  this.fs.copy(
-    this.destinationPath('src/' + this.props.bannerMaster + '/js/banner.js'),
-    this.destinationPath('src/' + this.props.bannerName + '/js/banner.js')
-  );
-  this.fs.copy(
-    this.templatePath('../../app/templates/src/300x250/js/loader.' + this.bannerSuffix + '.js'),
-    this.destinationPath('src/' + this.props.bannerName + '/js/banner.loader.js')
-  );
-  this.fs.copy(
-    this.destinationPath('src/' + this.props.bannerMaster + '/js/banner.animation.js'),
-    this.destinationPath('src/' + this.props.bannerName + '/js/banner.animation.js')
-  );
 
   /**
    * Process the images.
