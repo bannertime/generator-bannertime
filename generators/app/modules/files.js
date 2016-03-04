@@ -38,8 +38,8 @@ export default function() {
     bannerName: this.props.bannerName,
     bannerDesc: this.props.bannerDesc,
     bannerType: this.props.bannerType,
-    bannerWidth: this.props.bannerWidth,
-    bannerHeight: this.props.bannerHeight,
+    bannerWidth: 300,
+    bannerHeight: 250,
     bannerRepo: this.props.bannerRepo,
     includeOfflineEnabler: this.props.includeOfflineScripts
   };
