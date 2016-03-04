@@ -4,8 +4,8 @@
     "title": "<%= bannerName %>",
     "description": "<%= bannerDesc %>",
 
-    "width" : "300",
-    "height": "250",
+    "width" : "<%= bannerWidth %>",
+    "height": "<%= bannerHeight %>",
 
     "events": {
         "enabled": 1,
