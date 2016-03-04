@@ -24,6 +24,8 @@
     "EB": true,
     "EBG": true,
     "dhtml": true,
+    "FT": true,
+    "myFT": true,
     "TimelineLite": false,
     "TimelineMax": false,
     "TweenLite": false,

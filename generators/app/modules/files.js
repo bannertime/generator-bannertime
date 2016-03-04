@@ -27,6 +27,9 @@ export default function() {
     case 'Atlas':
       this.bannerSuffix = 'atlas';
       break;
+    case 'Flashtalking':
+      this.bannerSuffix = 'flashtalking';
+      break;
     case 'None':
       this.bannerSuffix = 'none';
       break;
@@ -166,6 +169,13 @@ export default function() {
     this.fs.copyTpl(
       this.templatePath('src/300x250/js/_manifest.json'),
       this.destinationPath('src/' + this.props.bannerName + '-300x250/manifest.json'),
+      props
+    );
+  }
+  if (this.props.bannerType == 'Flashtalking') {
+    this.fs.copyTpl(
+      this.templatePath('src/300x250/js/_manifest.flashtalking.js'),
+      this.destinationPath('src/' + this.props.bannerName + '-300x250/manifest.js'),
       props
     );
   }

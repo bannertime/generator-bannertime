@@ -37,4 +37,5 @@ More information in the [documentation](docs/README.md).
 ![Logo](docs/assets/adform.png)
 ![Logo](docs/assets/sizmek.png)
 ![Logo](docs/assets/atlas.png)
+![Logo](docs/assets/flashtalking.jpg)
 ![Logo](docs/assets/yeoman.png)

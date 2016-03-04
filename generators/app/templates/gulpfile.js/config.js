@@ -44,6 +44,11 @@ module.exports = {
       'dest': dest
     },
 
+    'manifest': {
+      'src': src + '/**/manifest.*',
+      'dest': dest
+    },
+
     'sass': {
       'src': src + '/**/*.{sass,scss}',
       'dest': dest,
