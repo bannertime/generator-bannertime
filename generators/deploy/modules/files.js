@@ -6,7 +6,7 @@
 
 export default function() {
   let props = {
-    deployUser: this.props.deployUser,
+    deployUsername: this.props.deployUsername,
     deployDomain: this.props.deployDomain
   };
   this.fs.copyTpl(

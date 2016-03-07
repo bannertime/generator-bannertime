@@ -3,7 +3,7 @@
 
 PROJECT="$1"
 DIRECTORY=public
-USER=<%= deployUser %>
+USER=<%= deployUsername %>
 DOMAIN=<%= deployDomain %>
 
 if [ -d "$DIRECTORY" ];
