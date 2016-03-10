@@ -86,6 +86,10 @@ export default function() {
    * Process the js files.
    */
   this.directory(this.destinationPath('src/' + this.props.bannerMaster + '/js'), 'src/' + this.props.bannerName + '/js');
+  this.fs.copy(
+    this.templatePath('../../app/templates/src/300x250/js/loader.' + this.bannerSuffix + '.js'),
+    this.destinationPath('src/' + this.props.bannerName + '/js/banner.loader.js')
+  );
   if (this.props.bannerType == 'Sizmek') {
     this.fs.copy(
       this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
