@@ -1,6 +1,8 @@
 'use strict';
 
+import async from 'run-sequence';
 import babel from 'gulp-babel';
+import del from 'del';
 import fs from 'fs';
 import gulp from 'gulp';
 import {execSync} from 'child_process';
@@ -33,15 +35,6 @@ let release = 'patch';
 if (minor) release = 'minor';
 if (major) release = 'major';
 
-gulp.task('build', () => {
-  return gulp.src(['src/**/*.js', '!src/**/templates/**/*'])
-    .pipe(babel({
-      presets: ['es2015'],
-      plugins: ['babel-plugin-add-module-exports']
-    }))
-    .pipe(gulp.dest('generators'));
-});
-
 gulp.task('deploy', (done) => {
   updateConfig('package', release);
 
@@ -53,4 +46,26 @@ gulp.task('deploy', (done) => {
     execSync(`npm publish`, {stdio: 'inherit'});
     done();
   }, 1000);
+});
+
+gulp.task('transpile', () => {
+  return gulp.src(['src/**/*.js', '!src/**/templates/**/*'])
+    .pipe(babel({
+      presets: ['es2015'],
+      plugins: ['babel-plugin-add-module-exports']
+    }))
+    .pipe(gulp.dest('generators'));
+});
+
+gulp.task('templates', () => {
+  return gulp.src(['src/**/templates/**/*'])
+    .pipe(gulp.dest('generators'));
+});
+
+gulp.task('clean', () => {
+  del('generators');
+});
+
+gulp.task('build', ['clean'], (done) => {
+  async('transpile', 'templates', done);
 });
