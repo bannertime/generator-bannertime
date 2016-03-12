@@ -1,3 +1,6 @@
+# Build
+generators/
+
 # Folder settings files
 .DS_Store
 Desktop.ini
