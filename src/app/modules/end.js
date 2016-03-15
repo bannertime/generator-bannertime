@@ -1,16 +1,17 @@
-'use strict';
-
 /**
  * The generator end message.
  */
 
 import chalk from 'chalk';
 
-export default function() {
+export default function () {
+  const yellow = chalk.bold.yellow;
+  const green = chalk.bold.green;
+  const red = chalk.bold.red;
   this.log('\n');
-  this.log(chalk.bold.yellow('------------------------------------'));
-  this.log(chalk.bold.yellow('|  Start by entering \'') + chalk.bold.green('gulp') + chalk.bold.yellow('\' below  |'));
-  this.log(chalk.bold.yellow('------------------------------------'));
+  this.log(yellow('------------------------------------'));
+  this.log(yellow('|  Start by entering \'') + green('gulp') + yellow('\' below  |'));
+  this.log(yellow('------------------------------------'));
   this.log(' ');
-  this.log(chalk.bold.red('For help: gulp help'));
+  this.log(red('For help: gulp help'));
 }

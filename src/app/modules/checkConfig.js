@@ -1,12 +1,10 @@
-'use strict';
-
 /**
  * Check for predefined generator settings.
  */
 
-export default function() {
-  let cb = this.async();
-  let existingFilters = this.config.get('filters');
+export default function () {
+  const cb = this.async();
+  const existingFilters = this.config.get('filters');
 
   if (existingFilters) {
     this.prompt([{

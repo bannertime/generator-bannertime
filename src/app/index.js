@@ -1,6 +1,8 @@
-'use strict';
+/**
+ * Load the modules.
+ */
 
-import {Base} from 'yeoman-generator';
+import { Base } from 'yeoman-generator';
 import checkVersion from './modules/checkVersion';
 import intro from './modules/intro';
 import checkConfig from './modules/checkConfig';
@@ -13,12 +15,15 @@ export default class Generator extends Base {
   constructor(...args) {
     super(...args);
 
-    this.argument('name', { type: String, required: false });
+    this.argument('name', {
+      type: String,
+      required: false,
+    });
 
     this.option('skip-install', {
       desc: 'Do not install dependencies',
       type: Boolean,
-      defaults: false
+      defaults: false,
     });
   }
 }

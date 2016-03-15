@@ -1,17 +1,14 @@
-'use strict';
-
 /*
  * Generate files and process them.
  */
 
 import Download from 'download';
 
-export default function() {
-
+export default function () {
   /**
    * Set the default html file based on the type of banner.
    */
-  switch(this.props.bannerType) {
+  switch (this.props.bannerType) {
     case 'DoubleClick':
       this.bannerSuffix = 'doubleclick';
       break;
@@ -34,17 +31,17 @@ export default function() {
       this.bannerSuffix = 'none';
       break;
     default:
-      this.bannerSuffix = 'doubleclick'
+      this.bannerSuffix = 'doubleclick';
   }
 
-  let props = {
+  const props = {
     bannerName: this.props.bannerName,
     bannerDesc: this.props.bannerDesc,
     bannerType: this.props.bannerType,
     bannerWidth: 300,
     bannerHeight: 250,
     bannerRepo: this.props.bannerRepo,
-    includeOfflineEnabler: this.props.includeOfflineScripts
+    includeOfflineEnabler: this.props.includeOfflineScripts,
   };
 
   /**
@@ -57,7 +54,7 @@ export default function() {
   );
   this.fs.copyTpl(
     this.templatePath('src/300x250/_index.html'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/index.html'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/index.html`),
     props
   );
 
@@ -71,17 +68,17 @@ export default function() {
   );
   this.fs.copyTpl(
     this.templatePath('src/300x250/styles/style.scss'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/style.scss'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/styles/style.scss`),
     props
   );
   this.fs.copyTpl(
     this.templatePath('src/300x250/styles/base/banner.scss'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/base/_banner.scss'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/styles/base/_banner.scss`),
     props
   );
   this.fs.copyTpl(
     this.templatePath('src/300x250/styles/base/preloader.scss'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/styles/base/_preloader.scss'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/styles/base/_preloader.scss`),
     props
   );
 
@@ -92,29 +89,29 @@ export default function() {
     this.templatePath('src/base/js/main.js'),
     this.destinationPath('src/base/js/main.js')
   );
-  if (this.props.bannerType == 'Sizmek') {
+  if (this.props.bannerType === 'Sizmek') {
     this.fs.copy(
       this.templatePath('src/300x250/js/libs/EBLoader.js'),
-      this.destinationPath('src/' + this.props.bannerName + '-300x250/js/EBLoader.js')
+      this.destinationPath(`src/${this.props.bannerName}-300x250/js/EBLoader.js`)
     );
   }
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copy(
       this.templatePath('src/300x250/js/libs/AdformDHTML.js'),
-      this.destinationPath('src/' + this.props.bannerName + '-300x250/js/AdformDHTML.js')
+      this.destinationPath(`src/${this.props.bannerName}-300x250/js/AdformDHTML.js`)
     );
   }
   this.fs.copy(
     this.templatePath('src/300x250/js/banner.js'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.js')
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.js`)
   );
   this.fs.copy(
-    this.templatePath('src/300x250/js/loader.' + this.bannerSuffix + '.js'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.loader.js')
+    this.templatePath(`src/300x250/js/loader.${this.bannerSuffix}.js`),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.loader.js`)
   );
   this.fs.copy(
     this.templatePath('src/300x250/js/animation.js'),
-    this.destinationPath('src/' + this.props.bannerName + '-300x250/js/banner.animation.js')
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.animation.js`)
   );
 
   /**
@@ -147,35 +144,39 @@ export default function() {
     this.destinationPath('.gitignore')
   );
   this.fs.copy(
-    this.templatePath('jshintrc'),
-    this.destinationPath('.jshintrc')
+    this.templatePath('eslintrc'),
+    this.destinationPath('.eslintrc')
+  );
+  this.fs.copy(
+    this.templatePath('babelrc'),
+    this.destinationPath('.babelrc')
   );
 
   /**
    * Process the images.
    */
   this.directory('src/base/images', 'src/base/images');
-  this.directory('src/300x250/images', 'src/' + this.props.bannerName + '-300x250/images');
+  this.directory('src/300x250/images', `src/${this.props.bannerName}-300x250/images`);
 
   /**
    * Process the gulp tasks.
    */
-  this.directory('gulpfile.js', 'gulpfile.js');
+  this.directory('gulpfile.babel.js', 'gulpfile.babel.js');
 
   /**
    * Process the manifest file.
    */
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copyTpl(
       this.templatePath('src/300x250/js/_manifest.json'),
-      this.destinationPath('src/' + this.props.bannerName + '-300x250/manifest.json'),
+      this.destinationPath(`src/${this.props.bannerName}-300x250/manifest.json`),
       props
     );
   }
-  if (this.props.bannerType == 'Flashtalking') {
+  if (this.props.bannerType === 'Flashtalking') {
     this.fs.copyTpl(
       this.templatePath('src/300x250/js/_manifest.flashtalking.js'),
-      this.destinationPath('src/' + this.props.bannerName + '-300x250/manifest.js'),
+      this.destinationPath(`src/${this.props.bannerName}-300x250/manifest.js`),
       props
     );
   }
@@ -184,20 +185,17 @@ export default function() {
    * Process the offline vendor scripts.
    */
   if (this.props.includeOfflineScripts === true) {
-    let getVendorScript = (vendor) => {
-      let script = {
-        'DoubleClick': 'https://s0.2mdn.net/ads/studio/Enabler.js',
-        'Sizmek': 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
-        'Adform': 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js'
+    const getVendorScript = (vendor) => {
+      const script = {
+        DoubleClick: 'https://s0.2mdn.net/ads/studio/Enabler.js',
+        Sizmek: 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
+        Adform: 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js',
       };
       return script[vendor];
     };
-    new Download({
-      mode: '755'
-    })
+    new Download({ mode: '755' })
       .get(getVendorScript(this.props.bannerType))
       .dest('offline')
       .run();
   }
-
 }
