@@ -5,6 +5,7 @@ import babel from 'gulp-babel';
 import del from 'del';
 import fs from 'fs';
 import gulp from 'gulp';
+import watch from 'gulp-watch';
 import {execSync} from 'child_process';
 import semver from 'semver';
 
@@ -38,7 +39,7 @@ if (major) release = 'major';
 gulp.task('deploy', (done) => {
   updateConfig('package', release);
 
-  setTimeout(()=> {
+  setTimeout(() => {
     console.log(`version updated to ${version}. Committing and tagging now...`);
     execSync(`git status && git add --all && git status`, {stdio: 'inherit'});
     execSync(`git commit -m "chore: bump version to ${version}"`, {stdio: 'inherit'});
@@ -68,4 +69,13 @@ gulp.task('clean', () => {
 
 gulp.task('build', ['clean'], (done) => {
   async('transpile', 'templates', done);
+});
+
+gulp.task('watch', () => {
+  watch('src/**/templates/**/*', () => gulp.start('templates'));
+  watch(['src/**/*.js', '!src/**/templates/**/*'], () => gulp.start('transpile'));
+});
+
+gulp.task('default', (done) => {
+  async('build', 'watch', done);
 });
