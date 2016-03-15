@@ -1,12 +1,7 @@
-'use strict';
+import gulp from 'gulp';
+import pkg from '../../package.json';
+import { execSync } from 'child_process';
 
-var gulp  = require('gulp');
-var pkg = require('../../package.json');
-var shell = require('gulp-shell');
-
-gulp.task('deploy', ['prod'], function() {
-  return gulp.src('*.js', {read: false})
-    .pipe(shell(['bash gulpfile.js/lib/deploy.sh ' + pkg.name], {
-      interactive: true
-    }));
+gulp.task('deploy', ['prod'], () => {
+  execSync(`bash gulpfile.babel.js/lib/deploy.sh ${pkg.name}`);
 });

@@ -1,5 +1,4 @@
 #!/bin/bash
-# Go into the public facing directory and create a *new* Git repo
 
 PROJECT="$1"
 DIRECTORY=public

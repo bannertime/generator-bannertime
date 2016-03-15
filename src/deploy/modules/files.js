@@ -1,21 +1,19 @@
-'use strict';
-
 /*
  * Process the deploy script and task.
  */
 
-export default function() {
-  let props = {
+export default function () {
+  const props = {
     deployUsername: this.props.deployUsername,
-    deployDomain: this.props.deployDomain
+    deployDomain: this.props.deployDomain,
   };
   this.fs.copyTpl(
     this.templatePath('_deploy.sh'),
-    this.destinationPath('gulpfile.js/lib/deploy.sh'),
+    this.destinationPath('gulpfile.babel.js/lib/deploy.sh'),
     props
   );
   this.fs.copy(
     this.templatePath('deploy.js'),
-    this.destinationPath('gulpfile.js/tasks/deploy.js')
+    this.destinationPath('gulpfile.babel.js/tasks/deploy.js')
   );
 }
