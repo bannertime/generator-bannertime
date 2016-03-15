@@ -1,66 +1,52 @@
-'use strict';
-
 /**
  * The questions that the sub-generator will ask.
  */
 
 import fs from 'fs';
 import path from 'path';
-import s from 'underscore.string';
 
-export default function() {
+export default function () {
   if (this.skipConfig) return;
-  let cb = this.async();
+  const cb = this.async();
 
-  let getFolders = (dir) => {
-    return fs.readdirSync(dir).filter((file) => {
-      if (file !== 'base') {
-        return fs.statSync(path.join(dir, file)).isDirectory();
-      }
-    });
-  };
-
-  let currentBanners = getFolders('./src');
+  const getFolders = p => fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory());
+  const currentBanners = getFolders('./src');
+  const base = currentBanners.indexOf('base');
+  if (base > -1) currentBanners.splice(base, 1);
 
   this.prompt([{
     type: 'list',
     name: 'bannerMaster',
     message: 'Which banner do you want to copy?',
     choices: currentBanners,
-    default: currentBanners[0]
+    default: currentBanners[0],
   }, {
     type: 'input',
     name: 'bannerWidth',
     message: 'Set the width of the banner:',
-    default: '300'
+    default: '300',
   }, {
     type: 'input',
     name: 'bannerHeight',
     message: 'Set the height of the banner:',
-    default: '250'
+    default: '250',
   }, {
     type: 'input',
     name: 'bannerName',
     message: 'What is the name of the new format?:',
-    default: (answer) => {
-      var name = this.appname + '-' + answer.bannerWidth + 'x' + answer.bannerHeight;
-      return name;
-    },
-    filter: (answer) => {
-      var hyphenate = answer.replace(/\s+/g, '-');
-      return hyphenate;
-    }
+    default: (answer) => `${this.appname}-${answer.bannerWidth}x${answer.bannerHeight}`,
+    filter: (answer) => answer.replace(/\s+/g, '-'),
   }, {
     type: 'list',
     name: 'bannerType',
     message: 'What type of banner is it?',
     choices: ['DoubleClick', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'None'],
-    default: 'DoubleClick'
+    default: 'DoubleClick',
   }, {
     type: 'confirm',
     name: 'includeOfflineScripts',
     message: 'Include vendor scripts for offline use?',
-    default: false
+    default: false,
   }], (props) => {
     this.props = props;
     cb();
