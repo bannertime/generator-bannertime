@@ -26,7 +26,7 @@ yo bannertime
 
 ## Usage
 
-More information in the [documentation](docs/README.md).
+More information in the [documentation](https://pyramidium.github.io/generator-bannertime).
 
 ## Platforms
 
