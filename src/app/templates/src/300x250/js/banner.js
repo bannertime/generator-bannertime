@@ -1,22 +1,22 @@
 'use strict';
 
-var Banner = function() {
+var Banner = function () {
   this.loader();
   this.imageCache = {};
 };
 
-Banner.prototype.onInit = function() {
+Banner.prototype.onInit = function () {
   console.log('Banner initialised');
 };
 
-Banner.prototype.onPolite = function() {
+Banner.prototype.onPolite = function () {
   console.log('Polite loading scripts');
 };
 
 /**
  * Polite load scripts and trigger the
  */
-Banner.prototype.onVisible = function() {
+Banner.prototype.onVisible = function () {
   var _this = this;
 
   this.politeLoad([
@@ -24,7 +24,7 @@ Banner.prototype.onVisible = function() {
     'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TimelineLite.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/plugins/CSSPlugin.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/easing/EasePack.min.js'
-  ], function() {
+  ], function () {
     _this.start();
   });
 };
@@ -32,7 +32,7 @@ Banner.prototype.onVisible = function() {
 /**
  * Set up smart object method.
  */
-Banner.prototype.smartObject = function(_settings) {
+Banner.prototype.smartObject = function (_settings) {
   var _this = this;
 
   var settings = _settings || {};
@@ -51,7 +51,7 @@ Banner.prototype.smartObject = function(_settings) {
     case 'canvas' :
       element.width = settings.width;
       element.height = settings.height;
-    break;
+      break;
     case 'video' :
       if (settings.autoplay) { element.autoplay = settings.autoplay; }
       if (settings.loop) { element.loop = settings.loop; }
@@ -59,7 +59,7 @@ Banner.prototype.smartObject = function(_settings) {
       if (settings.muted) { element.muted = settings.muted; }
       if (settings.poster) { element.poster = settings.poster; }
       if (settings.preload) { element.preload = settings.preload; }
-    break;
+      break;
   }
 
   if (settings.sources) {
@@ -145,16 +145,16 @@ Banner.prototype.smartObject = function(_settings) {
   }
 
   // Helper functions
-  element.appendChildren = function(children) { for(var i = 0; i < children.length; ++i) { this.appendChild(children[i]); } };
-  element.set = function(settings) { TweenLite.set(this, settings); };
-  element.to = function(time, settings) { TweenLite.to(this, time, settings); };
-  element.from = function(time, settings) { TweenLite.from(this, time, settings); };
-  element.fromTo = function(time, from, to) { TweenLite.fromTo(this, time, from, to); };
-  element.get = function(property) { return ((this._gsTransform && this._gsTransform[property]) || (this._gsTransform && this._gsTransform[property] === 0)) ? this._gsTransform[property] : (this.style[property].slice(-2) === 'px') ? parseFloat(this.style[property]) : this.style[property]; };
-  element.center = function() { TweenLite.set(this, {top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2}); };
-  element.centerHorizontal = function() { TweenLite.set(this, {left: '50%', marginLeft: -this.offsetWidth / 2}); };
-  element.centerVertical = function() { TweenLite.set(this, {top: '50%', marginTop: -this.offsetHeight / 2}); };
-  element.getOriginal = function(property){ return element._settings[property] || 0;};
+  element.appendChildren = function (children) { for (var i = 0; i < children.length; ++i) { this.appendChild(children[i]); } };
+  element.set = function (settings) { TweenLite.set(this, settings); };
+  element.to = function (time, settings) { TweenLite.to(this, time, settings); };
+  element.from = function (time, settings) { TweenLite.from(this, time, settings); };
+  element.fromTo = function (time, from, to) { TweenLite.fromTo(this, time, from, to); };
+  element.get = function (property) { return ((this._gsTransform && this._gsTransform[property]) || (this._gsTransform && this._gsTransform[property] === 0)) ? this._gsTransform[property] : (this.style[property].slice(-2) === 'px') ? parseFloat(this.style[property]) : this.style[property]; };
+  element.center = function () { TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2 }); };
+  element.centerHorizontal = function () { TweenLite.set(this, { left: '50%', marginLeft: -this.offsetWidth / 2 }); };
+  element.centerVertical = function () { TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2 }); };
+  element.getOriginal = function (property) { return element._settings[property] || 0;};
 
   return element;
 };
@@ -162,7 +162,7 @@ Banner.prototype.smartObject = function(_settings) {
 /**
  * Preload images method.
  */
-Banner.prototype.preloadImages = function(images, callback, scope) {
+Banner.prototype.preloadImages = function (images, callback, scope) {
   var _this = this;
   var l = images.length;
   var loaded = 0;
@@ -171,7 +171,7 @@ Banner.prototype.preloadImages = function(images, callback, scope) {
   for (var i = 0; i < l; ++i) {
     img = document.createElement('img');
     img.src = img.microSrc = images[i];
-    img.onload = function(){
+    img.onload = function () {
       _this.imageCache[this.microSrc] = this;
       loaded++;
       if (loaded === l) {

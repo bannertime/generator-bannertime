@@ -3,7 +3,7 @@
 /**
  * DoubleClick enabler events.
  */
-Banner.prototype.loader = function() {
+Banner.prototype.loader = function () {
   var _this = this;
 
   function onVisible() {
@@ -40,9 +40,9 @@ Banner.prototype.loader = function() {
 /**
  * DoubleClick polite load.
  */
-Banner.prototype.politeLoad = function(urls, onComplete) {
+Banner.prototype.politeLoad = function (urls, onComplete) {
   var loaded = 0;
-  var checkProgress = function() {
+  var checkProgress = function () {
     if (++loaded === urls.length && onComplete) {
       onComplete();
     }
@@ -55,8 +55,8 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
 /**
  * Bind Enabler events.
  */
-Banner.prototype.bindEvents = function() {
-  this.banner.addEventListener('click', function() {
+Banner.prototype.bindEvents = function () {
+  this.banner.addEventListener('click', function () {
     Enabler.exit('clickthrough');
   });
 };

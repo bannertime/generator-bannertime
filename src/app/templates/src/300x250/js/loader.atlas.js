@@ -3,15 +3,15 @@
 /**
  * Load events - similar to jQuery window load and dom ready.
  */
-Banner.prototype.loader = function() {
+Banner.prototype.loader = function () {
   var _this = this;
 
   function addEvent(elem, event, fn) {
     if (elem.addEventListener) {
       elem.addEventListener(event, fn, false);
     } else {
-      elem.attachEvent('on' + event, function() {
-        return(fn.call(elem, window.event));
+      elem.attachEvent('on' + event, function () {
+        return (fn.call(elem, window.event));
       });
     }
   }
@@ -27,9 +27,9 @@ Banner.prototype.loader = function() {
 /**
  * Polite load scripts.
  */
-Banner.prototype.politeLoad = function(urls, onComplete) {
+Banner.prototype.politeLoad = function (urls, onComplete) {
   var loaded = 0;
-  var checkProgress = function() {
+  var checkProgress = function () {
     if (++loaded === urls.length && onComplete) {
       onComplete();
     }
@@ -42,18 +42,18 @@ Banner.prototype.politeLoad = function(urls, onComplete) {
 /**
  * Load script method.
  */
-Banner.prototype.loadScript = function(url, callback) {
+Banner.prototype.loadScript = function (url, callback) {
   var script = document.createElement('script');
   script.type = 'text/javascript';
   if (script.readyState) {
-    script.onreadystatechange = function() {
+    script.onreadystatechange = function () {
       if (script.readyState === 'loaded' || script.readyState === 'complete') {
         script.onreadystatechange = null;
         callback();
       }
     };
   } else {
-    script.onload = function(){
+    script.onload = function () {
       callback();
     };
   }
