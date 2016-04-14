@@ -12,10 +12,10 @@ gulp.task('sass', () => {
   return gulp.src(config.tasks.sass.src)
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .on('error', handleErrors)
     .pipe(sourcemaps.write())
     .pipe(autoprefixer(config.tasks.sass.autoprefixer))
     .pipe(gulpif(process.env.NODE_ENV == 'production', nano({ zindex: false })))
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.stream());
 });

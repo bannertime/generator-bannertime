@@ -18,6 +18,7 @@ gulp.task('svg-sprite', ['svg-fallback'], () => {
 gulp.task('svg-fallback', ()  => {
   return gulp.src(config.tasks.svgSprite.src)
     .pipe(svgfallback())
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.stream());
 });

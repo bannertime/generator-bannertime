@@ -1,9 +1,10 @@
 import * as config from '../config';
 import babel from 'gulp-babel';
 import browserSync from 'browser-sync';
+import eslint from 'gulp-eslint';
 import gulp from 'gulp';
 import gulpif from 'gulp-if';
-import eslint from 'gulp-eslint';
+import handleErrors from '../lib/handleErrors';
 import uglify from 'gulp-uglify';
 
 gulp.task('js', () => {
@@ -12,6 +13,7 @@ gulp.task('js', () => {
     .pipe(gulpif(process.env.NODE_ENV == 'production', eslint.format()))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(gulpif(process.env.NODE_ENV == 'production', uglify()))
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.stream());
 });
