@@ -14,12 +14,12 @@ gulp.task('svg-sprite', ['svg-fallback'], function() {
     .pipe(svgstore())
     .on('error', handleErrors)
     .pipe(gulp.dest(config.tasks.svgSprite.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.stream());
 });
 
 gulp.task('svg-fallback', function() {
   return gulp.src(config.tasks.svgSprite.src)
     .pipe(svgfallback())
     .pipe(gulp.dest(config.tasks.svgSprite.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.stream());
 });

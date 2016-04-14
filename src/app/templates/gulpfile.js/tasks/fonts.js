@@ -9,5 +9,5 @@ gulp.task('fonts', function() {
   return gulp.src(config.tasks.fonts.src)
     .pipe(changed(config.tasks.fonts.dest))
     .pipe(gulp.dest(config.tasks.fonts.dest))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.stream());
 });

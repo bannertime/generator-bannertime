@@ -11,5 +11,5 @@ gulp.task('html', function() {
   return gulp.src(config.tasks.html.src)
     .pipe(gulpif(process.env.NODE_ENV == 'production', htmlmin(config.tasks.html.htmlmin)))
     .pipe(gulp.dest(config.tasks.html.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.stream());
 });

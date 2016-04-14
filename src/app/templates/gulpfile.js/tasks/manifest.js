@@ -7,5 +7,5 @@ var gulp = require('gulp');
 gulp.task('manifest', function() {
   return gulp.src(config.tasks.manifest.src)
     .pipe(gulp.dest(config.tasks.manifest.dest))
-    .pipe(browserSync.reload({stream: true}));
+    .pipe(browserSync.stream());
 });
