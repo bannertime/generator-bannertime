@@ -19,5 +19,5 @@ then
   ssh $USER@$DOMAIN "mkdir -p htdocs/$PROJECT" && scp -r . $USER@$DOMAIN:htdocs/$PROJECT/
   open http://$DOMAIN/$PROJECT/
 else
-  echo "$DIRECTORY does not exist!"`
+  echo "$DIRECTORY does not exist!"
 fi
