@@ -1,78 +1,103 @@
-'use strict';
+class Preview {
+  constructor() {
+    this.currentFormat = 0;
+    this.bindSelectors();
+    this.bindEvents();
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
-  var links = Array.prototype.slice.call(document.querySelectorAll('a'));
-  var iframe = document.querySelector('iframe');
-  var sideBar = document.querySelector('.sidebar');
-  var up = document.querySelector('.up');
-  var down = document.querySelector('.down');
-  var left = document.querySelector('.left');
-  var right = document.querySelector('.right');
+  bindSelectors() {
+    this.links = Array.prototype.slice.call(document.querySelectorAll('a'));
+    this.iframe = document.querySelector('iframe');
+    this.sideBar = document.querySelector('.sidebar');
+    this.up = document.querySelector('.up');
+    this.down = document.querySelector('.down');
+    this.left = document.querySelector('.left');
+    this.right = document.querySelector('.right');
+  }
 
-  Array.prototype.next = function() {
-      return this[this.current++];
-  };
+  bindEvents() {
+    this.onKeyDown = this.onKeyDown.bind(this);
+    this.onKeyUp = this.onKeyUp.bind(this);
+    this.onClick = this.onClick.bind(this);
 
-  Array.prototype.prev = function() {
-      return this[this.current--];
-  };
+    document.addEventListener('keydown', this.onKeyDown);
+    document.addEventListener('keyup', this.onKeyUp);
 
-  Array.prototype.current = 0;
-
-  function keyDown(e) {
-    console.log(links.current);
-    if (e.keyCode === 37) {
-      e.preventDefault();
-      left.classList.add('active');
-      TweenLite.to(sideBar, 1, {width: 0, padding: 0, ease: Power1.easeInOut});
-    } else if (e.keyCode === 39) {
-      e.preventDefault();
-      right.classList.add('active');
-      TweenLite.to(sideBar, 1, {width: 200, padding: '0 40px', ease: Power1.easeInOut});
-    } else if (e.keyCode === 38) {
-      e.preventDefault();
-      up.classList.add('active');
-      iframe.src = links.prev().href;
-      if (links.current === -1) {
-        links.current = links.length - 1;
-      }
-    } else if (e.keyCode === 40) {
-      e.preventDefault();
-      down.classList.add('active');
-      iframe.src = links.next().href;
-      if (links.current === links.length) {
-        links.current = 0;
-      }
+    for (let i = 0; i < this.links.length; i++) {
+      this.links[i].addEventListener('click', this.onClick);
     }
   }
 
-  function keyUp(e) {
-    e.preventDefault();
-    up.classList.remove('active');
-    right.classList.remove('active');
-    down.classList.remove('active');
-    left.classList.remove('active');
+  nextFormat(array) {
+    return array[this.currentFormat++];
   }
 
-  document.addEventListener('keydown', keyDown);
-  document.addEventListener('keyup', keyUp);
+  prevFormat(array) {
+    return array[this.currentFormat--];
+  }
 
-  function handleClick(e) {
+  onKeyDown(e) {
+    switch (e.keyCode) {
+      // Left arrow
+      case 37:
+        e.preventDefault();
+        this.left.classList.add('active');
+        TweenMax.to(this.sideBar, 1, { width: 0, padding: 0, ease: Power1.easeInOut });
+        break;
+      // Up arrow
+      case 38:
+        e.preventDefault();
+        this.up.classList.add('active');
+        this.iframe.src = this.prevFormat(this.links).href;
+        if (this.currentFormat === -1) {
+          this.currentFormat = this.links.length - 1;
+        }
+        break;
+      // Right arrow
+      case 39:
+        e.preventDefault();
+        this.right.classList.add('active');
+        TweenMax.to(this.sideBar, 1, { width: 200, padding: '0 40px', ease: Power1.easeInOut });
+        break;
+      // Down arrow
+      case 40:
+        e.preventDefault();
+        this.down.classList.add('active');
+        this.iframe.src = this.nextFormat(this.links).href;
+        if (this.currentFormat === this.links.length) {
+          this.currentFormat = 0;
+        }
+        break;
+      default :
+        break;
+    }
+  }
+
+  onKeyUp(e) {
     e.preventDefault();
-    iframe.src = this.href;
-    TweenLite.set('.iframe iframe', {autoAlpha: 0});
-    TweenLite.set('.loading', {display: 'block', autoAlpha: 1});
-    setTimeout(function() {
-      var banner = iframe.contentWindow.document.querySelector('.banner');
+    this.up.classList.remove('active');
+    this.right.classList.remove('active');
+    this.down.classList.remove('active');
+    this.left.classList.remove('active');
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    this.iframe.src = e.target.href;
+    TweenMax.set('.iframe iframe', { autoAlpha: 0 });
+    TweenMax.set('.loading', { display: 'block', autoAlpha: 1 });
+    setTimeout(() => {
+      const banner = this.iframe.contentWindow.document.querySelector('.banner');
       if (banner) {
-        TweenLite.set('.loading', {autoAlpha: 0});
-        TweenLite.to('.iframe iframe', 1, {autoAlpha: 1});
-        TweenLite.set(banner, {top: 0, right: 0, bottom: 0, left: 0, position: 'absolute', margin: 'auto'});
+        TweenMax.set('.loading', { autoAlpha: 0 });
+        TweenMax.to('.iframe iframe', 1, { autoAlpha: 1 });
+        TweenMax.set(banner, { top: 0, right: 0, bottom: 0, left: 0,
+          position: 'absolute', margin: 'auto' });
       }
     }, 1000);
   }
+}
 
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener('click', handleClick);
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  new Preview(); // eslint-disable-line no-new
 });
