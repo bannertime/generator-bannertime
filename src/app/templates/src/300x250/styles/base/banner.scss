@@ -1,0 +1,18 @@
+$banner-width: 300px;
+$banner-height: 250px;
+
+.banner {
+  background: #fff;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  height: $banner-height;
+  left: 50%;
+  margin-left: -$banner-width / 2;
+  margin-top: -$banner-height / 2;
+  overflow: hidden;
+  position: relative;
+  position: absolute;
+  top: 50%;
+  width: $banner-width;
+}

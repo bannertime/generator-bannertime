@@ -89,29 +89,39 @@ export default function () {
     this.templatePath('src/base/js/main.js'),
     this.destinationPath('src/base/js/main.js')
   );
-  if (this.props.bannerType === 'Sizmek') {
-    this.fs.copy(
-      this.templatePath('src/300x250/js/libs/EBLoader.js'),
-      this.destinationPath(`src/${this.props.bannerName}-300x250/js/EBLoader.js`)
-    );
-  }
-  if (this.props.bannerType === 'Adform') {
-    this.fs.copy(
-      this.templatePath('src/300x250/js/libs/AdformDHTML.js'),
-      this.destinationPath(`src/${this.props.bannerName}-300x250/js/AdformDHTML.js`)
-    );
-  }
   this.fs.copy(
     this.templatePath('src/300x250/js/banner.js'),
     this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.js`)
   );
   this.fs.copy(
-    this.templatePath(`src/300x250/js/loader.${this.bannerSuffix}.js`),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.loader.js`)
+    this.templatePath('src/300x250/js/animate.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/animate.js`)
   );
   this.fs.copy(
-    this.templatePath('src/300x250/js/animation.js'),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.animation.js`)
+    this.templatePath('src/300x250/js/setup.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/setup.js`)
+  );
+  this.fs.copy(
+    this.templatePath('src/300x250/js/start.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/start.js`)
+  );
+  // TODO: refactor how loaders work
+  if (this.props.bannerType === 'Sizmek') {
+    this.fs.copy(
+      this.templatePath('src/modules/EBLoader.js'),
+      this.destinationPath(`src/${this.props.bannerName}-300x250/js/EBLoader.js`)
+    );
+  }
+  if (this.props.bannerType === 'Adform') {
+    this.fs.copy(
+      this.templatePath('src/modules/AdformDHTML.js'),
+      this.destinationPath(`src/${this.props.bannerName}-300x250/js/AdformDHTML.js`)
+    );
+  }
+  // TODO: replace the template type using the banner suffix
+  this.fs.copy(
+    this.templatePath(`src/modules/loader.${this.bannerSuffix}.js`),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/loader.js`)
   );
 
   /**
