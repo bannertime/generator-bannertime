@@ -5,6 +5,7 @@ import GulpIf from 'gulp-if';
 import EsLint from 'gulp-eslint';
 import handleErrors from '../lib/handleErrors';
 import Named from 'vinyl-named';
+import Path from 'path';
 import Plumber from 'gulp-plumber';
 import Webpack from 'webpack-stream';
 import webpackConf from '../lib/webpack.conf';
@@ -12,7 +13,7 @@ import webpackConf from '../lib/webpack.conf';
 const repath = (target, removal, pathOnly) => {
   return target.replace(removal, '')
     .replace(pathOnly ? /\.[^/.]+$/ : '', '')
-    .replace(new RegExp(`\\${path.sep} g`), '/');
+    .replace(new RegExp(`\\${Path.sep} g`), '/');
 };
 
 Gulp.task('configure', () => {

@@ -94,8 +94,8 @@ export default function () {
     this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.js`)
   );
   this.fs.copy(
-    this.templatePath('src/300x250/js/animate.js'),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/animate.js`)
+    this.templatePath('src/300x250/js/createElements.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/createElements.js`)
   );
   this.fs.copy(
     this.templatePath('src/300x250/js/setup.js'),
@@ -105,6 +105,11 @@ export default function () {
     this.templatePath('src/300x250/js/start.js'),
     this.destinationPath(`src/${this.props.bannerName}-300x250/js/start.js`)
   );
+  this.fs.copy(
+    this.templatePath('src/300x250/js/animate.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/animate.js`)
+  );
+  this.directory('src/modules', 'src/modules');
   // TODO: refactor how loaders work
   if (this.props.bannerType === 'Sizmek') {
     this.fs.copy(

@@ -3,6 +3,7 @@ import BrowserSync from 'browser-sync';
 import Changed from 'gulp-changed';
 import Gulp from 'gulp';
 import GulpIf from 'gulp-if';
+import handleErrors from '../lib/handleErrors';
 import ImageMin from 'gulp-imagemin';
 import Plumber from 'gulp-plumber';
 
