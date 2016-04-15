@@ -1,15 +1,16 @@
 import * as config from '../config';
-import browserSync from 'browser-sync';
-import changed from 'gulp-changed';
-import gulp from 'gulp';
-import handleErrors from '../lib/handleErrors';
-import imagemin from 'gulp-imagemin';
+import BrowserSync from 'browser-sync';
+import Changed from 'gulp-changed';
+import Gulp from 'gulp';
+import GulpIf from 'gulp-if';
+import ImageMin from 'gulp-imagemin';
+import Plumber from 'gulp-plumber';
 
-gulp.task('images', () => {
-  return gulp.src(config.tasks.images.src)
-    .pipe(changed(config.dest))
-    .pipe(imagemin())
-    .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+Gulp.task('images', () => {
+  return Gulp.src(config.tasks.images.src)
+    .pipe(Plumber({ errorHandler: handleErrors }))
+    .pipe(Changed(config.dest))
+    .pipe(GulpIf(process.env.NODE_ENV === 'production', ImageMin()))
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });

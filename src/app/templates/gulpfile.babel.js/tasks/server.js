@@ -1,14 +1,14 @@
 import * as config from '../config';
-import gulp from 'gulp';
-import express from 'express';
-import gutil from 'gulp-util';
-import open from 'open';
+import Gulp from 'gulp';
+import Express from 'express';
+import GulpUtil from 'gulp-util';
+import Open from 'open';
 
-gulp.task('server', () => {
+Gulp.task('server', () => {
   const url = `http://localhost:${config.tasks.server.port}`;
-  express()
-    .use('/', express.static(config.tasks.server.root, config.tasks.server.staticOptions))
+  Express()
+    .use('/', Express.static(config.tasks.server.root, config.tasks.server.staticOptions))
     .listen(config.tasks.server.port);
-  gutil.log('Production server started on ' + gutil.colors.green(url));
-  open(url);
+  GulpUtil.log(`Production server started on ${GulpUtil.colors.green(url)}`);
+  Open(url);
 });

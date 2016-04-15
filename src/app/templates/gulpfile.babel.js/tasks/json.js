@@ -1,9 +1,9 @@
 import * as config from '../config';
-import browserSync from 'browser-sync';
-import gulp from 'gulp';
+import BrowserSync from 'browser-sync';
+import Gulp from 'gulp';
 
-gulp.task('json', () => {
-  return gulp.src(config.tasks.json.src)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+Gulp.task('json', () => {
+  return Gulp.src(config.tasks.json.src)
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });

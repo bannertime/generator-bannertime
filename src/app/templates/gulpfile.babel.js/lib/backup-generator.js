@@ -1,45 +1,43 @@
 import * as config from '../config';
-import connect from 'connect';
-import fs from 'fs';
-import gutil from 'gulp-util';
-import path from 'path';
-import serveStatic from 'serve-static';
-import through from 'through2';
-import url from 'url';
-import webshot from 'webshot';
+import Connect from 'connect';
+import Fs from 'fs';
+import GulpUtil from 'gulp-util';
+import Path from 'path';
+import ServeStatic from 'serve-static';
+import Through from 'through2';
+import Url from 'url';
+import Webshot from 'webshot';
 
 export default function (options) {
-  const red = gutil.colors.red;
-  const green = gutil.colors.green;
-  const cyan = gutil.colors.cyan;
-  const magenta = gutil.colors.magenta;
+  const red = GulpUtil.colors.red;
+  const green = GulpUtil.colors.green;
+  const cyan = GulpUtil.colors.cyan;
+  const magenta = GulpUtil.colors.magenta;
 
-  gutil.log('This may take a few minutes...');
-  gutil.log(red('Please be patient!'));
+  GulpUtil.log('This may take a few minutes...');
+  GulpUtil.log(red('Please be patient!'));
 
-  if (!options) {
-    options = {};
-  }
+  const opt = {};
 
-  options.p = options.p || 9000;
-  options.root = options.root || config.dest;
-  options.dest = options.dest || config.src;
-  options.overwrite = options.overwrite || false;
-  // options.takeShotOnCallback = options.takeShotOnCallback || true;
-  options.captureSelector = options.captureSelector || '.banner';
-  options.position = options.position || false;
-  options.hideObjects = options.hideObjects || [];
-  options.onLoadFinished = options.onLoadFinished || {
-    fn: function() {
+  opt.p = options.p || 9000;
+  opt.root = options.root || config.dest;
+  opt.dest = options.dest || config.src;
+  opt.overwrite = options.overwrite || false;
+  // opt.takeShotOnCallback = options.takeShotOnCallback || true;
+  opt.captureSelector = options.captureSelector || '.banner';
+  opt.position = options.position || false;
+  opt.hideObjects = options.hideObjects || [];
+  opt.onLoadFinished = options.onLoadFinished || {
+    function() {
       const timeout = this.renderDelay - 1000;
       setTimeout(() => {
         if (!this.position) {
-          banner.timeline.totalProgress(1, false).pause();
+          window.banner.timeline.totalProgress(1, false).pause();
         } else {
-          banner.timeline.seek(this.position, false).pause();
+          window.banner.timeline.seek(this.position, false).pause();
         }
         for (let i = 0; i < this.hideObjects.length; i++) {
-          banner[this.hideObjects[i]].set({ autoAlpha: 0 });
+          window.banner[this.hideObjects[i]].set({ autoAlpha: 0 });
         }
         // window.callPhantom('takeShot');
       }, timeout);
@@ -51,42 +49,42 @@ export default function (options) {
     }
   };
 
-  if (options.overwrite) gutil.log(red('Overwrite mode on.'));
+  if (options.overwrite) GulpUtil.log(red('Overwrite mode on.'));
 
-  const app = connect();
-  const resolvedRoot = path.resolve(options.root);
-  app.use(serveStatic(resolvedRoot));
+  const app = Connect();
+  const resolvedRoot = Path.resolve(options.root);
+  app.use(ServeStatic(resolvedRoot));
   const server = app.listen(options.p);
 
   let numSaved = 0;
   let numSkipped = 0;
   let numFailed = 0;
 
-  return through.obj(function (file, enc, cb) {
+  return Through.obj(function screenshot(file, enc, cb) {
     if (file.isNull()) {
       this.push(file);
       return cb();
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('backup-generator', 'Streaming not supported'));
+      this.emit('error', new GulpUtil.PluginError('backup-generator', 'Streaming not supported'));
       return cb();
     }
 
     let basePath;
     if (options.root) {
-      basePath = path.relative(options.root, path.dirname(file.path));
+      basePath = Path.relative(options.root, Path.dirname(file.path));
     }
 
-    const fileType = (!options.streamType) ? '.jpg' : '.' + options.streamType;
-    const parsep = path.basename(file.relative);
-    let fileName = path.join(basePath, 'images', 'backup' + fileType);
-    fileName = path.join(options.dest, fileName);
-    const relativeFilePath = path.join(path.sep, basePath, parsep);
-    const urlPath = url.resolve('http://localhost:' + options.p, relativeFilePath);
-    const backupImage = path.join(
+    const fileType = (!options.streamType) ? '.jpg' : `.${options.streamType}`;
+    const parsep = Path.basename(file.relative);
+    let fileName = Path.join(basePath, 'images', `backup${fileType}`);
+    fileName = Path.join(options.dest, fileName);
+    const relativeFilePath = Path.join(Path.sep, basePath, parsep);
+    const urlPath = Url.resolve(`http://localhost:${options.p}`, relativeFilePath);
+    const backupImage = Path.join(
       config.dest,
-      path.relative(options.root, path.dirname(file.path)),
+      Path.relative(options.root, Path.dirname(file.path)),
       '/images/backup.jpg'
     );
 
@@ -94,40 +92,39 @@ export default function (options) {
      * [takeScreenshot]
      * @param  {Function} cb
      */
-    const takeScreenshot = (cb) => {
-      webshot(urlPath, fileName, options, (err, stream) => {
+    const takeScreenshot = (callback) => {
+      Webshot(urlPath, fileName, options, (err) => {
         if (err) {
-          gutil.log(`backup-generator: ${urlPath} ${red('FAILED')}`);
-          this.emit('error', new gutil.PluginError('backup-generator', err));
+          GulpUtil.log(`backup-generator: ${urlPath} ${red('FAILED')}`);
+          this.emit('error', new GulpUtil.PluginError('backup-generator', err));
           // server.close();
           numFailed++;
-          cb();
+          callback();
         } else {
-          gutil.log(`backup-generator: ${green('✔')} ${fileName} ${magenta('SAVED')}`);
+          GulpUtil.log(`backup-generator: ${green('✔')} ${fileName} ${magenta('SAVED')}`);
           numSaved++;
-          cb();
+          callback();
         }
       });
       this.push(file);
-    }
-
+    };
 
     /**
      * [checkFileExists]
      * @param  {String}   file
      * @param  {Function} cb
      */
-    const checkFileExists = (file, cb) => {
-      fs.exists(file, (exists) => {
+    const checkFileExists = (checkFile, callback) => {
+      Fs.exists(checkFile, (exists) => {
         if (exists) {
           numSkipped++;
-          gutil.log(`backup-generator: ${cyan(file)} already exists ${magenta('SKIP')}`);
-          cb();
+          GulpUtil.log(`backup-generator: ${cyan(checkFile)} already exists ${magenta('SKIP')}`);
+          callback();
         } else {
-          takeScreenshot(cb);
+          takeScreenshot(callback);
         }
       });
-    }
+    };
 
     if (!options.overwrite) {
       checkFileExists(backupImage, cb);
@@ -135,11 +132,12 @@ export default function (options) {
       takeScreenshot(cb);
     }
 
+    return false;
   }, (cb) => {
     server.close(() => {
-      gutil.log(`backups saved: ${cyan(numSaved)}`);
-      gutil.log(`backups skipped: ${magenta(numSkipped)}`);
-      gutil.log(`backups failed: ${red(numFailed)}`);
+      GulpUtil.log(`backups saved: ${cyan(numSaved)}`);
+      GulpUtil.log(`backups skipped: ${magenta(numSkipped)}`);
+      GulpUtil.log(`backups failed: ${red(numFailed)}`);
       cb();
     });
   });

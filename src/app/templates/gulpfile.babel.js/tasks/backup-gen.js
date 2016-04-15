@@ -1,10 +1,11 @@
 import * as config from '../config';
-import gulp from 'gulp';
+import Gulp from 'gulp';
 import handleErrors from '../lib/handleErrors';
 import backupGenerator from '../lib/backup-generator';
 
-gulp.task('backup-gen', ['build:production'], () => {
-  return gulp.src([`${config.dest}/**/*.html`, `!${config.dest}/index.html`])
+Gulp.task('backup-gen', ['build:production'], () => {
+  return Gulp.src([`${config.dest}/**/*.html`, `!${config.dest}/index.html`])
+    .on('error', handleErrors);
     .pipe(backupGenerator({
       root: config.dest,
       dest: config.src,
@@ -16,5 +17,4 @@ gulp.task('backup-gen', ['build:production'], () => {
       streamType: 'jpg',
       renderDelay: 5000,
     }))
-    .on('error', handleErrors);
 });

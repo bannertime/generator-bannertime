@@ -1,19 +1,38 @@
 import * as config from '../config';
-import babel from 'gulp-babel';
-import browserSync from 'browser-sync';
-import eslint from 'gulp-eslint';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
+import BrowserSync from 'browser-sync';
+import Gulp from 'gulp';
+import GulpIf from 'gulp-if';
+import EsLint from 'gulp-eslint';
 import handleErrors from '../lib/handleErrors';
-import uglify from 'gulp-uglify';
+import Named from 'vinyl-named';
+import Plumber from 'gulp-plumber';
+import Webpack from 'webpack-stream';
+import webpackConf from '../lib/webpack.conf';
 
-gulp.task('js', () => {
-  return gulp.src(config.tasks.js.src)
-    .pipe(gulpif(process.env.NODE_ENV == 'production', eslint()))
-    .pipe(gulpif(process.env.NODE_ENV == 'production', eslint.format()))
-    .pipe(babel({ presets: ['es2015'] }))
-    .pipe(gulpif(process.env.NODE_ENV == 'production', uglify()))
-    .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+const repath = (target, removal, pathOnly) => {
+  return target.replace(removal, '')
+    .replace(pathOnly ? /\.[^/.]+$/ : '', '')
+    .replace(new RegExp(`\\${path.sep} g`), '/');
+};
+
+Gulp.task('configure', () => {
+  return Gulp.src([`${config.src}/**/js/banner.js`, `${config.src}/**/js/main.js`])
+    .pipe(Named(function queue(file) {
+      webpackConf.entry[repath(file.path, file.base, true)] = [`.${repath(file.path, file.cwd)}`];
+      this.queue(file);
+    }));
+});
+
+Gulp.task('js', ['configure', 'eslint'], () => {
+  return Gulp.src(config.tasks.js.src)
+    .pipe(Plumber({ errorHandler: handleErrors }))
+    .pipe(Webpack(webpackConf))
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
+});
+
+Gulp.task('eslint', () => {
+  return Gulp.src([config.tasks.js.src, config.tasks.js.modules])
+    .pipe(GulpIf(process.env.NODE_ENV === 'production', EsLint()))
+    .pipe(GulpIf(process.env.NODE_ENV === 'production', EsLint.format()))
 });

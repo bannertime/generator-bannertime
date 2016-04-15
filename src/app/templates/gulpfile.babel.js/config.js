@@ -23,7 +23,8 @@ export const tasks = {
   },
 
   js: {
-    src: `${src}/**/js/**/*.js`
+    src: `${src}/**/js/**/*.js`,
+    modules: './modules/**/*'
   },
 
   json: {
@@ -37,7 +38,7 @@ export const tasks = {
   sass: {
     src: `${src}/**/*.{sass,scss}`,
     autoprefixer: {
-      browsers: ['last 3 version']
+      browsers: 'last 3 version'
     }
   },
 
@@ -57,6 +58,6 @@ export const tasks = {
 
   zip: {
     src: `${src}/**/*`,
-    dest: `./zip`
+    dest: './zip'
   }
-}
+};

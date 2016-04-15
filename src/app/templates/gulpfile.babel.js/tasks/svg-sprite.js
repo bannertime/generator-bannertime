@@ -1,24 +1,26 @@
 import * as config from '../config';
-import browserSync from 'browser-sync';
-import gulp from 'gulp';
+import BrowserSync from 'browser-sync';
+import Gulp from 'gulp';
 import handleErrors from '../lib/handleErrors';
-import imagemin from 'gulp-imagemin';
-import svgstore from 'gulp-svgstore';
-import svgfallback from 'gulp-svgfallback';
+import ImageMin from 'gulp-imagemin';
+import Plumber from 'gulp-plumber';
+import SvgStore from 'gulp-svgstore';
+import SvgFallback from 'gulp-svgfallback';
 
-gulp.task('svg-sprite', ['svg-fallback'], () => {
-  return gulp.src(config.tasks.svgSprite.src)
-    .pipe(imagemin())
-    .pipe(svgstore())
+Gulp.task('svg-sprite', ['svg-fallback'], () => {
+  return Gulp.src(config.tasks.svgSprite.src)
+    .pipe(Plumber({ errorHandler: handleErrors }))
+    .pipe(ImageMin())
+    .pipe(SvgStore())
     .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });
 
-gulp.task('svg-fallback', ()  => {
-  return gulp.src(config.tasks.svgSprite.src)
-    .pipe(svgfallback())
-    .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+Gulp.task('svg-fallback', () => {
+  return Gulp.src(config.tasks.svgSprite.src)
+    .pipe(Plumber({ errorHandler: handleErrors }))
+    .pipe(SvgFallback())
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });

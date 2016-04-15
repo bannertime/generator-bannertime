@@ -1,6 +1,8 @@
-import notify from 'gulp-notify';
+import Notify from 'gulp-notify';
+import GulpUtil from 'gulp-util';
 
-export default function (errorObject, callback) {
-  notify.onError(errorObject.toString().split(': ').join(':\n')).apply(this, arguments);
-  if (typeof this.emit === 'function') this.emit('end');
-}
+export default function (error) {
+  Notify.onError(error.toString()).apply(this, arguments);
+  GulpUtil.log(error.stack);
+  this.emit('end');
+};

@@ -1,10 +1,10 @@
-import gulp from 'gulp';
-import gutil from 'gulp-util';
+import Gulp from 'gulp';
+import GulpUtil from 'gulp-util';
 
-gulp.task('help', () => {
-  gutil.log('There are 2 basic commands');
-  gutil.log('--------------------------');
-  gutil.log(gutil.colors.green('gulp'), 'compiles source files and fires up dev server');
-  gutil.log(gutil.colors.green('gulp prod'), 'prepares files for production');
-  gutil.log('--------------------------');
+Gulp.task('help', () => {
+  GulpUtil.log('There are 2 basic commands');
+  GulpUtil.log('--------------------------');
+  GulpUtil.log(GulpUtil.colors.green('gulp'), 'compiles source files and fires up dev server');
+  GulpUtil.log(GulpUtil.colors.green('gulp prod'), 'prepares files for production');
+  GulpUtil.log('--------------------------');
 });

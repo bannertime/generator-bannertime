@@ -1,13 +1,12 @@
 import * as config from '../config';
-import browserSync from 'browser-sync';
-import gulp from 'gulp';
-import gulpif from 'gulp-if';
-import htmlmin from 'gulp-htmlmin';
-import uglify from 'gulp-uglify';
+import BrowserSync from 'browser-sync';
+import Gulp from 'gulp';
+import GulpIf from 'gulp-if';
+import HtmlMin from 'gulp-htmlmin';
 
-gulp.task('html', () => {
-  return gulp.src(config.tasks.html.src)
-    .pipe(gulpif(process.env.NODE_ENV == 'production', htmlmin(config.tasks.html.htmlmin)))
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+Gulp.task('html', () => {
+  return Gulp.src(config.tasks.html.src)
+    .pipe(GulpIf(process.env.NODE_ENV === 'production', HtmlMin(config.tasks.html.htmlmin)))
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });

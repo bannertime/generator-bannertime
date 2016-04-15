@@ -1,4 +1,3 @@
-import gulp from 'gulp';
-import gulpSequence from 'gulp-sequence';
+import Gulp from 'gulp';
 
-gulp.task('prod', ['build:production']);
+Gulp.task('prod', ['build:production']);

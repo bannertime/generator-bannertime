@@ -1,9 +1,9 @@
-import gulp from 'gulp';
-import async from 'gulp-sequence';
+import Gulp from 'gulp';
+import Async from 'gulp-sequence';
 
-gulp.task('default', (cb) => {
+Gulp.task('default', (cb) => {
   global.watch = true;
-  async(
+  Async(
     'build:development',
     ['watch', 'browserSync'],
     cb

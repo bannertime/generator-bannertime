@@ -1,11 +1,11 @@
 import * as config from '../config';
-import browserSync from 'browser-sync';
-import changed from 'gulp-changed';
-import gulp from 'gulp';
+import BrowserSync from 'browser-sync';
+import Changed from 'gulp-changed';
+import Gulp from 'gulp';
 
-gulp.task('fonts', () => {
-  return gulp.src(config.tasks.fonts.src)
-    .pipe(changed(config.dest))
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.stream());
+Gulp.task('fonts', () => {
+  return Gulp.src(config.tasks.fonts.src)
+    .pipe(Changed(config.dest))
+    .pipe(Gulp.dest(config.dest))
+    .pipe(BrowserSync.stream());
 });

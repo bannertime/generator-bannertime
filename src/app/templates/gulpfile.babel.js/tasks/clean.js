@@ -1,7 +1,7 @@
 import * as config from '../config';
-import del from 'del';
-import gulp from 'gulp';
+import Del from 'del';
+import Gulp from 'gulp';
 
-gulp.task('clean', () => {
-  del([config.dest]);
+Gulp.task('clean', () => {
+  Del([config.dest]);
 });

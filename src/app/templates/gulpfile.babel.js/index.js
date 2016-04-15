@@ -1,2 +1,2 @@
-import requireDir from 'require-dir';
-requireDir('./tasks', { recurse: true });
+import RequireDir from 'require-dir';
+RequireDir('./tasks', { recurse: true });

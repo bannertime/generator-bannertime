@@ -1,9 +1,10 @@
-import gulp from 'gulp';
-import async from 'gulp-sequence';
+import Gulp from 'gulp';
+import Async from 'gulp-sequence';
 
-gulp.task('build:development', (cb) => {
-  async('clean',
-    ['fonts', 'images', 'svg-sprite'],
+Gulp.task('build:development', (cb) => {
+  Async('clean',
+    ['fonts'],
     ['sass', 'js', 'json', 'manifest', 'html'],
+    ['images'],
   cb);
 });
