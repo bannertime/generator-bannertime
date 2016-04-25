@@ -12,8 +12,8 @@ export default function () {
   const getFolders = p => fs.readdirSync(p).filter(f => fs.statSync(path.join(p, f)).isDirectory());
   const currentBanners = getFolders('./src');
   const base = currentBanners.indexOf('base');
-  const modules = currentBanners.indexOf('modules');
   if (base > -1) currentBanners.splice(base, 1);
+  const modules = currentBanners.indexOf('modules');
   if (modules > -1) currentBanners.splice(modules, 1);
 
   this.prompt([{
