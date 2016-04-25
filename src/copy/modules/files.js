@@ -89,22 +89,22 @@ export default function () {
     this.destinationPath(`src/${this.props.bannerMaster}/js`),
     `src/${this.props.bannerName}/js`
   );
-  this.fs.copy(
-    this.templatePath(`../../app/templates/src/300x250/js/loader.${this.bannerSuffix}.js`),
-    this.destinationPath(`src/${this.props.bannerName}/js/banner.loader.js`)
-  );
   if (this.props.bannerType === 'Sizmek') {
     this.fs.copy(
-      this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
+      this.templatePath('../../app/templates/src/modules/EBLoader.js'),
       this.destinationPath(`src/${this.props.bannerName}/js/EBLoader.js`)
     );
   }
   if (this.props.bannerType === 'Adform') {
     this.fs.copy(
-      this.templatePath('../../app/templates/src/300x250/js/libs/AdformDHTML.js'),
+      this.templatePath('../../app/templates/src/modules/AdformDHTML.js'),
       this.destinationPath(`src/${this.props.bannerName}/js/AdformDHTML.js`)
     );
   }
+  this.fs.copy(
+    this.templatePath(`../../app/templates/src/modules/loader.${this.bannerSuffix}.js`),
+    this.destinationPath(`src/${this.props.bannerName}/js/loader.js`)
+  );
 
   /**
    * Process the images.
