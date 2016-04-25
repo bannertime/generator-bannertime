@@ -81,7 +81,8 @@ export default function () {
           .replace(regExHeight, `$banner-height: ${props.bannerHeight}px;`);
         return newContent;
       },
-    });
+    }
+  );
   this.fs.copyTpl(
     this.templatePath('../../app/templates/src/300x250/styles/base/preloader.scss'),
     this.destinationPath(`src/${this.props.bannerName}/styles/base/_preloader.scss`),
@@ -91,30 +92,42 @@ export default function () {
   /**
    * Process the js files.
    */
-  if (this.props.bannerType === 'Sizmek') {
-    this.fs.copy(
-      this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
-      this.destinationPath(`src/${this.props.bannerName}/js/EBLoader.js`)
-    );
-  }
-  if (this.props.bannerType === 'Adform') {
-    this.fs.copy(
-      this.templatePath('../../app/templates/src/300x250/js/libs/AdformDHTML.js'),
-      this.destinationPath(`src/${this.props.bannerName}/js/AdformDHTML.js`)
-    );
-  }
   this.fs.copy(
     this.templatePath('../../app/templates/src/300x250/js/banner.js'),
     this.destinationPath(`src/${this.props.bannerName}/js/banner.js`)
   );
   this.fs.copy(
-    this.templatePath(`../../app/templates/src/300x250/js/loader.${this.bannerSuffix}.js`),
-    this.destinationPath(`src/${this.props.bannerName}/js/banner.loader.js`)
+    this.templatePath('../../app/templates/src/300x250/js/createElements.js'),
+    this.destinationPath(`src/${this.props.bannerName}/js/createElements.js`)
   );
   this.fs.copy(
-    this.templatePath('../../app/templates/src/300x250/js/animation.js'),
-    this.destinationPath(`src/${this.props.bannerName}/js/banner.animation.js`)
+    this.templatePath('../../app/templates/src/300x250/js/setup.js'),
+    this.destinationPath(`src/${this.props.bannerName}/js/setup.js`)
   );
+  this.fs.copy(
+    this.templatePath('../../app/templates/src/300x250/js/start.js'),
+    this.destinationPath(`src/${this.props.bannerName}/js/start.js`)
+  );
+  this.fs.copy(
+    this.templatePath('../../app/templates/src/300x250/js/animate.js'),
+    this.destinationPath(`src/${this.props.bannerName}/js/animate.js`)
+  );
+  this.fs.copy(
+    this.templatePath(`../../app/templates/src/modules/loader.${this.bannerSuffix}.js`),
+    this.destinationPath(`src/${this.props.bannerName}/js/loader.js`)
+  );
+  if (this.props.bannerType === 'Sizmek') {
+    this.fs.copy(
+      this.templatePath('../../app/templates/src/modules/EBLoader.js'),
+      this.destinationPath(`src/${this.props.bannerName}/js/EBLoader.js`)
+    );
+  }
+  if (this.props.bannerType === 'Adform') {
+    this.fs.copy(
+      this.templatePath('../../app/templates/src/modules/AdformDHTML.js'),
+      this.destinationPath(`src/${this.props.bannerName}/js/AdformDHTML.js`)
+    );
+  }
 
   /**
    * Process the images.
