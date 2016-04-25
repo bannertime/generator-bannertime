@@ -2,9 +2,9 @@
   Creates a tool for creating HTML5 advertising campaigns
 
 # Example:
-    yo bannertime
+  yo bannertime
 
 # Sub Generators:
-    yo bannertime:new
-    yo bannertime:copy
-    yo bannertime:deploy
+  yo bannertime:new
+  yo bannertime:copy
+  yo bannertime:deploy

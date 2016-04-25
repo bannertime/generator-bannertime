@@ -5,26 +5,75 @@
 
 ## Usage
 
-Use `gulp` to automatically launch the banner into the browser with browsersync all your changes will be reflected in the browser with each file save.
 
-Use `gulp prod` to generate a ZIP file of all the assets of the banner, these will all have been minified as well.
+### Gulp Commands
 
-Use `gulp backup-gen` to automatically generate backup images for each banner.
+```bash
+gulp
+```
+The default task will compile the source files and launch the development server. The watch task will monitor changes made to the source files and Browser Sync will refresh the browser and your changes will be reflected in the browser.
+
+```bash
+gulp prod
+```
+The production task will generate the production ready files. This will minify the html, javascript and css files and create zip packages for each banner.
+
+```bash
+gulp backup-gen
+```
+The backup generator task will automatically generate backup images for each banner from the last frame of the banner's animation.
+
 
 ### Creating Elements
 
-You can create DOM elements using the the `smartObject` function, this will initialise a `<div>` with the default style of: `position: absolute; top: 0; left: 0;`.
+In the `createElements.js` file for each banner you can create DOM elements using the `SmartObject` class. Instantiating a new `SmartObject` will create a new element. By default, the `SmartObject` class will create a `<div>` tag with the default style of: `position: absolute; top: 0; left: 0;`. By setting a background image when instantiating a `SmartObject` the width and height dimensions will be fetched from the image and used to set the size of the element. You can manually set the elements's width and height properties like this:
 
-You are able to set a background image, or set a nested image as a `<img>` element.
+```js
+this.logo = new SmartObject({
+  backgroundImage: 'images/logo.png',
+  width: 200,
+  height: 50,
+  parent: this.banner
+});
+```
 
-There are helper functions such as `center`, `centerHorizontal` and `centerVertical` to help you position the element.
+It is possible to create video elements using:
 
-Other settings are set using a helper function on the element which uses GSAP to process. So `this.logo.set({autoAlpha: 0, scale: 0.4});` is the same as `TweenLite.set(this.logo, {autoAlpha: 0, scale: 0.4});`
+```js
+this.video = new SmartObject({
+  type: 'video',
+  sources: [{
+    'url': 'path/to/file.mp4',
+    'type': 'video/mp4'
+  }],
+  height: 300,
+  width: 250,
+  parent: this.banner
+});
+```
 
-### Animating
 
-The banner animation is run by the `animate` function.
+### Setup
 
-By default we are using TweenLite with TimelineLite, but you can change which flavour of GSAP as you require.
+In the `setup.js` file for each banner you can set the initial state for each element using the below functions.
+
+* set(properties)
+* center()
+* centerHorizontal()
+* centerVertical()
+* get(property)
+* getOriginal(property)
+
+This is how you would position an element 100px from the top that is centered horizontally.
+
+```js
+this.logo.centerHorizontal();
+this.logo.set({ top: 100 });
+```
+
+
+### Animation
+
+The `animate.js` file contains the main animation timeline.
 
 For more information about animating using GSAP head to [www.greensock.com](http://www.greensock.com)
