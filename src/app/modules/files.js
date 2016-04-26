@@ -15,23 +15,8 @@ export default function () {
     case 'Sizmek':
       this.bannerSuffix = 'sizmek';
       break;
-    case 'Adform':
-      this.bannerSuffix = 'adform';
-      break;
-    case 'DCM':
-      this.bannerSuffix = 'dcm';
-      break;
-    case 'Atlas':
-      this.bannerSuffix = 'atlas';
-      break;
-    case 'Flashtalking':
-      this.bannerSuffix = 'flashtalking';
-      break;
-    case 'None':
-      this.bannerSuffix = 'none';
-      break;
     default:
-      this.bannerSuffix = 'doubleclick';
+      this.bannerSuffix = 'none';
   }
 
   const props = {
