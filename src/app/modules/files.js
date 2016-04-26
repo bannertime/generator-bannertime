@@ -23,6 +23,7 @@ export default function () {
     bannerName: this.props.bannerName,
     bannerDesc: this.props.bannerDesc,
     bannerType: this.props.bannerType,
+    bannerSuffix: this.bannerSuffix,
     bannerWidth: 300,
     bannerHeight: 250,
     bannerRepo: this.props.bannerRepo,
@@ -74,9 +75,10 @@ export default function () {
     this.templatePath('src/base/js/main.js'),
     this.destinationPath('src/base/js/main.js')
   );
-  this.fs.copy(
-    this.templatePath('src/300x250/js/banner.js'),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.js`)
+  this.fs.copyTpl(
+    this.templatePath('src/300x250/js/_banner.js'),
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.js`),
+    props
   );
   this.fs.copy(
     this.templatePath('src/300x250/js/createElements.js'),
@@ -95,24 +97,6 @@ export default function () {
     this.destinationPath(`src/${this.props.bannerName}-300x250/js/animate.js`)
   );
   this.directory('src/modules', 'src/modules');
-  // TODO: refactor how loaders work
-  if (this.props.bannerType === 'Sizmek') {
-    this.fs.copy(
-      this.templatePath('src/modules/EBLoader.js'),
-      this.destinationPath(`src/${this.props.bannerName}-300x250/js/EBLoader.js`)
-    );
-  }
-  if (this.props.bannerType === 'Adform') {
-    this.fs.copy(
-      this.templatePath('src/modules/AdformDHTML.js'),
-      this.destinationPath(`src/${this.props.bannerName}-300x250/js/AdformDHTML.js`)
-    );
-  }
-  // TODO: replace the template type using the banner suffix
-  this.fs.copy(
-    this.templatePath(`src/modules/loader.${this.bannerSuffix}.js`),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/loader.js`)
-  );
 
   /**
    * Retrieve banner properties to create the package.json.

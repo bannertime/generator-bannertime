@@ -6,6 +6,6 @@ export default function (urls, onComplete) {
     }
   };
   for (let i = 0; i < urls.length; i++) {
-    Enabler.loadScript(urls[i], checkProgress);
+    this.loadScript(urls[i], checkProgress);
   }
 }

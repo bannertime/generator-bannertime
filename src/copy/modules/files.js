@@ -23,6 +23,7 @@ export default function () {
     bannerName: this.props.bannerName,
     bannerDesc: this.props.bannerDesc,
     bannerType: this.props.bannerType,
+    bannerSuffix: this.bannerSuffix,
     bannerWidth: this.props.bannerWidth,
     bannerHeight: this.props.bannerHeight,
     bannerRepo: this.props.bannerRepo,
@@ -36,8 +37,8 @@ export default function () {
   this.fs.copy(filePath, filePath, {
     process: (content) => {
       const regEx = new RegExp('</ul>');
-      const newContent = content.toString().replace(regEx, `  <li>
-      <a href="${props.bannerName}/" class="done">${props.bannerName}</a></li>\n      </ul>`);
+      const string = `  <li><a href="${props.bannerName}/" class="done">${props.bannerName}</a></li>\n      </ul>`;
+      const newContent = content.toString().replace(regEx, string);
       return newContent;
     },
   });
@@ -74,21 +75,10 @@ export default function () {
     this.destinationPath(`src/${this.props.bannerMaster}/js`),
     `src/${this.props.bannerName}/js`
   );
-  if (this.props.bannerType === 'Sizmek') {
-    this.fs.copy(
-      this.templatePath('../../app/templates/src/modules/EBLoader.js'),
-      this.destinationPath(`src/${this.props.bannerName}/js/EBLoader.js`)
-    );
-  }
-  if (this.props.bannerType === 'Adform') {
-    this.fs.copy(
-      this.templatePath('../../app/templates/src/modules/AdformDHTML.js'),
-      this.destinationPath(`src/${this.props.bannerName}/js/AdformDHTML.js`)
-    );
-  }
-  this.fs.copy(
-    this.templatePath(`../../app/templates/src/modules/loader.${this.bannerSuffix}.js`),
-    this.destinationPath(`src/${this.props.bannerName}/js/loader.js`)
+  this.fs.copyTpl(
+    this.templatePath('../../app/templates/src/300x250/js/_banner.js'),
+    this.destinationPath(`src/${this.props.bannerName}/js/banner.js`),
+    props
   );
 
   /**
