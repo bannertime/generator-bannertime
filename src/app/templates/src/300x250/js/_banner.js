@@ -1,12 +1,12 @@
 <% if (bannerType === 'Sizmek') { %>import EBLoader from '../../modules/EBLoader';
 <% } %><% if (bannerType === 'Adform') { %>import AdformDHTML from '../../modules/AdformDHTML';
 <% } %>import loader from '../../modules/loader.<%= bannerSuffix %>';
+import politeLoad from '../../modules/politeLoad.<%= bannerSuffix %>';
+import bindEvents from '../../modules/bindEvents.<%= bannerSuffix %>';
 import loadScript from '../../modules/loadScript';
 import onInit from '../../modules/onInit';
 import onPolite from '../../modules/onPolite';
 import onVisible from '../../modules/onVisible';
-import politeLoad from '../../modules/politeLoad.<%= bannerSuffix %>';
-import bindEvents from '../../modules/bindEvents.<%= bannerSuffix %>';
 import hidePreloader from '../../modules/hidePreloader';
 import start from './start';
 import createElements from './createElements';
@@ -21,13 +21,13 @@ export default class Banner {
 }
 
 Banner.prototype.loader = loader;
+Banner.prototype.politeLoad = politeLoad;
+Banner.prototype.bindEvents = bindEvents;
 Banner.prototype.loadScript = loadScript;
 Banner.prototype.onInit = onInit;
 Banner.prototype.onPolite = onPolite;
 Banner.prototype.onVisible = onVisible;
-Banner.prototype.politeLoad = politeLoad;
 Banner.prototype.createElements = createElements;
-Banner.prototype.bindEvents = bindEvents;
 Banner.prototype.hidePreloader = hidePreloader;
 Banner.prototype.start = start;
 Banner.prototype.setup = setup;
