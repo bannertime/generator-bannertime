@@ -1,8 +1,8 @@
 <% if (bannerType === 'Sizmek') { %>import EBLoader from '../../modules/EBLoader';
 <% } %><% if (bannerType === 'Adform') { %>import AdformDHTML from '../../modules/AdformDHTML';
-<% } %>import loader from '../../modules/loader.<%= bannerSuffix %>';
-import politeLoad from '../../modules/politeLoad.<%= bannerSuffix %>';
-import bindEvents from '../../modules/bindEvents.<%= bannerSuffix %>';
+<% } %>import loader from '../../modules/loader.<%= bannerLoader %>';
+import politeLoad from '../../modules/politeLoad.<%= bannerPoliteLoad %>';
+import bindEvents from '../../modules/bindEvents.<%= bannerEvents %>';
 import loadScript from '../../modules/loadScript';
 import onInit from '../../modules/onInit';
 import onPolite from '../../modules/onPolite';

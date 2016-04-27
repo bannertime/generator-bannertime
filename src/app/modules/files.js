@@ -8,22 +8,50 @@ export default function () {
   /**
    * Set the default html file based on the type of banner.
    */
-  switch (this.props.bannerType) {
+  switch(this.props.bannerType) {
     case 'DoubleClick':
-      this.bannerSuffix = 'doubleclick';
+      this.bannerLoader = 'doubleclick';
+      this.bannerPoliteLoad = 'doubleclick';
+      this.bannerEvents = 'doubleclick';
       break;
     case 'Sizmek':
-      this.bannerSuffix = 'sizmek';
+      this.bannerLoader = 'sizmek';
+      this.bannerPoliteLoad = 'sizmek';
+      this.bannerEvents = 'sizmek';
+      break;
+    case 'Adform':
+      this.bannerLoader = 'none';
+      this.bannerPoliteLoad = 'none';
+      this.bannerEvents = 'adform';
+      break;
+    case 'DCM':
+      this.bannerLoader = 'none';
+      this.bannerPoliteLoad = 'none';
+      this.bannerEvents = 'dcm';
+      break;
+    case 'Atlas':
+      this.bannerLoader = 'none';
+      this.bannerPoliteLoad = 'none';
+      this.bannerEvents = 'none';
+      break;
+    case 'Flashtalking':
+      this.bannerLoader = 'none';
+      this.bannerPoliteLoad = 'none';
+      this.bannerEvents = 'none';
       break;
     default:
-      this.bannerSuffix = 'none';
-  }
+      this.bannerLoader = 'none';
+      this.bannerPoliteLoad = 'none';
+      this.bannerEvents = 'iab';
+  };
 
   const props = {
     bannerName: this.props.bannerName,
     bannerDesc: this.props.bannerDesc,
     bannerType: this.props.bannerType,
-    bannerSuffix: this.bannerSuffix,
+    bannerLoader: this.bannerLoader,
+    bannerEvents: this.bannerEvents,
+    bannerPoliteLoad: this.bannerPoliteLoad,
     bannerWidth: 300,
     bannerHeight: 250,
     bannerRepo: this.props.bannerRepo,
