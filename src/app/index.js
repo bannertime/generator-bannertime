@@ -3,8 +3,8 @@
  */
 
 import { Base } from 'yeoman-generator';
-import checkVersion from './modules/checkVersion';
 import intro from './modules/intro';
+import checkVersion from './modules/checkVersion';
 import checkConfig from './modules/checkConfig';
 import prompts from './modules/prompts';
 import files from './modules/files';
