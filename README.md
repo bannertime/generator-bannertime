@@ -24,12 +24,15 @@ mkdir my-project && cd $_
 yo bannertime
 ```
 
+## Deprecation warning
+
+Bannertime ^3.0.0 generates a different file structure and is not compatible with older versions.
+For legacy projects you can use Bannertime v2 `npm i -g generator-bannertime@2`.
+
 ## Usage
 
 More information in the [documentation](docs/README.md).
 
-> Bannertime ^3.0.0 generates a different file structure and is not compatible with older versions.
-> For legacy projects you can use Bannertime v2 `npm i -g generator-bannertime@2`.
 
 ## Platforms
 
