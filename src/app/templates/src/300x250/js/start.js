@@ -1,4 +1,3 @@
-import Promise from 'bluebird';
 import Preloader from '../../modules/Preloader';
 
 export default function () {
@@ -13,26 +12,20 @@ export default function () {
     images.push(this.imageCache[key].src);
   }
 
-  new Promise((resolve, reject) => {
-    new Preloader(images, {
-      onComplete: (loaded, errors) => {
-        setTimeout(() => {
-          resolve(loaded, errors);
-        }, 10);
-      },
-      onError: (bombed) => {
-        reject(bombed);
-      }
-    });
-  }).then((loaded, errors) => {
-    this.setup();
-    this.hidePreloader();
-    this.animate();
-    this.bindEvents();
-    if (errors) {
-      console.log('the following failed', errors);
+  new Preloader(images, {
+    onComplete: (loaded, errors) => {
+      setTimeout(() => {
+        this.setup();
+        this.hidePreloader();
+        this.animate();
+        this.bindEvents();
+        if (errors) {
+          console.log('the following failed', errors);
+        }
+      }, 100);
+    },
+    onError: (bombed) => {
+      console.log('error', bombed);
     }
-  }).catch((bombed) => {
-    console.log('error', bombed);
   });
 }
