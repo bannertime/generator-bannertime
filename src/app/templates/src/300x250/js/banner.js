@@ -64,12 +64,14 @@ Banner.prototype.smartObject = function (_settings) {
 
   if (settings.sources) {
     var sources = settings.sources;
+    var fragment = document.createDocumentFragment();
     for (var i = 0; i < sources.length; i++) {
       var sourceTag = document.createElement('source');
       sourceTag.src = sources[i].url;
       sourceTag.type = sources[i].type;
-      element.appendChild(sourceTag);
+      fragment.appendChild(sourceTag);
     }
+    element.appendChild(fragment);
   }
 
   function applySettings() {
@@ -105,6 +107,7 @@ Banner.prototype.smartObject = function (_settings) {
     settings.width = Math.round(settings.width || (settings.retina ? this.width / 2 : this.width));
     settings.height = Math.round(settings.height || (settings.retina ? this.height / 2 : this.height));
     settings.backgroundImage = 'url(' + this.src + ')';
+    settings.backgroundSize = '100% 100%';
     applySettings();
     if (isSVG) {
       document.body.removeChild(this);
@@ -145,16 +148,49 @@ Banner.prototype.smartObject = function (_settings) {
   }
 
   // Helper functions
-  element.appendChildren = function (children) { for (var i = 0; i < children.length; ++i) { this.appendChild(children[i]); } };
-  element.set = function (settings) { TweenLite.set(this, settings); };
-  element.to = function (time, settings) { TweenLite.to(this, time, settings); };
-  element.from = function (time, settings) { TweenLite.from(this, time, settings); };
-  element.fromTo = function (time, from, to) { TweenLite.fromTo(this, time, from, to); };
-  element.get = function (property) { return ((this._gsTransform && this._gsTransform[property]) || (this._gsTransform && this._gsTransform[property] === 0)) ? this._gsTransform[property] : (this.style[property].slice(-2) === 'px') ? parseFloat(this.style[property]) : this.style[property]; };
-  element.center = function () { TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2 }); };
-  element.centerHorizontal = function () { TweenLite.set(this, { left: '50%', marginLeft: -this.offsetWidth / 2 }); };
-  element.centerVertical = function () { TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2 }); };
-  element.getOriginal = function (property) { return element._settings[property] || 0;};
+  element.appendChildren = function (children) {
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < children.length; i++) {
+      fragment.appendChild(children[i]);
+    }
+    this.appendChild(fragment);
+  };
+
+  element.set = function (settings) {
+    TweenLite.set(this, settings);
+  };
+
+  element.to = function (time, settings) {
+    TweenLite.to(this, time, settings);
+  };
+
+  element.from = function (time, settings) {
+    TweenLite.from(this, time, settings);
+  };
+
+  element.fromTo = function (time, from, to) {
+    TweenLite.fromTo(this, time, from, to);
+  };
+
+  element.get = function (property) {
+    return ((this._gsTransform && this._gsTransform[property]) || (this._gsTransform && this._gsTransform[property] === 0)) ? this._gsTransform[property] : (this.style[property].slice(-2) === 'px') ? parseFloat(this.style[property]) : this.style[property];
+  };
+
+  element.center = function () {
+    TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2 });
+  };
+
+  element.centerHorizontal = function () {
+    TweenLite.set(this, { left: '50%', marginLeft: -this.offsetWidth / 2 });
+  };
+
+  element.centerVertical = function () {
+    TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2 });
+  };
+
+  element.getOriginal = function (property) {
+    return element._settings[property] || 0;
+  };
 
   return element;
 };
