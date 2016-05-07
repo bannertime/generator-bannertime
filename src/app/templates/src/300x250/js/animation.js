@@ -30,6 +30,7 @@ Banner.prototype.start = function () {
 Banner.prototype.createElements = function () {
   this.logo = this.smartObject({
     backgroundImage: 'images/logo.png',
+    retina: true,
     parent: this.banner
   });
 };
