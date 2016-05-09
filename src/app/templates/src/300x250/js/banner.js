@@ -107,7 +107,6 @@ Banner.prototype.smartObject = function (_settings) {
     settings.width = Math.round(settings.width || (settings.retina ? this.width / 2 : this.width));
     settings.height = Math.round(settings.height || (settings.retina ? this.height / 2 : this.height));
     settings.backgroundImage = 'url(' + this.src + ')';
-    settings.backgroundSize = settings.backgroundSize || '100% 100%';
     applySettings();
     if (isSVG) {
       document.body.removeChild(this);
@@ -131,8 +130,8 @@ Banner.prototype.smartObject = function (_settings) {
   }
 
   if (settings.backgroundImage) {
-    element.style.backgroundSize = settings.backgroundSize || '';
-    element.style.backgroundPosition = settings.backgroundPosition || '';
+    element.style.backgroundSize = settings.backgroundSize || '100% 100%';
+    element.style.backgroundPosition = settings.backgroundPosition || 'center';
     element.style.backgroundRepeat = settings.backgroundRepeat || 'no-repeat';
 
     if (Object.prototype.toString.call(settings.backgroundImage) === '[object Array]') {
