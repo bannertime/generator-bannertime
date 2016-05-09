@@ -26,12 +26,14 @@ class SmartObject {
         if (this.options.preload) this.element.preload = this.options.preload;
         if (this.options.sources) {
           const sources = this.options.sources;
+          const fragment = document.createDocumentFragment();
           for (let i = 0; i < sources.length; i++) {
             const sourceTag = document.createElement('source');
             sourceTag.src = sources[i].url;
             sourceTag.type = sources[i].type;
-            this.element.appendChild(sourceTag);
+            fragment.appendChild(sourceTag);
           }
+          this.element.appendChild(sourceTag);
         }
         break;
     }
@@ -51,8 +53,8 @@ class SmartObject {
 
   setOptions() {
     if (this.options.backgroundImage) {
-      this.element.style.backgroundSize = this.options.backgroundSize || '';
-      this.element.style.backgroundPosition = this.options.backgroundPosition || '';
+      this.element.style.backgroundSize = this.options.backgroundSize || '100% 100%';
+      this.element.style.backgroundPosition = this.options.backgroundPosition || 'center';
       this.element.style.backgroundRepeat = this.options.backgroundRepeat || 'no-repeat';
       this.loadImg(this.options.backgroundImage, true);
     } else {
@@ -122,19 +124,39 @@ class SmartObject {
   }
 
   center() {
-    TweenLite.set(this.element, { top: '50%', marginTop: -this.element.offsetHeight / 2, left: '50%', marginLeft: -this.element.offsetWidth / 2 });
+    TweenLite.set(this.element, {
+      top: '50%',
+      marginTop: -this.element.offsetHeight / 2,
+      left: '50%',
+      marginLeft: -this.element.offsetWidth / 2
+    });
   }
 
   centerHorizontal() {
-    TweenLite.set(this.element, { left: '50%', marginLeft: -this.element.offsetWidth / 2 });
+    TweenLite.set(this.element, {
+      left: '50%',
+      marginLeft: -this.element.offsetWidth / 2
+    });
   }
 
   centerVertical() {
-    TweenLite.set(this.element, { top: '50%', marginTop: -this.element.offsetHeight / 2 });
+    TweenLite.set(this.element, {
+      top: '50%',
+      marginTop: -this.element.offsetHeight / 2
+    });
   }
 
   get(property) {
-    ((this.element._gsTransform && this.element._gsTransform[property]) || (this.element._gsTransform && this.element._gsTransform[property] === 0)) ? this.element._gsTransform[property] : (this.element.style[property].slice(-2) === 'px') ? parseFloat(this.element.style[property]) : this.element.style[property];
+    const transform = this.element._gsTransform;
+    if ((transform && transform[property]) || (transform && transform[property] === 0)) {
+      return transform[property];
+    } else {
+      if (this.element.style[property].slice(-2) === 'px') {
+        return parseFloat(this.element.style[property]);
+      } else {
+        return this.element.style[property];
+      }
+    }
   }
 
   getOriginal(property) {
