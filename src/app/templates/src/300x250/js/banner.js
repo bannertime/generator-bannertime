@@ -107,7 +107,7 @@ Banner.prototype.smartObject = function (_settings) {
     settings.width = Math.round(settings.width || (settings.retina ? this.width / 2 : this.width));
     settings.height = Math.round(settings.height || (settings.retina ? this.height / 2 : this.height));
     settings.backgroundImage = 'url(' + this.src + ')';
-    settings.backgroundSize = '100% 100%';
+    settings.backgroundSize = settings.backgroundSize || '100% 100%';
     applySettings();
     if (isSVG) {
       document.body.removeChild(this);
