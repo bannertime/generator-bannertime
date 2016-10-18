@@ -28,8 +28,8 @@ export default function() {
     type: 'list',
     name: 'bannerType',
     message: 'What type of banner is it?',
-    choices: ['DoubleClick', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'None'],
-    default: 'DoubleClick'
+    choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'None'],
+    default: 'DoubleClick Studio'
   }, {
     type: 'input',
     name: 'bannerRepo',

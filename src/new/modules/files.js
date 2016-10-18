@@ -13,7 +13,7 @@ export default function() {
    * Set the default html file based on the type of banner.
    */
   switch(this.props.bannerType) {
-    case 'DoubleClick':
+    case 'DoubleClick Studio':
       this.bannerSuffix = 'doubleclick';
       break;
     case 'Sizmek':
@@ -148,7 +148,7 @@ export default function() {
   if (this.props.includeOfflineScripts === true) {
     let getVendorScript = (vendor) => {
       let script = {
-        'DoubleClick': 'https://s0.2mdn.net/ads/studio/Enabler.js',
+        'DoubleClick Studio': 'https://s0.2mdn.net/ads/studio/Enabler.js',
         'Sizmek': 'https://secure-ds.serving-sys.com/BurstingScript/EBLoader.js',
         'Adform': 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js'
       };

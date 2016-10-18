@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="ad.size" content="width=<%= bannerWidth %>,height=<%= bannerHeight %>">
-    <title><%= bannerName %></title><% if (bannerType === 'DoubleClick') { %>
-    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><% } %><% if (bannerType === 'DoubleClick' && includeOfflineEnabler === true) { %>
+    <title><%= bannerName %></title><% if (bannerType === 'DoubleClick Studio') { %>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><% } %><% if (bannerType === 'DoubleClick Studio' && includeOfflineEnabler === true) { %>
     <script src="../offline/Enabler.js" type="text/javascript"></script><% } %><% if (bannerType === 'Sizmek') { %>
     <script src="js/EBLoader.js" type="text/javascript"></script><% } %><% if (bannerType === 'Adform') { %>
     <script src="js/AdformDHTML.js" type="text/javascript"></script><% } %>
