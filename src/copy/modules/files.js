@@ -31,8 +31,8 @@ export default function() {
     case 'Flashtalking':
       this.bannerSuffix = 'flashtalking';
       break;
-    case 'None':
-      this.bannerSuffix = 'none';
+    case 'IAB':
+      this.bannerSuffix = 'iab';
       break;
     default:
       this.bannerSuffix = 'doubleclick'
