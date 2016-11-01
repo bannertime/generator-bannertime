@@ -60,6 +60,10 @@ Banner.prototype.smartObject = function (_settings) {
       if (settings.poster) { element.poster = settings.poster; }
       if (settings.preload) { element.preload = settings.preload; }
       break;
+    case 'img' :
+      element.src = settings.src;
+      element.alt = settings.alt;
+      break;
   }
 
   if (settings.sources) {
