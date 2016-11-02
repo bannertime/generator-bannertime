@@ -29,7 +29,7 @@ gulp.task('zip', function() {
           return path;
         })
       ))
-      .pipe(gulpif(separate && '!' + folder + '-backup.jpg', zip(folder + '.zip')))
+      .pipe(gulpif('!' + folder + '-backup.jpg', zip(folder + '.zip')))
       .pipe(filesize())
       .pipe(gulp.dest(config.tasks.zip.dest));
     }
