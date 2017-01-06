@@ -1,46 +1,42 @@
-/*global describe, it, beforeEach */
 'use strict';
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
 
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
-var path = require('path');
+describe('The Bannertime', () => {
 
-describe('Bannertime Generator', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-      if (err) {
-        return done(err);
-      }
-      this.app = helpers.createGenerator(
-        'bannertime:app', [
-          '../../generators/app'
-        ]);
+  describe('App generator', () => {
 
-      done();
-    }.bind(this));
-  });
+    before((done) => {
+      this.answers = {
+        bannerName: 'test',
+        bannerDesc: 'Its Duncan Bannertime!',
+        bannerType: 'DoubleClick Studio',
+        bannerRepo: 'https://github.com/pyramidium/generator-bannertime',
+        includeOfflineScripts: false
+      };
 
-  it('the generator can be required without throwing', function () {
-    require('../generators/app');
-  });
-
-  it('creates expected files', function () {
-    helpers.mockPrompt(this.app, {
-      bannerName: '300x250',
+      helpers.run(path.join(__dirname, '../generators/app'))
+        .inDir(path.join(__dirname, '.tmp'))
+        .withGenerators([[helpers.createDummyGenerator(), 'bannertime:app']])
+        .withPrompts(this.answers)
+        .on('end', done);
     });
 
-    this.app.options['skip-install'] = false;
+    it('can be required without throwing', () => {
+      require('../generators/app');
+    });
 
-    this.app.run({}, function () {
+    it('creates expected files', (done) => {
       assert.file([
-        'src/300x250/index.html',
-        'src/300x250/images/logo.png',
-        'src/300x250/js/banner.js',
-        'src/300x250/js/banner.loader.js',
-        'src/300x250/js/banner.animation.js',
-        'src/300x250/styles/style.scss',
-        'src/300x250/styles/base/_banner.scss',
-        'src/300x250/styles/base/_preloader.scss',
+        'src/test-300x250/index.html',
+        'src/test-300x250/images/logo.png',
+        'src/test-300x250/js/banner.js',
+        'src/test-300x250/js/banner.loader.js',
+        'src/test-300x250/js/banner.animation.js',
+        'src/test-300x250/styles/style.scss',
+        'src/test-300x250/styles/base/_banner.scss',
+        'src/test-300x250/styles/base/_preloader.scss',
         'src/base/images/desktop.png',
         'src/base/images/loading.gif',
         'src/base/images/logo.png',
@@ -51,9 +47,27 @@ describe('Bannertime Generator', function () {
         '.gitignore',
         '.jshintrc',
         'package.json',
+        'yarn.lock',
         'README.md',
       ]);
       done();
+    });
+
+    it('creates expected package.json from template', () => {
+      assert.file('package.json');
+      assert.jsonFileContent('package.json', {
+        name: this.answers.bannerName,
+        description: this.answers.bannerDesc,
+        repository: {
+          url: this.answers.bannerRepo
+        }
+      });
+    });
+
+    it('creates expected README.md from template', () => {
+      assert.file('README.md');
+      assert.fileContent('README.md', '# test');
+      assert.fileContent('README.md', 'Its Duncan Bannertime!');
     });
   });
 });

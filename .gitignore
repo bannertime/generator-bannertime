@@ -10,6 +10,9 @@ logs/
 # Node modules
 node_modules/
 
+# Temporary test files
+test/.tmp/
+
 # Other
 .sass-cache/
 .idea
