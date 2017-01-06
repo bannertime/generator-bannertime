@@ -4,15 +4,18 @@ const semver = require('semver');
 
 let version;
 
-const updateConfig = (file, release, done) => {
-  const data = fs.readFileSync(`./${file}.json`, 'utf8');
-  const config = JSON.parse(data);
-  const oldVersion = config.version;
-  version = semver.inc(oldVersion, release);
-  config.version = version;
-  const string = JSON.stringify(config, null, '\t');
-  fs.writeFileSync(`./${file}.json`, string, 'utf8');
-  console.log(`updated ${file} to ${version}`);
+const updateConfig = (file, release) => {
+  return new Promise((resolve) => {
+    const data = fs.readFileSync(`./${file}.json`, 'utf8');
+    const config = JSON.parse(data);
+    const oldVersion = config.version;
+    version = semver.inc(oldVersion, release);
+    config.version = version;
+    const string = JSON.stringify(config, null, '\t');
+    fs.writeFileSync(`./${file}.json`, string, 'utf8');
+    console.log(`updated ${file} to ${version}`);
+    resolve();
+  });
 };
 
 const getArg = (key) => {
@@ -29,14 +32,13 @@ if (minor) release = 'minor';
 if (major) release = 'major';
 
 module.exports = function() {
-  updateConfig('package', release);
-
-  setTimeout(() => {
+  updateConfig('package', release).then(() => {
     console.log(`version updated to ${version}. Committing and tagging now...`);
     execSync('git status && git add --all && git status', { stdio: 'inherit' });
     execSync(`git commit -m "chore: bump version to ${version}"`, { stdio: 'inherit' });
     execSync(`git tag ${version} && git push origin master && git push --tags`, { stdio: 'inherit' });
     execSync('npm publish', { stdio: 'inherit' });
-    done();
-  }, 1000);
+  }).catch((error) => {
+    throw new Error(error);
+  });
 }
