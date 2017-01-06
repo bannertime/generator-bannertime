@@ -5,8 +5,8 @@
 const _ = require('lodash');
 const getFolders = require('./getFolders');
 
-module.exports = function() {
-  if (this.skipConfig) return;
+module.exports = function prompts() {
+  if (this.skipConfig) return true;
 
   const currentBanners = getFolders('./src');
 
@@ -30,8 +30,8 @@ module.exports = function() {
     type: 'input',
     name: 'bannerName',
     message: 'What is the name of the new format?:',
-    default: (answer) => `${this.appname}-${answer.bannerWidth}x${answer.bannerHeight}`,
-    filter: (answer) => answer.replace(/\s+/g, '-')
+    default: answer => `${this.appname}-${answer.bannerWidth}x${answer.bannerHeight}`,
+    filter: answer => answer.replace(/\s+/g, '-')
   }, {
     type: 'list',
     name: 'bannerType',

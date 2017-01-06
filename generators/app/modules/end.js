@@ -4,7 +4,7 @@
 
 const chalk = require('chalk');
 
-module.exports = function() {
+module.exports = function end() {
   const yellow = chalk.bold.yellow;
   const green = chalk.bold.green;
   const red = chalk.bold.red;

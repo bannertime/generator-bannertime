@@ -4,7 +4,7 @@
 
 const chalk = require('chalk');
 
-module.exports = function() {
+module.exports = function install() {
   this.log(`${chalk.green('New banner format copied from:')} ${chalk.cyan(this.props.bannerMaster)}`);
 
   if (this.props.includeOfflineScripts === true) {

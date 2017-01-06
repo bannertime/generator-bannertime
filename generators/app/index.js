@@ -1,5 +1,3 @@
-'use strict';
-
 const Generator = require('yeoman-generator');
 const intro = require('./modules/intro');
 const checkVersion = require('./modules/checkVersion');

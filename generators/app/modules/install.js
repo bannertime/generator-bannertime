@@ -2,7 +2,7 @@
  * Install the dependencies.
  */
 
-module.exports = function() {
+module.exports = function install() {
   if (!this.options['skip-install']) {
     this.installDependencies({
       bower: false,

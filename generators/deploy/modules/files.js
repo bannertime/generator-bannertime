@@ -2,7 +2,7 @@
  * Process the deploy script and task.
  */
 
-module.exports = function() {
+module.exports = function files() {
   const props = {
     deployUsername: this.props.deployUsername,
     deployDomain: this.props.deployDomain

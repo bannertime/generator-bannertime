@@ -5,10 +5,9 @@
 const Download = require('download');
 const getVendorScript = require('../../app/modules/getVendorScript');
 
-module.exports = function() {
-
+module.exports = function files() {
   // Set the default html file based on the type of banner
-  switch(this.props.bannerType) {
+  switch (this.props.bannerType) {
     case 'DoubleClick Studio':
       this.bannerSuffix = 'doubleclick';
       break;
@@ -31,7 +30,7 @@ module.exports = function() {
       this.bannerSuffix = 'iab';
       break;
     default:
-      this.bannerSuffix = 'doubleclick'
+      this.bannerSuffix = 'doubleclick';
   }
 
   const props = {
@@ -76,16 +75,18 @@ module.exports = function() {
   );
   this.fs.copy(
     this.templatePath('../../app/templates/src/300x250/styles/base/banner.scss'),
-    this.destinationPath(`src/${this.props.bannerName}/styles/base/_banner.scss`), {
-    process: (content) => {
-      var regExWidth = new RegExp(/\$banner-width:\s*[0-9]*px;/);
-      var regExHeight = new RegExp(/\$banner-height:\s*[0-9]*px;/);
-      var newContent = content.toString()
-        .replace(regExWidth, `$banner-width: ${props.bannerWidth}px;`)
-        .replace(regExHeight, `$banner-height: ${props.bannerHeight}px;`);
-      return newContent;
+    this.destinationPath(`src/${this.props.bannerName}/styles/base/_banner.scss`),
+    {
+      process: (content) => {
+        const regExWidth = new RegExp(/\$banner-width:\s*[0-9]*px;/);
+        const regExHeight = new RegExp(/\$banner-height:\s*[0-9]*px;/);
+        const newContent = content.toString()
+          .replace(regExWidth, `$banner-width: ${props.bannerWidth}px;`)
+          .replace(regExHeight, `$banner-height: ${props.bannerHeight}px;`);
+        return newContent;
+      }
     }
-  });
+  );
   this.fs.copyTpl(
     this.templatePath('../../app/templates/src/300x250/styles/base/preloader.scss'),
     this.destinationPath(`src/${this.props.bannerName}/styles/base/_preloader.scss`),
@@ -95,13 +96,13 @@ module.exports = function() {
   /**
    * Process the js files.
    */
-  if (this.props.bannerType == 'Sizmek') {
+  if (this.props.bannerType === 'Sizmek') {
     this.fs.copy(
       this.templatePath('../../app/templates/src/300x250/js/libs/EBLoader.js'),
       this.destinationPath(`src/${this.props.bannerName}/js/EBLoader.js`)
     );
   }
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copy(
       this.templatePath('../../app/templates/src/300x250/js/libs/AdformDHTML.js'),
       this.destinationPath(`src/${this.props.bannerName}/js/AdformDHTML.js`)
@@ -131,14 +132,14 @@ module.exports = function() {
   /**
    * Process the manifest file.
    */
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copyTpl(
       this.templatePath('../../app/templates/src/300x250/js/_manifest.json'),
       this.destinationPath(`src/${this.props.bannerName}/manifest.json`),
       props
     );
   }
-  if (this.props.bannerType == 'Flashtalking') {
+  if (this.props.bannerType === 'Flashtalking') {
     this.fs.copyTpl(
       this.templatePath('../../app/templates/src/300x250/js/_manifest.flashtalking.js'),
       this.destinationPath(`src/${this.props.bannerName}/manifest.js`),

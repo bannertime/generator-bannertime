@@ -25,6 +25,7 @@
   ],
   "scripts": {
     "deploy": "node ./publish.js",
+    "posttest": "./node_modules/eslint/bin/eslint.js generators/*/modules --ext .js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "files": [
@@ -37,9 +38,13 @@
     "package-info": "^2.2.3",
     "repeating": "^3.0.0",
     "string-length": "^1.0.1",
+    "underscore.string": "^3.3.4",
     "yeoman-generator": "^1.0.1"
   },
   "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.2.0",
     "semver": "^5.1.0",
     "yeoman-assert": "^2.1.1",

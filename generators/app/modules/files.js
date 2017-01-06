@@ -5,10 +5,9 @@
 const Download = require('download');
 const getVendorScript = require('./getVendorScript');
 
-module.exports = function() {
-
+module.exports = function files() {
   // Set the default html file based on the type of banner
-  switch(this.props.bannerType) {
+  switch (this.props.bannerType) {
     case 'DoubleClick Studio':
       this.bannerSuffix = 'doubleclick';
       break;
@@ -31,7 +30,7 @@ module.exports = function() {
       this.bannerSuffix = 'iab';
       break;
     default:
-      this.bannerSuffix = 'doubleclick'
+      this.bannerSuffix = 'doubleclick';
   }
 
   const props = {
@@ -83,13 +82,13 @@ module.exports = function() {
     this.templatePath('src/base/js/main.js'),
     this.destinationPath('src/base/js/main.js')
   );
-  if (this.props.bannerType == 'Sizmek') {
+  if (this.props.bannerType === 'Sizmek') {
     this.fs.copy(
       this.templatePath('src/300x250/js/libs/EBLoader.js'),
       this.destinationPath(`src/${this.props.bannerName}-300x250/js/EBLoader.js`)
     );
   }
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copy(
       this.templatePath('src/300x250/js/libs/AdformDHTML.js'),
       this.destinationPath(`src/${this.props.bannerName}-300x250/js/AdformDHTML.js`)
@@ -157,14 +156,14 @@ module.exports = function() {
   );
 
   // Process the manifest file
-  if (this.props.bannerType == 'Adform') {
+  if (this.props.bannerType === 'Adform') {
     this.fs.copyTpl(
       this.templatePath('src/300x250/js/_manifest.json'),
       this.destinationPath(`src/${this.props.bannerName}-300x250/manifest.json`),
       props
     );
   }
-  if (this.props.bannerType == 'Flashtalking') {
+  if (this.props.bannerType === 'Flashtalking') {
     this.fs.copyTpl(
       this.templatePath('src/300x250/js/_manifest.flashtalking.js'),
       this.destinationPath(`src/${this.props.bannerName}-300x250/manifest.js`),

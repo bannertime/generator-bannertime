@@ -4,8 +4,8 @@
 
 const _ = require('lodash');
 
-module.exports = function() {
-  if (this.skipConfig) return;
+module.exports = function prompts() {
+  if (this.skipConfig) return true;
 
   return this.prompt([{
     type: 'input',

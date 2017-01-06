@@ -5,15 +5,15 @@
 const _ = require('lodash');
 const slugify = require('underscore.string').slugify;
 
-module.exports = function() {
-  if (this.skipConfig) return;
+module.exports = function prompts() {
+  if (this.skipConfig) return true;
 
   return this.prompt([{
     type: 'input',
     name: 'bannerName',
     message: 'What is the name of the banner? (kebab-case):',
     default: this.appname,
-    filter: (answer) => slugify(answer)
+    filter: answer => slugify(answer)
   }, {
     type: 'input',
     name: 'bannerDesc',
@@ -38,4 +38,4 @@ module.exports = function() {
   }]).then((props) => {
     this.props = _.merge(this.props, props);
   });
-}
+};

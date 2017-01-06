@@ -4,7 +4,7 @@
 
 const chalk = require('chalk');
 
-module.exports = function() {
+module.exports = function intro() {
   const message =
   chalk.green('\n  _____           _   _') +
   chalk.green('\n |   | |___ _ _ _| |_|_|_____ ___') +

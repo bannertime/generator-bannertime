@@ -2,7 +2,7 @@
  * Check for predefined generator settings.
  */
 
-module.exports = function() {
+module.exports = function checkConfig() {
   const done = this.async();
   const existingFilters = this.config.get('filters');
 

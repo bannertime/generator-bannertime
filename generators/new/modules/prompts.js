@@ -5,8 +5,8 @@
 const _ = require('lodash');
 const slugify = require('underscore.string').slugify;
 
-module.exports = function() {
-  if (this.skipConfig) return;
+module.exports = function prompts() {
+  if (this.skipConfig) return true;
 
   return this.prompt([{
     type: 'input',
@@ -22,8 +22,8 @@ module.exports = function() {
     type: 'input',
     name: 'bannerName',
     message: 'What is the name of the new format? (kebab-case)',
-    default: (answer) => `${this.appname}-${answer.bannerWidth}x${answer.bannerHeight}`,
-    filter: (answer) => slugify(answer)
+    default: answer => `${this.appname}-${answer.bannerWidth}x${answer.bannerHeight}`,
+    filter: answer => slugify(answer)
   }, {
     type: 'list',
     name: 'bannerType',

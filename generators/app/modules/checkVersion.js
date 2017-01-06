@@ -8,7 +8,7 @@ const repeating = require('repeating');
 const stringLength = require('string-length');
 const pkg = require('../../../package.json');
 
-module.exports = function() {
+module.exports = function checkVersion() {
   const done = this.async();
 
   info(pkg.name, (err, npm) => {
