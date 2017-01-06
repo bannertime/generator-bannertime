@@ -1,0 +1,19 @@
+# Folder settings files
+.DS_Store
+Desktop.ini
+
+# Logs files
+*.log
+logs/
+
+# Node modules
+node_modules/
+
+# Other
+.sass-cache/
+.idea
+*.iml
+
+# Generated files
+public/
+zip/

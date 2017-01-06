@@ -1,0 +1,152 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.sidebar {
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 100%;
+  overflow: auto;
+  padding: 0 40px;
+  width: 200px;
+
+  .logo {
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 0 0 10px;
+
+      a {
+        color: #d36135;
+        font-size: 12px;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.done {
+          color: #7fb069;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.keyboard-controls {
+  $key-size: 22px;
+  $gutter: 2px;
+  bottom: 0;
+
+  height: ($key-size * 2) + ($gutter * 1);
+  margin: auto;
+  position: absolute;
+  right: $key-size;
+  width: ($key-size * 3) + ($gutter * 2);
+
+  .key {
+    border-radius: 5px;
+    bottom: $key-size;
+    height: $key-size;
+    left: $key-size * 2;
+    position: absolute;
+    width: $key-size;
+    fill: #ccc;
+
+    &.active {
+      // background: #000;
+      fill: #666;
+
+      .character {
+        // fill: #fff
+      }
+    }
+
+    &.up {
+      bottom: ($key-size * 2) + ($gutter * 1);
+      left: ($key-size * 1) + ($gutter * 1);
+    }
+    &.right {
+      bottom: $key-size;
+      left: ($key-size * 2) + ($gutter * 2);
+      transform: rotate(90deg);
+    }
+    &.down {
+      bottom: $key-size;
+      left: ($key-size * 1) + ($gutter * 1);
+      transform: rotate(180deg);
+    }
+    &.left {
+      bottom: $key-size;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.iframe {
+  height: 100%;
+  overflow: auto;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    // pointer-events: none;
+    width: 100%;
+  }
+
+  .loading {
+    background: url('../images/loading.gif') center no-repeat;
+    display: none;
+    height: 100%;
+    left: 140px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.desktop {
+  background: #fff;
+  background: rgba(255,255,255,0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  padding-top: 150px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  h1 {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 780px) {
+    display: block;
+  }
+}

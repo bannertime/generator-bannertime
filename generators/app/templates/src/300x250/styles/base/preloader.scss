@@ -1,0 +1,32 @@
+$preloader-size: 20px;
+$preloader-width: 5px;
+
+.preloader {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+
+  .circle {
+    border: $preloader-width solid #ddd;
+    border-bottom-color: #333;
+    border-radius: 50%;
+    height: $preloader-size;
+    left: 50%;
+    margin-left: -($preloader-size + $preloader-width) / 2;
+    margin-top: -($preloader-size + $preloader-width) / 2;
+    position: absolute;
+    top: 50%;
+    transition: all 0.7s ease-in-out;
+    animation: spin 0.5s linear infinite;
+    width: $preloader-size;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
