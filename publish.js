@@ -31,14 +31,12 @@ let release = 'patch';
 if (minor) release = 'minor';
 if (major) release = 'major';
 
-module.exports = function() {
-  updateConfig('package', release).then(() => {
-    console.log(`version updated to ${version}. Committing and tagging now...`);
-    execSync('git status && git add --all && git status', { stdio: 'inherit' });
-    execSync(`git commit -m "chore: bump version to ${version}"`, { stdio: 'inherit' });
-    execSync(`git tag ${version} && git push origin master && git push --tags`, { stdio: 'inherit' });
-    execSync('npm publish', { stdio: 'inherit' });
-  }).catch((error) => {
-    throw new Error(error);
-  });
-}
+updateConfig('package', release).then(() => {
+  console.log(`version updated to ${version}. Committing and tagging now...`);
+  execSync('git status && git add --all && git status', { stdio: 'inherit' });
+  execSync(`git commit -m "chore: bump version to ${version}"`, { stdio: 'inherit' });
+  execSync(`git tag ${version} && git push origin master && git push --tags`, { stdio: 'inherit' });
+  execSync('npm publish', { stdio: 'inherit' });
+}).catch((error) => {
+  throw new Error(error);
+});
