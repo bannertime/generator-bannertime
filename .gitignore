@@ -1,12 +1,9 @@
-# Build
-generators/
-
 # Folder settings files
 .DS_Store
 Desktop.ini
 .idea
 
-# Logs files
+# Log files
 *.log
 logs/
 

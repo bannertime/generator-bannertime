@@ -168,7 +168,7 @@ npm publish
 ```
 
 [gitter]: https://gitter.im/pyramidium/generator-bannertime
-[airbnb]: https://github.com/airbnb/javascript/tree/master/es5
+[airbnb]: https://github.com/airbnb/javascript
 [codepen]: http://codepen.io
 [jsfiddle]: http://jsfiddle.net
 [github]: https://github.com/pyramidium/generator-bannertime
