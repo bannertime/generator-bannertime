@@ -11,7 +11,7 @@
 
 #### Install bannertime:
 ```bash
-npm install --global generator-bannertime
+npm i --g generator-bannertime
 ```
 
 #### Create a new directory:

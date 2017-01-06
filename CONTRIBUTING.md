@@ -60,6 +60,7 @@ Before you submit your pull request consider the following guidelines:
 
 * Search [GitHub](https://github.com/pyramidium/generator-bannertime/pulls) for an open or closed Pull Request
   that relates to your submission. You don't want to duplicate effort.
+* Fork the repo and clone it.
 * Make your changes in a new git branch:
 
      ```bash
@@ -157,14 +158,9 @@ The subject contains succinct description of the change:
 # Releasing
 *(for contributors with push access)*
 
-* Manually bump the version number in package.json.
-
-* Push and publish `generator-bannertime`.
+Use the deploy script to automatically bump the package version number and publish to both github and npm.
 ```bash
-git commit -m "chore: bump version to x.x.x"
-git tag x.x.x
-git push origin master && git push --tags
-npm publish
+npm run deploy
 ```
 
 [gitter]: https://gitter.im/pyramidium/generator-bannertime
