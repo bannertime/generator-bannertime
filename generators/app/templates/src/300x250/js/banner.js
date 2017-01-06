@@ -100,6 +100,8 @@ Banner.prototype.smartObject = function (_settings) {
     delete settings.poster;
     delete settings.preload;
     delete settings.sources;
+    delete settings.src;
+    delete settings.alt;
     TweenLite.set(element, settings);
   }
 
