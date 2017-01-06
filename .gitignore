@@ -1,17 +1,17 @@
-# Build
-generators/
-
 # Folder settings files
 .DS_Store
 Desktop.ini
 .idea
 
-# Logs files
+# Log files
 *.log
 logs/
 
 # Node modules
 node_modules/
+
+# Temporary test files
+test/.tmp/
 
 # Other
 .sass-cache/
