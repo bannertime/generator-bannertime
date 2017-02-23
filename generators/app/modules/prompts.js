@@ -31,6 +31,7 @@ module.exports = function prompts() {
     message: 'What is the link to the repository?',
     default: 'https://github.com/pyramidium/generator-bannertime'
   }, {
+    when: response => response.bannerType === 'DoubleClick Studio',
     type: 'confirm',
     name: 'includeOfflineScripts',
     message: 'Include vendor scripts for offline use?',
