@@ -39,6 +39,7 @@ module.exports = function prompts() {
     choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'IAB'],
     default: 'DoubleClick Studio'
   }, {
+    when: response => response.bannerType === 'DoubleClick Studio',
     type: 'confirm',
     name: 'includeOfflineScripts',
     message: 'Include vendor scripts for offline use?',
