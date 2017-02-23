@@ -1,53 +1,53 @@
 {
-  "name": "generator-bannertime",
-  "version": "2.2.2",
-  "description": "Yeoman generator for creating HTML5 advertising campaigns",
-  "homepage": "https://github.com/pyramidium/generator-bannertime",
-  "bugs": "https://github.com/pyramidium/generator-bannertime/issues",
-  "author": "Jay Campbell <jay@pyramidium.co.uk> (https://github.com/pyramidium)",
-  "contributors": [
-    "Joey Padasian <joeypadasian@oliver.agency> (https://github.com/joemidi)",
-    "Pavel Krymski <pavelkrymski@oliver.agency> (https://github.com/kp-dev)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pyramidium/generator-bannertime.git"
-  },
-  "license": "MIT",
-  "keywords": [
-    "yeoman-generator",
-    "html5",
-    "banner",
-    "ad",
-    "gulp",
-    "scaffold",
-    "framework"
-  ],
-  "scripts": {
-    "deploy": "node ./publish.js",
-    "posttest": "./node_modules/eslint/bin/eslint.js generators/*/modules --ext .js",
-    "test": "./node_modules/mocha/bin/mocha"
-  },
-  "files": [
-    "generators"
-  ],
-  "dependencies": {
-    "chalk": "^1.1.0",
-    "download": "^5.0.3",
-    "lodash": "^4.17.4",
-    "package-info": "^2.2.3",
-    "repeating": "^3.0.0",
-    "string-length": "^1.0.1",
-    "underscore.string": "^3.3.4",
-    "yeoman-generator": "^1.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^3.16.1",
-    "eslint-config-airbnb-base": "^11.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "mocha": "^3.2.0",
-    "semver": "^5.1.0",
-    "yeoman-assert": "^3.0.0",
-    "yeoman-test": "^1.1.0"
-  }
+	"name": "generator-bannertime",
+	"version": "2.2.3",
+	"description": "Yeoman generator for creating HTML5 advertising campaigns",
+	"homepage": "https://github.com/pyramidium/generator-bannertime",
+	"bugs": "https://github.com/pyramidium/generator-bannertime/issues",
+	"author": "Jay Campbell <jay@pyramidium.co.uk> (https://github.com/pyramidium)",
+	"contributors": [
+		"Joey Padasian <joeypadasian@oliver.agency> (https://github.com/joemidi)",
+		"Pavel Krymski <pavelkrymski@oliver.agency> (https://github.com/kp-dev)"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pyramidium/generator-bannertime.git"
+	},
+	"license": "MIT",
+	"keywords": [
+		"yeoman-generator",
+		"html5",
+		"banner",
+		"ad",
+		"gulp",
+		"scaffold",
+		"framework"
+	],
+	"scripts": {
+		"deploy": "node ./publish.js",
+		"posttest": "./node_modules/eslint/bin/eslint.js generators/*/modules --ext .js",
+		"test": "./node_modules/mocha/bin/mocha"
+	},
+	"files": [
+		"generators"
+	],
+	"dependencies": {
+		"chalk": "^1.1.0",
+		"download": "^5.0.3",
+		"lodash": "^4.17.4",
+		"package-info": "^2.2.3",
+		"repeating": "^3.0.0",
+		"string-length": "^1.0.1",
+		"underscore.string": "^3.3.4",
+		"yeoman-generator": "^1.1.0"
+	},
+	"devDependencies": {
+		"eslint": "^3.16.1",
+		"eslint-config-airbnb-base": "^11.1.0",
+		"eslint-plugin-import": "^2.2.0",
+		"mocha": "^3.2.0",
+		"semver": "^5.1.0",
+		"yeoman-assert": "^3.0.0",
+		"yeoman-test": "^1.1.0"
+	}
 }
