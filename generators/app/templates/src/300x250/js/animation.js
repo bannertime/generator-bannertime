@@ -64,5 +64,7 @@ Banner.prototype.animate = function () {
     .addLabel('start', 0)
     .add(TweenLite.to(this.logo, 2, { autoAlpha: 1, scale: 0.7, delay: 1, ease: Elastic.easeOut }))
     .add(TweenLite.to(this.logo, 1, { autoAlpha: 0, scale: 0.4, delay: 1 }));
-
+  
+    // Add timeline to GSAP scrubber. Delete this before running gulp prod.
+    ScrubGSAPTimeline(this.timeline);
 };
