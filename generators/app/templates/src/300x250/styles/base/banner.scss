@@ -1,6 +1,12 @@
 $banner-width: 300px;
 $banner-height: 250px;
 
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
 .banner {
   background: #fff;
   cursor: pointer;
