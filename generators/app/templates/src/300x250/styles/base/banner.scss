@@ -1,6 +1,11 @@
 $banner-width: 300px;
 $banner-height: 250px;
 
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+}
+
 body,
 html {
   width: 100%;
