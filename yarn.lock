@@ -950,12 +950,6 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-got@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/got/-/got-0.3.0.tgz#888ec66ca4bc735ab089dbe959496d0f79485493"
-  dependencies:
-    object-assign "^0.3.0"
-
 got@^5.2.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-5.7.1.tgz#5f81635a61e4a6589f180569ea4e381680a51f35"
@@ -1531,10 +1525,6 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-object-assign@^0.3.0:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-0.3.1.tgz#060e2a2a27d7c0d77ec77b78f11aa47fd88008d2"
-
 object-assign@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-2.1.1.tgz#43c36e5d569ff8e4816c4efa8be02d26967c18aa"
@@ -1582,11 +1572,12 @@ os-tmpdir@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
 
-package-info@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/package-info/-/package-info-2.2.3.tgz#ebc9bf3efbe064bd908c8dbf7bbb0b8f77cd60ef"
+package-info@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/package-info/-/package-info-3.0.1.tgz#b048dfe8dfaa3e86eb0571d1b6ce4bf73b2aba6a"
   dependencies:
-    got "^0.3.0"
+    got "^6.3.0"
+    pinkie-promise "^2.0.0"
     registry-url "^2.0.0"
 
 parse-json@^2.1.0, parse-json@^2.2.0:

@@ -11,7 +11,7 @@ const pkg = require('../../../package.json');
 module.exports = function checkVersion() {
   const done = this.async();
 
-  info(pkg.name, (err, npm) => {
+  info(pkg.name).then((npm) => {
     const newVer = chalk.red.bold(`${npm.version}`);
     const currentVer = chalk.dim(`current: ${pkg.version}`);
     const install = chalk.red(`npm install -g ${pkg.name}`);
