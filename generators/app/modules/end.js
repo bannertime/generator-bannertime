@@ -10,7 +10,7 @@ module.exports = function end() {
   const red = chalk.bold.red;
   this.log('\n');
   this.log(yellow('┌---------------------------------------┐'));
-  this.log(`${yellow('|  Start by entering \'')}${green('npm start')}${yellow('\' below  |')}`);
+  this.log(`${yellow('|  Start by entering \'')}${green('yarn start')}${yellow('\' below  |')}`);
   this.log(yellow('└---------------------------------------┘'));
   this.log(' ');
   this.log(`${yellow('You can install gulp using:')} ${green('npm i -g gulp')}\n`);
