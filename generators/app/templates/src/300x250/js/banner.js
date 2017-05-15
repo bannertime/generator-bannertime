@@ -59,6 +59,8 @@ Banner.prototype.smartObject = function (_settings) {
       if (settings.muted) { element.muted = settings.muted; }
       if (settings.poster) { element.poster = settings.poster; }
       if (settings.preload) { element.preload = settings.preload; }
+      if (settings.playsinline) { element.setAttribute('playsinline', ''); }
+      if (settings.src) { element.src = settings.src; }
       break;
     case 'img' :
       element.src = settings.src;
@@ -99,6 +101,7 @@ Banner.prototype.smartObject = function (_settings) {
     delete settings.muted;
     delete settings.poster;
     delete settings.preload;
+    delete settings.playsinline;
     delete settings.sources;
     delete settings.src;
     delete settings.alt;
