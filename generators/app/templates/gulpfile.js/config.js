@@ -72,6 +72,11 @@ module.exports = {
       'dest': dest
     },
 
+    'videos': {
+      'src': src + '/**/videos/**/*.{ogg,ogv,webm,mp4}',
+      'dest': dest
+    },
+
     'zip': {
       'src': src + '/**/*',
       'dest': './zip'
