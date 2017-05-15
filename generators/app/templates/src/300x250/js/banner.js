@@ -56,7 +56,10 @@ Banner.prototype.smartObject = function (_settings) {
       if (settings.autoplay) { element.autoplay = settings.autoplay; }
       if (settings.loop) { element.loop = settings.loop; }
       if (settings.controls) { element.controls = settings.controls; }
-      if (settings.muted) { element.muted = settings.muted; }
+      if (settings.muted) {
+        element.muted = settings.muted;
+        element.setAttribute('muted', '');
+      }
       if (settings.poster) { element.poster = settings.poster; }
       if (settings.preload) { element.preload = settings.preload; }
       if (settings.playsinline) { element.setAttribute('playsinline', ''); }
