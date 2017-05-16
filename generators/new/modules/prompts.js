@@ -31,6 +31,11 @@ module.exports = function prompts() {
     choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'IAB'],
     default: 'DoubleClick Studio'
   }, {
+    type: 'confirm',
+    name: 'includeTimeline',
+    message: 'Would you like to include the scrubber during development?',
+    default: false
+  }, {
     when: response => response.bannerType === 'DoubleClick Studio',
     type: 'confirm',
     name: 'includeOfflineScripts',

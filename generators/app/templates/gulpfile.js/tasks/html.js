@@ -5,12 +5,12 @@ var config = require('../config');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var htmlmin = require('gulp-htmlmin');
+var removeCode = require('gulp-remove-code');
 var uglify = require('gulp-uglify');
-var gulpRemoveHtml = require('gulp-remove-html');
 
 gulp.task('html', function() {
   return gulp.src(config.tasks.html.src)
-    .pipe(gulpif(process.env.NODE_ENV == 'production', gulpRemoveHtml() ))  
+    .pipe(gulpif(process.env.NODE_ENV == 'production', removeCode({ production: true })))
     .pipe(gulpif(process.env.NODE_ENV == 'production', htmlmin(config.tasks.html.htmlmin)))
     .pipe(gulp.dest(config.tasks.html.dest))
     .pipe(browserSync.stream());
