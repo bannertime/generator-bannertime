@@ -40,6 +40,7 @@ module.exports = function files() {
     bannerWidth: 300,
     bannerHeight: 250,
     bannerRepo: this.props.bannerRepo,
+    includeTimeline: this.props.includeTimeline,
     includeOfflineEnabler: this.props.includeOfflineScripts
   };
 
@@ -102,9 +103,10 @@ module.exports = function files() {
     this.templatePath(`src/300x250/js/loader.${this.bannerSuffix}.js`),
     this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.loader.js`)
   );
-  this.fs.copy(
+  this.fs.copyTpl(
     this.templatePath('src/300x250/js/animation.js'),
-    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.animation.js`)
+    this.destinationPath(`src/${this.props.bannerName}-300x250/js/banner.animation.js`),
+    props
   );
 
   // Retrieve banner properties to create the package.json

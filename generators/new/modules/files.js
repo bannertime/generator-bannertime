@@ -40,6 +40,7 @@ module.exports = function files() {
     bannerWidth: this.props.bannerWidth,
     bannerHeight: this.props.bannerHeight,
     bannerRepo: this.props.bannerRepo,
+    includeTimeline: this.props.includeTimeline,
     includeOfflineEnabler: this.props.includeOfflineScripts
   };
 
@@ -116,9 +117,10 @@ module.exports = function files() {
     this.templatePath(`../../app/templates/src/300x250/js/loader.${this.bannerSuffix}.js`),
     this.destinationPath(`src/${this.props.bannerName}/js/banner.loader.js`)
   );
-  this.fs.copy(
+  this.fs.copyTpl(
     this.templatePath('../../app/templates/src/300x250/js/animation.js'),
-    this.destinationPath(`src/${this.props.bannerName}/js/banner.animation.js`)
+    this.destinationPath(`src/${this.props.bannerName}/js/banner.animation.js`),
+    props
   );
 
   /**
