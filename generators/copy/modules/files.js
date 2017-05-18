@@ -126,7 +126,6 @@ module.exports = function files() {
    * Process the videos.
    */
   if (fs.existsSync(this.destinationPath(`src/${this.props.bannerMaster}/videos`))) {
-    console.log('test');
     this.fs.copy(
       this.destinationPath(`src/${this.props.bannerMaster}/videos`),
       this.destinationPath(`src/${this.props.bannerName}/videos`)
