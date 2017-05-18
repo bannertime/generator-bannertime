@@ -2,7 +2,7 @@
 
 var config = require('../config');
 var del = require('del');
-var filesize = require('gulp-filesize');
+var size = require('gulp-size');
 var fs = require('fs');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
@@ -30,7 +30,7 @@ gulp.task('zip', function() {
         })
       ))
       .pipe(gulpif('!' + folder + '-backup.jpg', zip(folder + '.zip')))
-      .pipe(filesize())
+      .pipe(size({ title: 'Zip:', showFiles: true, showTotal: false }))
       .pipe(gulp.dest(config.tasks.zip.dest));
     }
   });

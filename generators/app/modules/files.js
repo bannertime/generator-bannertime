@@ -137,7 +137,7 @@ module.exports = function files() {
     this.destinationPath('.jshintrc')
   );
   this.fs.copy(
-    this.templatePath('_yarn.lock'),
+    this.templatePath('yarn.lock'),
     this.destinationPath('yarn.lock')
   );
 
