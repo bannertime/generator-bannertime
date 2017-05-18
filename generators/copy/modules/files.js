@@ -4,6 +4,7 @@
 
 const Download = require('download');
 const getVendorScript = require('../../app/modules/getVendorScript');
+const fs = require('fs');
 
 module.exports = function files() {
   // Set the default html file based on the type of banner
@@ -120,6 +121,17 @@ module.exports = function files() {
     this.destinationPath(`src/${this.props.bannerMaster}/images`),
     this.destinationPath(`src/${this.props.bannerName}/images`)
   );
+
+  /**
+   * Process the videos.
+   */
+  if (fs.existsSync(this.destinationPath(`src/${this.props.bannerMaster}/videos`))) {
+    console.log('test');
+    this.fs.copy(
+      this.destinationPath(`src/${this.props.bannerMaster}/videos`),
+      this.destinationPath(`src/${this.props.bannerName}/videos`)
+    );
+  }
 
   /**
    * Process the manifest file.
