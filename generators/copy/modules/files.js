@@ -40,6 +40,7 @@ module.exports = function files() {
     bannerWidth: this.props.bannerWidth,
     bannerHeight: this.props.bannerHeight,
     bannerRepo: this.props.bannerRepo,
+    includeTimeline: this.props.includeTimeline,
     includeOfflineEnabler: this.props.includeOfflineScripts
   };
 
