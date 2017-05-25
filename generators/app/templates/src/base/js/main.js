@@ -4,7 +4,7 @@ function Preview() {
   this.currentFormat = 0;
   this._bindSelectors();
   this._bindEvents();
-  this.iframe.src = window.location.hash.substr(1);
+  this.iframe.src = window.location.hash.substr(1) || this.iframe.src;
 }
 
 Preview.prototype._bindSelectors = function() {
