@@ -15,6 +15,9 @@ Preview.prototype._bindSelectors = function() {
   this.down = document.querySelector('.down');
   this.left = document.querySelector('.left');
   this.right = document.querySelector('.right');
+  this.pathnames = this.links.map(function (x) {
+    return x.getAttribute('href');
+  });
 };
 
 Preview.prototype._bindEvents = function() {
@@ -52,7 +55,7 @@ Preview.prototype._onKeyDown = function(e) {
     case 38:
       e.preventDefault();
       this.up.classList.add('active');
-      this.iframe.src = this._prevFormat(this.links).href;
+      this._prevFormat(this.links);
       if (this.currentFormat === -1) {
         this.currentFormat = this.links.length - 1;
       }
@@ -67,12 +70,13 @@ Preview.prototype._onKeyDown = function(e) {
     case 40:
       e.preventDefault();
       this.down.classList.add('active');
-      this.iframe.src = this._nextFormat(this.links).href;
+      this._nextFormat(this.links);
       if (this.currentFormat === this.links.length) {
         this.currentFormat = 0;
       }
     break;
   }
+  window.location.hash = `#${this.pathnames[this.currentFormat]}`;
 };
 
 Preview.prototype._onKeyUp = function(e) {
@@ -84,7 +88,9 @@ Preview.prototype._onKeyUp = function(e) {
 };
 
 Preview.prototype._onHashChange = function() {
-  this.iframe.src = window.location.hash.substr(1);
+  var locationHash = window.location.hash.substr(1);
+  this.currentFormat = this.pathnames.indexOf(`${locationHash}`);
+  this.iframe.src = locationHash;
 };
 
 Preview.prototype._onClick = function(e) {
