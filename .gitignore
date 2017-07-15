@@ -9,6 +9,7 @@ logs/
 
 # Node modules
 node_modules/
+package-lock.json
 
 # Temporary test files
 test/.tmp/
