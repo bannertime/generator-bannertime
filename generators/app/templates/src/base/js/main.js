@@ -59,6 +59,9 @@ Preview.prototype._onKeyDown = function(e) {
       if (this.currentFormat === -1) {
         this.currentFormat = this.links.length - 1;
       }
+
+      var location = '#' + this.pathnames[this.currentFormat];
+      window.location.hash = location.replace(/\/+$/, '');
     break;
     // Right arrow
     case 39:
@@ -74,9 +77,11 @@ Preview.prototype._onKeyDown = function(e) {
       if (this.currentFormat === this.links.length) {
         this.currentFormat = 0;
       }
+
+      var location = '#' + this.pathnames[this.currentFormat];
+      window.location.hash = location.replace(/\/+$/, '');
     break;
   }
-  window.location.hash = `#${this.pathnames[this.currentFormat]}`;
 };
 
 Preview.prototype._onKeyUp = function(e) {
@@ -89,14 +94,15 @@ Preview.prototype._onKeyUp = function(e) {
 
 Preview.prototype._onHashChange = function() {
   var locationHash = window.location.hash.substr(1);
-  this.currentFormat = this.pathnames.indexOf(`${locationHash}`);
+  this.currentFormat = this.pathnames.indexOf(location);
   this.iframe.src = locationHash;
 };
 
 Preview.prototype._onClick = function(e) {
   var _this = this;
   e.preventDefault();
-  window.location.hash = `#${e.target.getAttribute('href')}`;
+  var location = '#' + e.target.getAttribute('href');
+  window.location.hash = location.replace(/\/+$/, '');
   TweenLite.set('.iframe iframe', {autoAlpha: 0});
   TweenLite.set('.loading', {display: 'block', autoAlpha: 1});
   setTimeout(function() {
