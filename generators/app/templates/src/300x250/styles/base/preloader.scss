@@ -4,7 +4,9 @@ $preloader-width: 5px;
 .preloader {
   background: #fff;
   height: 100%;
+  position: absolute;
   width: 100%;
+  z-index: 999;
 
   .circle {
     border: $preloader-width solid #ddd;
