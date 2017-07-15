@@ -4,6 +4,7 @@ function Preview() {
   this.currentFormat = 0;
   this._bindSelectors();
   this._bindEvents();
+  this.iframe.src = window.location.hash.substr(1) || this.iframe.src;
 }
 
 Preview.prototype._bindSelectors = function() {
@@ -14,15 +15,20 @@ Preview.prototype._bindSelectors = function() {
   this.down = document.querySelector('.down');
   this.left = document.querySelector('.left');
   this.right = document.querySelector('.right');
+  this.pathnames = this.links.map(function (x) {
+    return x.getAttribute('href');
+  });
 };
 
 Preview.prototype._bindEvents = function() {
   this._onKeyDown = this._onKeyDown.bind(this);
   this._onKeyUp = this._onKeyUp.bind(this);
   this._onClick = this._onClick.bind(this);
+  this._onHashChange = this._onHashChange.bind(this);
 
   document.addEventListener('keydown', this._onKeyDown);
   document.addEventListener('keyup', this._onKeyUp);
+  window.addEventListener('hashchange', this._onHashChange);
 
   for (var i = 0; i < this.links.length; i++) {
     this.links[i].addEventListener('click', this._onClick);
@@ -49,7 +55,7 @@ Preview.prototype._onKeyDown = function(e) {
     case 38:
       e.preventDefault();
       this.up.classList.add('active');
-      this.iframe.src = this._prevFormat(this.links).href;
+      this._prevFormat(this.links);
       if (this.currentFormat === -1) {
         this.currentFormat = this.links.length - 1;
       }
@@ -64,12 +70,13 @@ Preview.prototype._onKeyDown = function(e) {
     case 40:
       e.preventDefault();
       this.down.classList.add('active');
-      this.iframe.src = this._nextFormat(this.links).href;
+      this._nextFormat(this.links);
       if (this.currentFormat === this.links.length) {
         this.currentFormat = 0;
       }
     break;
   }
+  window.location.hash = `#${this.pathnames[this.currentFormat]}`;
 };
 
 Preview.prototype._onKeyUp = function(e) {
@@ -80,10 +87,16 @@ Preview.prototype._onKeyUp = function(e) {
   this.left.classList.remove('active');
 };
 
+Preview.prototype._onHashChange = function() {
+  var locationHash = window.location.hash.substr(1);
+  this.currentFormat = this.pathnames.indexOf(`${locationHash}`);
+  this.iframe.src = locationHash;
+};
+
 Preview.prototype._onClick = function(e) {
   var _this = this;
   e.preventDefault();
-  this.iframe.src = e.target.href;
+  window.location.hash = `#${e.target.getAttribute('href')}`;
   TweenLite.set('.iframe iframe', {autoAlpha: 0});
   TweenLite.set('.loading', {display: 'block', autoAlpha: 1});
   setTimeout(function() {
