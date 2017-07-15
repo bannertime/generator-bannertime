@@ -1,6 +1,6 @@
 {
 	"name": "generator-bannertime",
-	"version": "2.2.10",
+	"version": "2.2.11",
 	"description": "Yeoman generator for creating HTML5 advertising campaigns",
 	"homepage": "https://github.com/pyramidium/generator-bannertime",
 	"bugs": "https://github.com/pyramidium/generator-bannertime/issues",
