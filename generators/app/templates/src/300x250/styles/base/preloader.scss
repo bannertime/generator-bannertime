@@ -1,4 +1,4 @@
-$preloader-size: 20px;
+$preloader-size: 40px;
 $preloader-width: 5px;
 
 .preloader {
@@ -9,6 +9,7 @@ $preloader-width: 5px;
   z-index: 999;
 
   .circle {
+    animation: spin 0.5s linear infinite;
     border: $preloader-width solid #ddd;
     border-bottom-color: #333;
     border-radius: 50%;
@@ -19,7 +20,6 @@ $preloader-width: 5px;
     position: absolute;
     top: 50%;
     transition: all 0.7s ease-in-out;
-    animation: spin 0.5s linear infinite;
     width: $preloader-size;
   }
 }
