@@ -3,7 +3,7 @@
  */
 
 const _ = require('lodash');
-const slugify = require('underscore.string').slugify;
+const { slugify } = require('underscore.string');
 
 module.exports = function prompts() {
   if (this.skipConfig) return true;

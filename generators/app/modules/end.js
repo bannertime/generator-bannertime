@@ -5,9 +5,7 @@
 const chalk = require('chalk');
 
 module.exports = function end() {
-  const yellow = chalk.bold.yellow;
-  const green = chalk.bold.green;
-  const red = chalk.bold.red;
+  const { yellow, green, red } = chalk.bold;
   this.log('\n');
   this.log(yellow('┌---------------------------------------┐'));
   this.log(`${yellow('|  Start by entering \'')}${green('npm start')}${yellow('\' below  |')}`);
