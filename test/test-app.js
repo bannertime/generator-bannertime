@@ -51,7 +51,7 @@ describe('The Bannertime', () => {
         '.gitignore',
         '.jshintrc',
         'package.json',
-        'yarn.lock',
+        'package-lock.json',
         'README.md',
       ]);
       done();

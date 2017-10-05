@@ -8,7 +8,7 @@ module.exports = function install() {
   this.log(chalk.green('New banner format generated'));
 
   if (this.props.includeOfflineScripts === true) {
-    this.yarnInstall(['gsap'], {
+    this.npmInstall(['gsap'], {
       dev: true
     });
   }

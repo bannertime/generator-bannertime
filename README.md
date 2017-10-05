@@ -14,10 +14,10 @@ The generator sets up the project scaffolding for you so that you can focus on t
 
 # Quick Start
 
-### Install Yeoman, Yarn, Gulp and Bannertime
+### Install Yeoman, Gulp and Bannertime
 
 ```bash
-$ npm i -g yo yarn gulp generator-bannertime
+$ npm i -g yo gulp generator-bannertime
 ```
 
 

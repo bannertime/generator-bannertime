@@ -137,8 +137,8 @@ module.exports = function files() {
     this.destinationPath('.jshintrc')
   );
   this.fs.copy(
-    this.templatePath('yarn.lock'),
-    this.destinationPath('yarn.lock')
+    this.templatePath('package-lock.json'),
+    this.destinationPath('package-lock.json')
   );
 
   // Process the images
