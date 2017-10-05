@@ -2,8 +2,8 @@
 	"name": "generator-bannertime",
 	"version": "2.2.14",
 	"description": "Yeoman generator for creating HTML5 advertising campaigns",
-	"homepage": "https://github.com/pyramidium/generator-bannertime",
-	"bugs": "https://github.com/pyramidium/generator-bannertime/issues",
+	"homepage": "https://github.com/bannertime/generator-bannertime",
+	"bugs": "https://github.com/bannertime/generator-bannertime/issues",
 	"author": "Jay Campbell <jay@pyramidium.co.uk> (https://github.com/pyramidium)",
 	"contributors": [
 		"Joey Padasian <joeypadasian@oliver.agency> (https://github.com/joemidi)",
@@ -11,7 +11,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/pyramidium/generator-bannertime.git"
+		"url": "git+https://github.com/bannertime/generator-bannertime.git"
 	},
 	"license": "MIT",
 	"keywords": [
