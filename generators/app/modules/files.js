@@ -58,8 +58,8 @@ module.exports = function files() {
 
   // Process the scss files
   this.fs.copyTpl(
-    this.templatePath('src/base/styles/style.scss'),
-    this.destinationPath('src/base/styles/style.scss'),
+    this.templatePath('src/base/styles'),
+    this.destinationPath('src/base/styles'),
     props
   );
   this.fs.copyTpl(

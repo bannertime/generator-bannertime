@@ -1,0 +1,135 @@
+.sidebar {
+  border-right: 1px solid #ccc;
+  float: left;
+  height: 100%;
+  overflow: auto;
+  padding: 0 40px;
+  width: 200px;
+
+  @media (max-width: 667px) {
+    border-right: 0;
+    border-bottom: 1px solid #ccc;
+    float: none;
+    height: 60px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .logo {
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+
+    @media (max-width: 667px) {
+      float: left;
+      margin: 20px;
+      position: fixed;
+      max-height: 20px;
+      width: 100px;
+    }
+  }
+
+  .menu {
+    display: none;
+
+    @media (max-width: 667px) {
+      cursor: pointer;
+      display: block;
+      float: right;
+      height: 10px;
+      margin: 25px;
+      position: relative;
+      width: 20px;
+
+      &:before,
+      &:after {
+        background: #000;
+        content: '';
+        display: block;
+        height: 2px;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        width: 100%;
+      }
+
+      &:before {
+        top: 0;
+      }
+
+      &:after {
+        bottom: 0;
+      }
+
+      &.active {
+        &:before {
+          top: 4px;
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          bottom: 4px;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 667px) {
+      background: #fff;
+      left: 0;
+      height: 0;
+      margin-top: 1px;
+      overflow: hidden;
+      position: absolute;
+      top: 60px;
+      transition: height 0.3s ease-in-out;
+      width: 100%;
+      z-index: 10;
+
+      &.active {
+        height: calc(100% - 60px);
+        overflow: scroll;
+      }
+    }
+
+    li {
+      padding: 0 0 10px;
+
+      @media (max-width: 667px) {
+        border-bottom: 1px solid #ccc;
+        padding: 0;
+      }
+
+      a {
+        color: #d36135;
+        font-size: 12px;
+
+        @media (max-width: 667px) {
+          padding: 20px 0;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &.done {
+          color: #7fb069;
+          display: block;
+        }
+      }
+    }
+  }
+}

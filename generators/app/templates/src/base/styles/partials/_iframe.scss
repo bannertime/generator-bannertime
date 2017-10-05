@@ -1,0 +1,25 @@
+.iframe {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+
+  @media (max-width: 667px) {
+    height: calc(100% - 60px);
+  }
+
+  iframe {
+    border: 0;
+    height: calc(100% - 4px);
+    width: 100%;
+  }
+
+  .loading {
+    background: url('../images/loading.gif') center no-repeat;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

@@ -3,50 +3,46 @@
   <head>
     <meta charset="utf-8">
     <title>Preview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="base/styles/style.css">
   </head>
   <body>
     <div class="sidebar">
       <img src="base/images/logo.png" class="logo">
+      <div class="menu"></div>
       <ul>
         <li><a href="<%= bannerName %>-300x250/" class="done"><%= bannerName %>-300x250</a></li>
       </ul>
     </div>
-    <div class="keyboard-controls">
-      <div class="key up">
-        <svg>
-          <path d="M18.4,21.9H3.5c-1.9,0-3.5-1.6-3.5-3.5V3.5C0,1.6,1.6,0,3.5,0h14.9c1.9,0,3.5,1.6,3.5,3.5v14.9 C21.9,20.3,20.3,21.9,18.4,21.9z M3.5,1C2.1,1,1,2.1,1,3.5v14.9c0,1.4,1.1,2.5,2.5,2.5h14.9c1.4,0,2.5-1.1,2.5-2.5V3.5 c0-1.4-1.1-2.5-2.5-2.5H3.5z"/>
-          <path class="character" d="M9.8,12.4c-0.5,0-0.8-0.4-0.6-0.9l1.3-2.8c0.2-0.5,0.6-0.5,0.8,0l1.3,2.8c0.2,0.5,0,0.9-0.6,0.9L9.8,12.4L9.8,12.4z"/>
-        </svg>
-      </div>
-      <div class="key right">
-        <svg>
-          <path d="M18.4,21.9H3.5c-1.9,0-3.5-1.6-3.5-3.5V3.5C0,1.6,1.6,0,3.5,0h14.9c1.9,0,3.5,1.6,3.5,3.5v14.9 C21.9,20.3,20.3,21.9,18.4,21.9z M3.5,1C2.1,1,1,2.1,1,3.5v14.9c0,1.4,1.1,2.5,2.5,2.5h14.9c1.4,0,2.5-1.1,2.5-2.5V3.5 c0-1.4-1.1-2.5-2.5-2.5H3.5z"/>
-          <path class="character" d="M9.8,12.4c-0.5,0-0.8-0.4-0.6-0.9l1.3-2.8c0.2-0.5,0.6-0.5,0.8,0l1.3,2.8c0.2,0.5,0,0.9-0.6,0.9L9.8,12.4L9.8,12.4z"/>
-        </svg>
-      </div>
-      <div class="key down">
-        <svg>
-          <path d="M18.4,21.9H3.5c-1.9,0-3.5-1.6-3.5-3.5V3.5C0,1.6,1.6,0,3.5,0h14.9c1.9,0,3.5,1.6,3.5,3.5v14.9 C21.9,20.3,20.3,21.9,18.4,21.9z M3.5,1C2.1,1,1,2.1,1,3.5v14.9c0,1.4,1.1,2.5,2.5,2.5h14.9c1.4,0,2.5-1.1,2.5-2.5V3.5 c0-1.4-1.1-2.5-2.5-2.5H3.5z"/>
-          <path class="character" d="M9.8,12.4c-0.5,0-0.8-0.4-0.6-0.9l1.3-2.8c0.2-0.5,0.6-0.5,0.8,0l1.3,2.8c0.2,0.5,0,0.9-0.6,0.9L9.8,12.4L9.8,12.4z"/>
-        </svg>
-      </div>
-      <div class="key left">
-        <svg>
-          <path d="M18.4,21.9H3.5c-1.9,0-3.5-1.6-3.5-3.5V3.5C0,1.6,1.6,0,3.5,0h14.9c1.9,0,3.5,1.6,3.5,3.5v14.9 C21.9,20.3,20.3,21.9,18.4,21.9z M3.5,1C2.1,1,1,2.1,1,3.5v14.9c0,1.4,1.1,2.5,2.5,2.5h14.9c1.4,0,2.5-1.1,2.5-2.5V3.5 c0-1.4-1.1-2.5-2.5-2.5H3.5z"/>
-          <path class="character" d="M9.8,12.4c-0.5,0-0.8-0.4-0.6-0.9l1.3-2.8c0.2-0.5,0.6-0.5,0.8,0l1.3,2.8c0.2,0.5,0,0.9-0.6,0.9L9.8,12.4L9.8,12.4z"/>
-        </svg>
-      </div>
-    </div>
     <div class="iframe">
       <iframe src="<%= bannerName %>-300x250/"></iframe>
       <div class="loading"></div>
+      <div class="scrubber-container">
+        <div class="scrubber-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="scrubber">
+          <div class="play-control"></div>
+          <div class="progress">
+            <div class="seek-bar">
+              <div class="play-bar">
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <div class="time">
+            <div class="current-time">00:00</div>
+            <div class="time-seperator"> / </div>
+            <div class="duration">00:00</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="desktop">
-      <h1>Optimised for desktop!</h1>
-      <img src="base/images/desktop.png" alt="desktop">
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
     <script type="text/javascript" src="base/js/main.js"></script>
   </body>
 </html>
