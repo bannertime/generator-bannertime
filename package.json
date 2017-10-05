@@ -32,22 +32,22 @@
 		"generators"
 	],
 	"dependencies": {
-		"chalk": "^1.1.0",
-		"download": "^5.0.3",
+		"chalk": "^2.1.0",
+		"download": "^6.2.5",
 		"lodash": "^4.17.4",
 		"package-info": "^3.0.1",
 		"repeating": "^3.0.0",
-		"string-length": "^1.0.1",
+		"string-length": "^2.0.0",
 		"underscore.string": "^3.3.4",
-		"yeoman-generator": "^1.1.0"
+		"yeoman-generator": "^2.0.1"
 	},
 	"devDependencies": {
-		"eslint": "^3.16.1",
-		"eslint-config-airbnb-base": "^11.1.0",
+		"eslint": "^4.8.0",
+		"eslint-config-airbnb-base": "^12.0.2",
 		"eslint-plugin-import": "^2.2.0",
-		"mocha": "^3.2.0",
-		"semver": "^5.1.0",
-		"yeoman-assert": "^3.0.0",
+		"mocha": "^4.0.0",
+		"semver": "^5.4.1",
+		"yeoman-assert": "^3.1.0",
 		"yeoman-test": "^1.1.0"
 	}
 }
