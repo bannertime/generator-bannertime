@@ -183,9 +183,11 @@ Scrubber.prototype._pauseTimeline = function() {
 };
 
 Scrubber.prototype._scrub = function() {
-  TweenLite.set(this.playBar, { width: this.timeline.totalProgress() * 100 + '%' });
-  this.currentTime.innerHTML = this.timeline.time().toFixed(2);
-  this.duration.innerHTML = this.timeline.duration().toFixed(2);
+  var progress = this.timeline.totalProgress() * 100;
+
+  TweenLite.set(this.playBar, { width: progress + '%' });
+  this.currentTime.innerHTML = this.timeline.totalTime().toFixed(2);
+  this.duration.innerHTML = this.timeline.totalDuration().toFixed(2);
 };
 
 Scrubber.prototype._positionScrubber = function(e) {
@@ -193,7 +195,7 @@ Scrubber.prototype._positionScrubber = function(e) {
   var pos = ((e.clientX - leftOffset) / this.seekBar.offsetWidth) * 100;
 
   if (pos <= 100 && pos >= 0) {
-    this.timeline.progress(pos / 100);
+    this.timeline.totalProgress(pos / 100);
   }
 };
 
@@ -218,7 +220,7 @@ Scrubber.prototype._onMouseUp = function() {
     this.timeline.play();
   }
 
-  this.timeline.seek(this.timeline.time());
+  this.timeline.seek(this.timeline.totalTime());
   document.removeEventListener('mousemove', this._onMouseMove);
 };
 
