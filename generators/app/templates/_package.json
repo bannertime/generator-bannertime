@@ -40,7 +40,6 @@
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.7",
-    "gulp-watch": "^4.3.5",
     "gulp-zip": "^4.0.0",
     "jshint": "^2.9.5",
     "open": "0.0.5",
