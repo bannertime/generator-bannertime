@@ -57,3 +57,6 @@ More information in the [documentation](https://bannertime.github.io/).
 # Issues
 
 If you think you have found a bug or error in the generator, open an issue on [GitHub](https://github.com/bannertime/generator-bannertime/issues) or ask for help on [Slack](https://bannertime.slack.com).
+
+## Slack Workspace
+You can invite yourself to our Slack Workspace using https://bannertime.herokuapp.com
