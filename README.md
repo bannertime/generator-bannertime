@@ -50,6 +50,7 @@ More information in the [documentation](https://bannertime.github.io/).
 ![Logo](assets/sizmek.png)
 ![Logo](assets/atlas.png)
 ![Logo](assets/flashtalking.jpg)
+![Logo](assets/adwords.png)
 ![Logo](assets/yeoman.png)
 
 
