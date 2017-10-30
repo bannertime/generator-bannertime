@@ -23,7 +23,7 @@ module.exports = function prompts() {
     type: 'list',
     name: 'bannerType',
     message: 'What type of banner is it?',
-    choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'IAB', 'AdWords'],
+    choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'IAB', 'AdWords', 'None'],
     default: 'DoubleClick Studio'
   }, {
     type: 'input',

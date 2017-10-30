@@ -32,6 +32,9 @@ module.exports = function files() {
     case 'AdWords':
       this.bannerSuffix = 'adwords';
       break;
+    case 'None':
+      this.bannerSuffix = 'none';
+      break;
     default:
       this.bannerSuffix = 'doubleclick';
   }
