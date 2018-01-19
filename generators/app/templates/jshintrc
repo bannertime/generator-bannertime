@@ -26,6 +26,7 @@
     "dhtml": true,
     "FT": true,
     "myFT": true,
+    "ExitApi": false,
     "TimelineLite": false,
     "TimelineMax": false,
     "TweenLite": false,

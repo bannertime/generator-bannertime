@@ -30,6 +30,12 @@ module.exports = function files() {
     case 'IAB':
       this.bannerSuffix = 'iab';
       break;
+    case 'AdWords':
+      this.bannerSuffix = 'adwords';
+      break;
+    case 'None':
+      this.bannerSuffix = 'none';
+      break;
     default:
       this.bannerSuffix = 'doubleclick';
   }
