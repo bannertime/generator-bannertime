@@ -1,7 +1,9 @@
 'use strict';
 
 function Preview() {
-  this.scrubber = new Scrubber();
+  this.scrubberEl = document.querySelector('.scrubber');
+  if (this.scrubberEl) this.scrubber = new Scrubber();
+
   this.menuOpen = false;
 
   this._bindSelectors();
@@ -56,8 +58,10 @@ Preview.prototype._onClick = function(e) {
 
   e.preventDefault();
 
-  this.scrubber._destroy();
-  this.scrubber = new Scrubber();
+  if (this.scrubberEl) {
+    this.scrubber._destroy();
+    this.scrubber = new Scrubber();
+  }
 
   window.location.hash = location.replace(/\/+$/, '');
 
