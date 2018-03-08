@@ -29,7 +29,7 @@ module.exports = function prompts() {
     type: 'input',
     name: 'bannerRepo',
     message: 'What is the link to the repository?',
-    default: 'https://github.com/pyramidium/generator-bannertime'
+    default: 'https://github.com/bannertime/generator-bannertime'
   }, {
     when: response => response.bannerType === 'DoubleClick Studio',
     type: 'confirm',
