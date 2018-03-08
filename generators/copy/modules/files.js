@@ -31,7 +31,7 @@ module.exports = function files() {
       this.bannerSuffix = 'iab';
       break;
     case 'AdWords':
-      this.bannerSuffix = 'adwords';
+      this.bannerSuffix = 'none';
       break;
     case 'None':
       this.bannerSuffix = 'none';
