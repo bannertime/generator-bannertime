@@ -2,7 +2,7 @@
  * Generate files and process them.
  */
 
-const Download = require('download');
+const download = require('download');
 const getVendorScript = require('../../app/modules/getVendorScript');
 
 module.exports = function files() {
@@ -159,11 +159,6 @@ module.exports = function files() {
    * Process the offline vendor scripts.
    */
   if (this.props.includeOfflineScripts === true) {
-    new Download({
-      mode: '755'
-    })
-      .get(getVendorScript(this.props.bannerType))
-      .dest('offline')
-      .run();
+    download(getVendorScript(this.props.bannerType), 'offline');
   }
 };
