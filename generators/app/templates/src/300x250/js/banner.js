@@ -20,10 +20,7 @@ Banner.prototype.onVisible = function () {
   var _this = this;
 
   this.politeLoad([
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TimelineLite.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/CSSPlugin.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js'
+    'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js'
   ], function () {
     _this.start();
   });
@@ -108,7 +105,7 @@ Banner.prototype.smartObject = function (_settings) {
     delete settings.sources;
     delete settings.src;
     delete settings.alt;
-    TweenLite.set(element, settings);
+    gsap.set(element, settings);
   }
 
   function setImage() {
@@ -168,19 +165,19 @@ Banner.prototype.smartObject = function (_settings) {
   };
 
   element.set = function (settings) {
-    TweenLite.set(this, settings);
+    gsap.set(this, settings);
   };
 
-  element.to = function (time, settings) {
-    TweenLite.to(this, time, settings);
+  element.to = function (settings) {
+    gsap.to(this, settings);
   };
 
-  element.from = function (time, settings) {
-    TweenLite.from(this, time, settings);
+  element.from = function (settings) {
+    gsap.from(this, settings);
   };
 
-  element.fromTo = function (time, from, to) {
-    TweenLite.fromTo(this, time, from, to);
+  element.fromTo = function (from, to) {
+    gsap.fromTo(this, from, to);
   };
 
   element.get = function (property) {
@@ -188,15 +185,15 @@ Banner.prototype.smartObject = function (_settings) {
   };
 
   element.center = function () {
-    TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2 });
+    gsap.set(this, { top: '50%', marginTop: -this.offsetHeight / 2, left: '50%', marginLeft: -this.offsetWidth / 2 });
   };
 
   element.centerHorizontal = function () {
-    TweenLite.set(this, { left: '50%', marginLeft: -this.offsetWidth / 2 });
+    gsap.set(this, { left: '50%', marginLeft: -this.offsetWidth / 2 });
   };
 
   element.centerVertical = function () {
-    TweenLite.set(this, { top: '50%', marginTop: -this.offsetHeight / 2 });
+    gsap.set(this, { top: '50%', marginTop: -this.offsetHeight / 2 });
   };
 
   element.getOriginal = function (property) {
