@@ -28,10 +28,10 @@ module.exports = function prompts() {
     type: 'list',
     name: 'bannerType',
     message: 'What type of banner is it?',
-    choices: ['DoubleClick Studio', 'Sizmek', 'Adform', 'DCM', 'Atlas', 'Flashtalking', 'IAB', 'AdWords', 'None'],
-    default: 'DoubleClick Studio'
+    choices: ['Studio (formerly Doubleclick Studio)', 'Sizmek', 'Adform', 'Campaign Manager / CM', 'Atlas', 'Flashtalking', 'IAB', 'Google Ads / GDA / GDN', 'None'],
+    default: 'Studio (formerly Doubleclick Studio)'
   }, {
-    when: response => response.bannerType === 'DoubleClick Studio',
+    when: response => response.bannerType === 'Studio (formerly Doubleclick Studio)',
     type: 'confirm',
     name: 'includeOfflineScripts',
     message: 'Include vendor scripts for offline use?',

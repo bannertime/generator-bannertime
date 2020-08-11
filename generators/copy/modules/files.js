@@ -9,7 +9,7 @@ const fs = require('fs');
 module.exports = function files() {
   // Set the default html file based on the type of banner
   switch (this.props.bannerType) {
-    case 'DoubleClick Studio':
+    case 'Studio (formerly Doubleclick Studio)':
       this.bannerSuffix = 'doubleclick';
       break;
     case 'Sizmek':
@@ -18,7 +18,7 @@ module.exports = function files() {
     case 'Adform':
       this.bannerSuffix = 'adform';
       break;
-    case 'DCM':
+    case 'Campaign Manager / CM':
       this.bannerSuffix = 'dcm';
       break;
     case 'Atlas':
@@ -30,7 +30,7 @@ module.exports = function files() {
     case 'IAB':
       this.bannerSuffix = 'iab';
       break;
-    case 'AdWords':
+    case 'Google Ads / GDA / GDN':
       this.bannerSuffix = 'none';
       break;
     case 'None':
