@@ -44,7 +44,6 @@
     "Power1": false,
     "Power2": false,
     "Power3": false,
-    "Power3": false,
     "Power4": false,
     "Quad": false,
     "Quart": false,
@@ -59,6 +58,7 @@
     "VelocityTracker": false,
     "CSSPlugin": false,
     "ThrowPropsPlugin": false,
-    "BezierPlugin": false
+    "BezierPlugin": false,
+    "gsap": false
   }
 }

@@ -6,8 +6,8 @@
 	"bugs": "https://github.com/bannertime/generator-bannertime/issues",
 	"author": "Jay Campbell <jay@pyramidium.co.uk> (https://github.com/pyramidium)",
 	"contributors": [
-		"Joey Padasian <joeypadasian@oliver.agency> (https://github.com/joemidi)",
-		"Pavel Krymski <pavelkrymski@oliver.agency> (https://github.com/kp-dev)"
+		"Joey Padasian <joey.padasian@jellyfish.com> (https://github.com/joemidi)",
+		"Pavel Krymski <pavel.krymski@jellyfish.com> (https://github.com/kp-dev)"
 	],
 	"repository": {
 		"type": "git",
@@ -35,22 +35,22 @@
 		"generators"
 	],
 	"dependencies": {
-		"chalk": "^2.1.0",
+		"chalk": "^2.4.2",
 		"download": "^6.2.5",
-		"lodash": "^4.17.4",
-		"package-info": "^3.0.1",
+		"lodash": "^4.17.19",
+		"package-info": "^3.0.2",
 		"repeating": "^3.0.0",
 		"string-length": "^2.0.0",
-		"underscore.string": "^3.3.4",
-		"yeoman-generator": "^2.0.1"
+		"underscore.string": "^3.3.5",
+		"yeoman-generator": "^2.0.5"
 	},
 	"devDependencies": {
-		"eslint": "^4.8.0",
-		"eslint-config-airbnb-base": "^12.0.2",
-		"eslint-plugin-import": "^2.2.0",
-		"mocha": "^4.0.0",
-		"semver": "^5.4.1",
-		"yeoman-assert": "^3.1.0",
-		"yeoman-test": "^1.1.0"
+		"eslint": "^4.19.1",
+		"eslint-config-airbnb-base": "^12.1.0",
+		"eslint-plugin-import": "^2.22.0",
+		"mocha": "^4.1.0",
+		"semver": "^5.7.1",
+		"yeoman-assert": "^3.1.1",
+		"yeoman-test": "^1.9.1"
 	}
 }

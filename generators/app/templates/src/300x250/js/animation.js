@@ -47,21 +47,28 @@ Banner.prototype.setup = function () {
  * Hide the preloader.
  */
 Banner.prototype.hidePreloader = function () {
-  TweenLite.to('.preloader', 1, { autoAlpha: 0 });
+  gsap.to('.preloader', { duration: 1, autoAlpha: 0 });
 };
 
 /**
  * Animation timeline.
  */
 Banner.prototype.animate = function () {
-  var _this = this;
-
-  function loop() {
-    _this.timeline.gotoAndPlay('start');
-  }
-
-  this.timeline = new TimelineLite({ onComplete: loop })
+  this.timeline = gsap.timeline({
+      repeat: 3
+    })
     .addLabel('start', 0)
-    .add(TweenLite.to(this.logo, 2, { autoAlpha: 1, scale: 0.7, delay: 1, ease: Elastic.easeOut }))
-    .add(TweenLite.to(this.logo, 1, { autoAlpha: 0, scale: 0.4, delay: 1 }));
+    .to(this.logo, {
+      duration: 2,
+      autoAlpha: 1,
+      scale: 0.7,
+      delay: 1,
+      ease: 'elastic.out(1, 0.3)'
+    })
+    .to(this.logo, {
+      duration: 1,
+      autoAlpha: 0,
+      scale: 0.4,
+      delay: 1
+    });
 };
