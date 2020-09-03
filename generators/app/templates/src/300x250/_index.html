@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="ad.size" content="width=<%= bannerWidth %>,height=<%= bannerHeight %>">
-    <title><%= bannerName %></title><% if (bannerType === 'DoubleClick Studio') { %>
-    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><% } %><% if (bannerType === 'DoubleClick Studio' && includeOfflineEnabler === true) { %>
+    <title><%= bannerName %></title><% if (bannerType === 'Studio (formerly Doubleclick Studio)') { %>
+    <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script><% } %><% if (bannerType === 'Studio (formerly Doubleclick Studio)' && includeOfflineEnabler === true) { %>
     <script src="../offline/Enabler.js" type="text/javascript"></script><% } %><% if (bannerType === 'Sizmek') { %>
     <script src="js/EBLoader.js" type="text/javascript"></script><% } %><% if (bannerType === 'Adform') { %>
     <script src="js/AdformDHTML.js" type="text/javascript"></script><% } %>
     <script src="js/banner.js" type="text/javascript"></script>
     <script src="js/banner.loader.js" type="text/javascript"></script>
     <script src="js/banner.animation.js" type="text/javascript"></script>
-    <script type="text/javascript">var banner = new Banner();</script><% if (bannerType == 'DCM') { %>
+    <script type="text/javascript">var banner = new Banner();</script><% if (bannerType == 'Campaign Manager / CM') { %>
     <script type="text/javascript">var clickTag = "https://www.google.com";</script><% } %>
     <link rel="stylesheet" href="styles/style.css">
   </head>
