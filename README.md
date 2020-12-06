@@ -1,3 +1,5 @@
+### This project is no longer being actively developed or maintained
+
 # ![Logo](generators/app/templates/src/base/images/logo.png)
 
 [![Build Status](https://travis-ci.org/bannertime/generator-bannertime.svg?branch=master)](https://travis-ci.org/bannertime/generator-bannertime)
