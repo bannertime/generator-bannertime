@@ -1,6 +1,6 @@
 {
 	"name": "generator-bannertime",
-	"version": "3.1.4",
+	"version": "3.1.5",
 	"description": "Yeoman generator for creating HTML5 advertising campaigns",
 	"homepage": "https://github.com/bannertime/generator-bannertime",
 	"bugs": "https://github.com/bannertime/generator-bannertime/issues",
